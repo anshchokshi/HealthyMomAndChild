@@ -72,12 +72,9 @@ However, there are significant differences, Healthy Mom And Baby:
 
 **Q5: What are the user stories that make up the MVP?**
 
-- At least 5 user stories concerning the main features of the application - note that this can broken down further
-- You must follow proper user story format (as taught in lecture) As a \<user of the app\>, I want to \<do something in the app\> in order to \<accomplish some goal\>
-- User stories must contain acceptance criteria. Examples of user stories with different formats can be found here: [https://www.justinmind.com/blog/user-story-examples/](https://www.justinmind.com/blog/user-story-examples/).  **It is important that you provide a link to an artifact containing your user stories**.
-- If you have a partner, these must be reviewed and accepted by them
-
 [https://docs.google.com/document/d/1tgi8ntPNz3W2tBC8zvhpbwPbZctgNwATTErITWogeUw/edit](https://docs.google.com/document/d/1tgi8ntPNz3W2tBC8zvhpbwPbZctgNwATTErITWogeUw/edit)
+
+
 
 ![Shape1](RackMultipart20221002-1-1ibrpp_html_237499165a11f2b9.gif)
 
