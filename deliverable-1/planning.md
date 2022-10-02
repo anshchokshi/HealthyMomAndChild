@@ -11,7 +11,7 @@
 - The goal of this health application is to become a reliable and accessible resource to help women understand all details of conception, pregnancy and baby development.
 - For women planning to conceive, the application will provide information on preconception activities related to medical examinations, lifestyle changes, diet.
 
-- For pregnant women, the application will provide weekly notifications of updated information about recommendations, preparation for delivery, possible expected changes after delivery, etc. The week may also contain specific questionnaires to spot red flags such as depression, suicidal thoughts, finiancial issues, and home violence.
+- For pregnant women, the application will provide weekly notifications of updated information about recommendations, preparation for delivery, possible expected changes after delivery, etc. The week may also contain specific questionnaires to spot red flags such as depression, suicidal thoughts, financial issues, and home violence.
 
 - For women who have delivered the baby, the application will continue to provide information and surveys, not only about her health, but also about her child's development. This virtual monitoring of the child's health will be done every 1-4 weeks until the age of 12 years old. This period in a woman's life can be filled with many questions about the child's milestones in development. This application will guide her through important aspects of baby development, alarm signs and available services for support.
 
