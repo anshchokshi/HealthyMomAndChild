@@ -1,130 +1,216 @@
-# YOUR PRODUCT/TEAM NAME
-> _Note:_ This document is meant to evolve throughout the planning phase of your project.   That is, it makes sense for you commit regularly to this file while working on the project (especially edits/additions/deletions to the _Highlights_ section). Most importantly, it is a reflection of all the planning you work you've done in the first iteration. 
- > **This document will serve as a master plan between your team, your partner and your TA.**
+# **Healthy Mom and Baby+ app**
 
-## Product Details
- 
-#### Q1: What are you planning to build?
+**Product Details**
 
- > Short (1 - 2 min' read)
- * Start with a single sentence, high-level description of the product.
- * Be clear - Describe the problem you are solving in simple terms.
- * Be concrete. For example:
-    * What are you planning to build? Is it a website, mobile app,
-   browser extension, command-line app, etc.?      
-    * When describing the problem/need, give concrete examples of common use cases.
-    * Assume your the reader knows nothing about the problem domain and provide the necessary context. 
- * Focus on *what* your product does, and avoid discussing *how* you're going to implement it.      
-   For example: This is not the time or the place to talk about which programming language and/or framework you are planning to use.
- * **Feel free (and very much encouraged) to include useful diagrams, mock-ups and/or links**.
+**Q1: What are you planning to build?**
 
+**Note: The project partner had a heavy influence on this question's response.**
 
-#### Q2: Who are your target users?
+- A unique health application that will help educate, monitor, and detect health issues with both women that are planning to conceive, pregnant, or have given birth in the last three months (perinatal women), and their children up to the age of 12 years old.
+- Significant changes and challenges occur in the life of a woman undergoing conception, pregnancy, or the baby nursing process and questions will arise due to this. Women in this category will search for answers to these questions. One of their greatest resources are family physicians and specialists. But access to these medical professionals can be limited in rural and remote areas of living. The lack of in-person consultations can directly affect the health of pregnant women and children. As alternatives, such as the Internet and existing mobile applications, can contain information that is not sufficient, nor detailed.
+- The goal of this health application is to become a reliable and accessible resource to help women understand all details of conception, pregnancy and baby development.
+- For women planning to conceive, the application will provide information on preconception activities related to medical examinations, lifestyle changes, diet.
 
-  > Short (1 - 2 min' read max)
- * Be specific (e.g. a 'a third-year university student studying Computer Science' and not 'a student')
- * **Feel free to use personas. You can create your personas as part of this Markdown file, or add a link to an external site (for example, [Xtensio](https://xtensio.com/user-persona/)).**
+- For pregnant women, the application will provide weekly notifications of updated information about recommendations, preparation for delivery, possible expected changes after delivery, etc. The week may also contain specific questionnaires to spot red flags such as depression, suicidal thoughts, finiancial issues, and home violence.
 
-#### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
+- For women who have delivered the baby, the application will continue to provide information and surveys, not only about her health, but also about her child's development. This virtual monitoring of the child's health will be done every 1-4 weeks until the age of 12 years old. This period in a woman's life can be filled with many questions about the child's milestones in development. This application will guide her through important aspects of baby development, alarm signs and available services for support.
 
-> Short (1 - 2 min' read max)
- * We want you to "connect the dots" for us - Why does your product (as described in your answer to Q1) fits the needs of your users (as described in your answer to Q2)?
- * Explain the benefits of your product explicitly & clearly. For example:
-    * Save users time (how much?)
-    * Allow users to discover new information (which information? And, why couldn't they discover it before?)
-    * Provide users with more accurate and/or informative data (what kind of data? Why is it useful to them?)
-    * Does this application exist in another form? If so, how does your differ and provide value to the users?
-    * How does this align with your partner's organization's values/mission/mandate?
+**Q2: Who are your target users?**
 
-#### Q4: How will you build it?
+The application has three main target users:
 
-> Short (1-2 min' read max)
- * What is the technology stack? Specify any and all languages, frameworks, libraries, PaaS products or tools. 
- * How will you deploy the application?
- * Describe the architecture - what are the high level components or patterns you will use? Diagrams are useful here. 
- * Will you be using third party applications or APIs? If so, what are they?
- * What is your testing strategy?
+- Women who want to become pregnant
+  - who have specific questions about conception, or
+  - who want to gain general knowledge about the healthiest way to conceive
+- Pregnant women
+  - who experience constant changes in their bodies and want to determine which changes should require further attention and which do not, or
+  - who want to be aware of alarm signs throughout their pregnancy, or
+  - who want a guided timeline on how often to visit a doctor, or get a medical examination performed
+- Women who have given birth
+  - who are experiencing symptoms of their own and are wondering how to address/treat them, or
+  - who are curious about how to best keep their child healthy, or
+  - who would like to know about normal child development and milestones
 
-#### Q5: What are the user stories that make up the MVP?
+The application may accommodate for the other user groups:
 
- * At least 5 user stories concerning the main features of the application - note that this can broken down further
- * You must follow proper user story format (as taught in lecture) ```As a <user of the app>, I want to <do something in the app> in order to <accomplish some goal>```
- * User stories must contain acceptance criteria. Examples of user stories with different formats can be found here: https://www.justinmind.com/blog/user-story-examples/. **It is important that you provide a link to an artifact containing your user stories**.
- * If you have a partner, these must be reviewed and accepted by them. You need to include the evidence of partner approval (e.g., screenshot from email) or at least communication to the partner (e.g., email you sent)
+- Partners of one of the main target users
+  - who want to acquire the above-mentioned knowledge for their partners
+- Family physicians and medical students
+  - who are not as familiar with the knowledge domain of perinatal women
 
-----
-## Intellectual Property Confidentiality Agreement 
-> Note this section is **not marked** but must be completed briefly if you have a partner. If you have any questions, please ask on Piazza.
->  
-**By default, you own any work that you do as part of your coursework.** However, some partners may want you to keep the project confidential after the course is complete. As part of your first deliverable, you should discuss and agree upon an option with your partner. Examples include:
-1. You can share the software and the code freely with anyone with or without a license, regardless of domain, for any use.
-2. You can upload the code to GitHub or other similar publicly available domains.
-3. You will only share the code under an open-source license with the partner but agree to not distribute it in any way to any other entity or individual. 
-4. You will share the code under an open-source license and distribute it as you wish but only the partner can access the system deployed during the course.
-5. You will only reference the work you did in your resume, interviews, etc. You agree to not share the code or software in any capacity with anyone unless your partner has agreed to it.
+**Q3: Why would your users choose your product? What are they using today to solve their problem/need?**
 
-**Briefly describe which option you have agreed to. Your partner cannot ask you to sign any legally binding agreements or documents pertaining to non-disclosure, confidentiality, IP ownership, etc.**
+**Note: The project partner had a heavy influence on this question's response.**
 
-----
+The target users of the application are, in summary, seeking knowledge in the specific domain of perinatal women; the application will provide this knowledge conveniently, reliably, systematically, and in a digestible manner. It will be convenient as it is accessible via a smartphone. It will be reliable as the content will (hopefully) be developed and reviewed by Canadian researchers and physicians. It is systematic as content will be delivered at regular intervals. It is digestible as the content will be written for the layperson.
 
-## Process Details
+The application will also be available in the future to focus on accessibility, such as, having information be translated to popular international languages popular in Canada (French, Cantonese, Punjabi, Hindi, Russian, Mandarin, Urdu etc.)
 
-#### Q6: What are the roles & responsibilities on the team?
+In the future, the product may receive credibility via collaboration with medical researchers, local health public health units, and healthcare professionals. As the product can give some access to relevant data or relevant patients.
 
-Describe the different roles on the team and the responsibilities associated with each role. 
- * Roles should reflect the structure of your team and be appropriate for your project. Not necessarily one role to one team member.  
- * Add role(s) to your Team-[Team_Number]-[Team_Name].csv file on the main folder
+This type of application exists in other forms, which can be found here:[https://www.forb](https://www.forbes.com/health/family/best-pregnancy-apps/)[es.com/health/family/best-pregnancy-apps/](https://www.forbes.com/health/family/best-pregnancy-apps/)
+
+However, there are significant differences, Healthy Mom And Baby:
+
+- Will be developed by Canadian researcher/physicians and based on reliable evidence-based information
+- Will convey some information in a more visual form
+- Will have its own efficient style and design (no ads)
+- Will have notifications with educational information on weekly/monthly basis
+- Will spot alarm signs that help women to understand when it is necessary to seek medical help and prevent complications
+
+**Q4: How will you build it?**
+
+- Availability for iOS and Android
+- Tech Stack: React Native, Expo, Javascript, MongoDB
+- Will deploy the application using Expo
+- Higher-order functions in JavaScript take some functions as arguments and return another function. We will be using functions like forEach, Map, Reduce and Filter.
+- Higher order components (HOC) in React help us reusing the logic. The aim would be to have HOCs to design components with certain shared behavior in a way that makes them connected differently than normal state-to-props patterns. A few main examples of HOCs we are going to implement are react-redux, react-router and material-ui.
+- May need to implement third-party APIs for Signup depending on partner requirements (Signup with google/facebook).
+- We are going to conduct cross platform tests to check if the MVP works on both the OS efficiently.
+- Secondly we are going to conduct Ux/Ui testing to see if the we can seamlessly navigate through the App and to check if there is adequate access to product information for the users
+- Lastly we will have performance testing to check if all the features are up to the expectation.
+
+**Q5: What are the user stories that make up the MVP?**
+
+- At least 5 user stories concerning the main features of the application - note that this can broken down further
+- You must follow proper user story format (as taught in lecture) As a \<user of the app\>, I want to \<do something in the app\> in order to \<accomplish some goal\>
+- User stories must contain acceptance criteria. Examples of user stories with different formats can be found here: [https://www.justinmind.com/blog/user-story-examples/](https://www.justinmind.com/blog/user-story-examples/).  **It is important that you provide a link to an artifact containing your user stories**.
+- If you have a partner, these must be reviewed and accepted by them
+
+[https://docs.google.com/document/d/1tgi8ntPNz3W2tBC8zvhpbwPbZctgNwATTErITWogeUw/edit](https://docs.google.com/document/d/1tgi8ntPNz3W2tBC8zvhpbwPbZctgNwATTErITWogeUw/edit)
+
+![Shape1](RackMultipart20221002-1-1ibrpp_html_237499165a11f2b9.gif)
+
+**Intellectual Property Confidentiality Agreement**
+
+**We have mutually agreed with the partner that code can be freely uploaded on open-source but all the other documents or content provided are confidential. We have agreed on not sharing relevant documents and content provided by the Partner.**
+
+![Shape2](RackMultipart20221002-1-1ibrpp_html_237499165a11f2b9.gif)
+
+**Process Details**
+
+**Q6: What are the roles & responsibilities on the team?**
+
+Describe the different roles on the team and the responsibilities associated with each role.
+
+- Roles should reflect the structure of your team and be appropriate for your project. Not necessarily one role to one team member.
 
 List each team member and:
- * A description of their role(s) and responsibilities including the components they'll work on and non-software related work
- * 3 technical strengths and weaknesses each (e.g. languages, frameworks, libraries, development methodologies, etc.)
 
+- A description of their role(s) and responsibilities including the components they'll work on and non-software related work
+- 3 technical strengths and weaknesses each (e.g. languages, frameworks, libraries, development methodologies, etc.)
 
-#### Q7: What operational events will you have as a team?
+Abhigya Chhabra
 
-Describe meetings (and other events) you are planning to have. 
- * When and where? Recurring or ad hoc? In-person or online?
- * What's the purpose of each meeting?
- * Other events could be coding sessions, code reviews, quick weekly sync meeting online, etc.
- * You should have at least 2 meetings with your project partner (if you have one) before D1 is due. Describe them here:
-   * What did you discuss during the meetings?
-   * What were the outcomes of each meeting?
-   * You must keep track of meeting minutes and add them to your repo.
-   * You must have a regular meeting schedule established by the second meeting.  
-  
-#### Q8: What artifacts will you use to self-organize?
+- Abhigya will be working as a Full-stack developer with a focus on the Frontend. He will collaborate with the Frontend team and the partner to design the application keeping in mind the partner's vision. Will also focus on making the application more interactive.
+- He will also be working with the backend team and the partner to help design the database. Will also assist in connecting the frontend to the backend to make the app more responsive and implementing any APIs. Will also be attending the weekly meetings with the partner.
+- Strengths: 1) Experience with React and Javascript 2) Experienced in SQL and NoSQL Database systems 3) Experienced in working with clients and delivering custom software.
+- Weakness: 1) Limited experience in deployment 2) Limited experience with mobile development 3) Limited experience with APIs.
 
-List/describe the artifacts you will produce in order to organize your team.       
+Ansh Chokshi
 
- * Artifacts can be To-Do lists, Task boards, schedule(s), meeting minutes, etc.
- * We want to understand:
-   * How do you keep track of what needs to get done?
-   * **How do you prioritize tasks?**
-   * How do tasks get assigned to team members?
-   * How do you determine the status of work from inception to completion?
+- Ansh will mainly work as a Full-stack developer with a focus on the Backend. He will collaborate with Partner, frontend team and backend team to delegate tasks and keep a check on the updates. Ansh also works on creating weekly meeting Agendas to cover the important topics and plan for the coming deadlines. Ansh has previous experience with researching and brainstorming for new products and clients so he will use that to create an MVP keeping in mind the Partner's requirements and the team's capabilities. Ansh also plans on designing the database and writing queries to efficiently run the Application.
+- Strengths: 1) Team player, who loves to collaborate with people and bring the best out of everyone. 2) experience with React and Javascript for cross-platform App development. 3) experience and confidence in database designing.
+- Weakness: 1) Frontend, design skills are mediocre. 2) Deployment, often runs into issues. 3) No experience with the Spring Boot framework.
 
-#### Q9: What are the rules regarding how your team works?
+Anthony Duong
 
-Describe your team's working culture.
+- Anthony will mainly work as a Backend Developer. He will collaborate with the Backend team to determine and complete the tasks prioritized. Having met with the project partner initially, he will be continuing to communicate with the partner. This includes answering questions that the partner may send over email and attending the weekly meetings to ask the partner for clarifications about the product and to present the partner with progress updates on the development of the product.
+- Strengths: 1) Experience with creating Backend APIs, 2) experience with Django ORM, 3) experience in iOS App Development
+- Weaknesses: 1) No experience with React Native nor Expo, 2) Limited experience with development methodologies, 3) Has only had bad experiences with deployment scripts
+
+Nazanin Ghazitabatabai
+
+- Nazanin will work as a Frontend Developer. She will collaborate with the Frontend team to create a user interface and design the application's appearance based on the template provided by the partner. She will also attend some of the weekly meetings with the partner to ask for questions, and be up to date with the team's plan.
+- Strengths: 1) Experience with JavaScript and Responsive Web Development, 2) Experience with React Native, 3) Experience with automated testing
+- Weaknesses: 1) Limited experience with Flask/Django, 2) No experience with database design, 3) Limited experience with APIs
+
+Shiyuan Luo
+
+- Shiyuan will work as a Fullstack Developer, mainly works on Frontend. She will collaborate with the Frontend team to design a user interface which satisfies the partner's needs and also the future users. She will also attend some of the weekly meetings with the partner, get advice on the improvement of the product and ask questions.
+- Strengths: 1) Experience with JavaScript, 2) Experience with frontend design, 3) Experience with APIs
+- Weaknesses: 1) No experience with Expo, 2) Limited experience with React, 3) Limited experience with the database.
+
+Nitish Madabusi
+
+- Nitish will work as a Backend Developer. He will collaborate with the Backend Team and help determine and complete all the essential tasks to make the project work. He will also attend the weekly meetings with the partner and ask questions and be up to date with all the future tasks to be completed.
+- Strengths: 1) Experience with APIs 2) Experience with web development tools 3) Experience with Javascript
+- Weaknesses: 1) No experience with Flask/Django 2) Limited experience with database design 3) No experience with React Native or Expo
+
+**Q7: What operational events will you have as a team?**
+
+In terms of internal meetings, we will have mainly two types of meetings. One type of meeting is one where everyone is expected to attend and will happen for the purpose of ensuring that the deliverables are accomplished. These will happen leading up to deliverable due dates and will likely be online, as online seems to be more convenient for everyone. The other type of meeting will be among the sub-teams (backend team and frontend team). The purpose of these meetings will be to coordinate within the sub-team; this includes determining objectives, discussing blocking work, assigning tasks, and setting deadlines. These meetings will be made as needed either online or in-person.
+
+In terms of external meetings (meetings with our project partner Dr. Tatiana Kalashnikova), we will have weekly meetings with the doctor on Wednesdays at 6pm. The purpose of these meetings will be two-way: to present progress made by our team of students and to get information and clarification from her.
+
+We have had two meetings with the doctor so far. They are described below.
+
+First Meeting on Wednesday, September 21st, 2022 at 6pm
+
+Attendants: Dr. Tatiana Kalashnikova, Ansh Chokshi, Anthony Duong
+
+| Topic | What Happened | Outcomes |
+| --- | --- | --- |
+| Introductions | The doctor talked about her education, credentials, and experiences practicing as a pediatrician. Ansh and Anthony discussed their education levels and software engineering experiences. | The attendants gained an understanding of each other's expertise and experience level. |
+| The Application | The doctor went through a diagram of how she envisioned the app and explained the importance of each feature, as Ansh and Anthony asked for clarifications of anything said. | The students gained clarity on the app's objectives and structure. |
+| Aligning Interests | The students raised the issue of not being able to accomplish everything that was discussed. The doctor responded with which features to prioritize and the importance of them. | The crucial features were highlighted and what distinguished the to-be-built application with existing applications was clarified. |
+
+Second Meeting on Wednesday, September 28th, 2022 at 6pm
+
+Attendants: Dr. Tatiana Kalashnikova, Ansh Chokshi, Anthony Duong, Nazanin Ghazitabatabai
+
+| Topic | What Happened | Outcomes |
+| --- | --- | --- |
+| App DevelopmentProgress | The students relayed to the doctor that not a lot of progress has been made on the app itself, as most of the energy was devoted to acquiring and organizing team members. | The doctor understood where the students were in the development process. |
+| User Stories | The attendants discussed the target users of the app and what each type of user would gain from it. | The students gained clarity on the app's usefulness. |
+| Objectives before the Next Meeting | The doctor wanted to start delivering the actual content that the app will use. She set the goal for herself to create some example content before the next meeting. | The expectations of the next meeting were made. |
+
+**Q8: What artifacts will you use to self-organize?**
+
+List/describe the artifacts you will produce in order to organize your team.
+
+- Artifacts can be To-Do lists, Task boards, schedule(s), meeting minutes, etc.
+- We want to understand:
+  - How do you keep track of what needs to get done?
+  - **How do you prioritize tasks?**
+  - How do tasks get assigned to team members?
+  - How do you determine the status of work from inception to completion?
+
+We will be using the following artifacts:
+
+- Trello for task management: Will be using Trello boards to keep a track of the ongoing, planned and past tasks for the team. Will also be using Trello to keep a track of the ongoing issues.
+- Notion for personal task management: Will be using to-do lists on Notion to keep a track of individual tasks and planning
+- Tasks will be assigned on Trello. In our weekly meetings, we will be discussing new and ongoing tasks and assigning them as needed.
+- Trello cards are taggable. We will be using 'Low Priority', 'Medium Priority' and 'High Priority' tags to mark the priority of the tasks.
+- Status of the task will be determined by which row the Trello card for the task is in. We will have rows for Planned Tasks, Ongoing Tasks, Blocked Tasks and Completed Tasks.
+
+**Q9: What are the rules regarding how your team works?**
+
+Our team understands that students can be balancing multiple courses at the same time and are already experiencing heavy workloads and strict schedules. With this in mind, the team values a reasonable amount of flexibility. Team has also mutually agreed on treating each other with respect.
 
 **Communications:**
- * What is the expected frequency? What methods/channels are appropriate? 
- * If you have a partner project, what is your process (in detail) for communicating with your partner?
- 
-**Meetings:**
- * How are people held accountable for attending meetings, completing action items? Is there a moderator or process?
 
+Communications within the team:
 
-----
-## Highlights
+- Slack is our main point of communication
+  - This is where short messages are sent directly between team members
+  - This is where short messages and announcements are made on channels for different topics
+  - The TA is also invited to join in the case where intervention is necessary
+  - When members are specifically asked to respond, the member is expected to respond within 48 hours
+  - This is where discussions take place to decide the time and location of meetings
+- Internal meetings are needed for when more specific information needs to be discussed
 
-Specify 3 - 5 key decisions and/or insights that came up during your meetings
-and/or collaborative process.
+Communications with our partner, Dr. Tatiana Kalashnikova:
 
- * Short (5 min' read max)
- * Decisions can be related to the product and/or the team process.
-    * Mention which alternatives you were considering.
-    * Present the arguments for each alternative.
-    * Explain why the option you decided on makes the most sense for your team/product/users.
- * Essentially, we want to understand how (and why) you ended up with your current product and process plan.
- * This section is useful for important information regarding your decision making process that may not necessarily fit in other sections. 
+- Weekly ~30min meetings on Wednesdays at 6pm via Zoom
+- Communication via email throughout the week for questions
+  - Either Ansh Chokshi or Anthony Duong is expected to respond within 48 hours (of the working week)
+- OneDrive folder where important documents and content are shared
+
+Weekly meetings in Zoom are scheduled. Teammates are required to attend the meetings which are important discussions for team deliverables. If a teammate is sick or has other commitments they are expected to ask what their task is and to complete it on time. Team leaders are the moderator to make sure meetings are held and everyone required attends them.
+
+![Shape3](RackMultipart20221002-1-1ibrpp_html_237499165a11f2b9.gif)
+
+**Highlights**
+
+We decided to use Javascript, React Native, and Expo to build a cross-platform mobile app. We do not have enough time to make an app for ios and another for Android, so we are developing one cross-platform app. Our team members are more familiar with Javascript, so we want to work with a framework with Javascript rather than learn a new programming language. React Native gives users a better experience than other frameworks that use Javascript, such as Ionic. Apps developed by React Native look and work similarly to native apps, as React Native contains some native UI components. We are using Expo as a tool because it is easy to get started with it and saves time for development. Also, we do not need to set up the environment of IOS and Android separately. For the database, we are using MongoDB. It is a NoSQL database, so it is more flexible and fast.
