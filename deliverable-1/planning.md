@@ -74,7 +74,7 @@ However, there are significant differences, Healthy Mom And Baby:
 
 [https://docs.google.com/document/d/1tgi8ntPNz3W2tBC8zvhpbwPbZctgNwATTErITWogeUw/edit](https://docs.google.com/document/d/1tgi8ntPNz3W2tBC8zvhpbwPbZctgNwATTErITWogeUw/edit)
 
-
+![Screenshot 2022-10-01 at 3 40 09 pm](https://user-images.githubusercontent.com/90420012/193480449-80907966-7a13-49bf-9c00-0d2e269f68cd.png)
 
 ![Shape1](RackMultipart20221002-1-1ibrpp_html_237499165a11f2b9.gif)
 
