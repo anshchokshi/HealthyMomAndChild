@@ -1,8 +1,8 @@
 # **Healthy Mom and Baby+ app**
 
-**Product Details**
+## Product Details
 
-**Q1: What are you planning to build?**
+#### Q1: What are you planning to build?
 
 **Note: The project partner had a heavy influence on this question's response.**
 
@@ -18,7 +18,7 @@ For pregnant women, the application will provide weekly notifications of updated
 
 For women who have delivered the baby, the application will continue to provide information and surveys, not only about her health, but also about her child's development. This virtual monitoring of the child's health will be done every 1-4 weeks until the age of 12 years old. This period in a woman's life can be filled with many questions about the child's milestones in development. This application will guide her through important aspects of baby development, alarm signs and available services for support.
 
-**Q2: Who are your target users?**
+#### Q2: Who are your target users?
 
 The application has three main target users:
 
@@ -38,7 +38,7 @@ The application may accommodate for other lesser-targeted user groups.
 This includes partners of one of the main target users who want to acquire the above-mentioned knowledge for their partners.
 It also includes family physicians and medical students who are not as familiar with the knowledge domain of perinatal women.
 
-**Q3: Why would your users choose your product? What are they using today to solve their problem/need?**
+#### Q3: Why would your users choose your product? What are they using today to solve their problem/need?**
 
 **Note: The project partner had a heavy influence on this question's response.**
 
@@ -58,7 +58,7 @@ However, there are significant differences, Healthy Mom And Baby:
 - Will have notifications with educational information on weekly/monthly basis
 - Will spot alarm signs that help women to understand when it is necessary to seek medical help and prevent complications
 
-**Q4: How will you build it?**
+#### Q4: How will you build it?
 
 - Availability for iOS and Android
 - Tech Stack: React Native, Expo, Javascript, MongoDB
@@ -70,7 +70,7 @@ However, there are significant differences, Healthy Mom And Baby:
 - Secondly we are going to conduct Ux/Ui testing to see if the we can seamlessly navigate through the App and to check if there is adequate access to product information for the users
 - Lastly we will have performance testing to check if all the features are up to the expectation.
 
-**Q5: What are the user stories that make up the MVP?**
+#### Q5: What are the user stories that make up the MVP?
 
 [https://docs.google.com/document/d/1tgi8ntPNz3W2tBC8zvhpbwPbZctgNwATTErITWogeUw/edit](https://docs.google.com/document/d/1tgi8ntPNz3W2tBC8zvhpbwPbZctgNwATTErITWogeUw/edit)
 
@@ -78,15 +78,15 @@ However, there are significant differences, Healthy Mom And Baby:
 
 ![Shape1](RackMultipart20221002-1-1ibrpp_html_237499165a11f2b9.gif)
 
-**Intellectual Property Confidentiality Agreement**
+## Intellectual Property Confidentiality Agreement
 
 **We have mutually agreed with the partner that code can be freely uploaded on open-source but all the other documents or content provided are confidential. We have agreed on not sharing relevant documents and content provided by the Partner.**
 
 ![Shape2](RackMultipart20221002-1-1ibrpp_html_237499165a11f2b9.gif)
 
-**Process Details**
+## Process Details
 
-**Q6: What are the roles & responsibilities on the team?**
+#### Q6: What are the roles & responsibilities on the team?
 We have decided to keep the structure of our team relatively flat (not so much hiearchy-oriented).
 Thus, we have three main roles of equal value:
 1. Frontend developer focuses on the mobile application.
@@ -132,7 +132,7 @@ Nitish Madabusi
 - Strengths: 1) Experience with APIs 2) Experience with web development tools 3) Experience with Javascript
 - Weaknesses: 1) No experience with Flask/Django 2) Limited experience with database design 3) No experience with React Native or Expo
 
-**Q7: What operational events will you have as a team?**
+#### Q7: What operational events will you have as a team?
 
 In terms of internal meetings, we will have mainly two types of meetings. One type of meeting is one where everyone is expected to attend and will happen for the purpose of ensuring that the deliverables are accomplished. These will happen leading up to deliverable due dates and will likely be online, as online seems to be more convenient for everyone. The other type of meeting will be among the sub-teams (backend team and frontend team). The purpose of these meetings will be to coordinate within the sub-team; this includes determining objectives, discussing blocking work, assigning tasks, and setting deadlines. These meetings will be made as needed either online or in-person.
 
@@ -160,7 +160,7 @@ Attendants: Dr. Tatiana Kalashnikova, Ansh Chokshi, Anthony Duong, Nazanin Ghazi
 | User Stories | The attendants discussed the target users of the app and what each type of user would gain from it. | The students gained clarity on the app's usefulness. |
 | Objectives before the Next Meeting | The doctor wanted to start delivering the actual content that the app will use. She set the goal for herself to create some example content before the next meeting. | The expectations of the next meeting were made. |
 
-**Q8: What artifacts will you use to self-organize?**
+#### Q8: What artifacts will you use to self-organize?
 
 We will be using the following artifacts:
 
@@ -170,7 +170,7 @@ We will be using the following artifacts:
 - Trello cards are taggable. We will be using 'Low Priority', 'Medium Priority' and 'High Priority' tags to mark the priority of the tasks.
 - Status of the task will be determined by which row the Trello card for the task is in. We will have rows for Planned Tasks, Ongoing Tasks, Blocked Tasks and Completed Tasks.
 
-**Q9: What are the rules regarding how your team works?**
+#### Q9: What are the rules regarding how your team works?
 
 Our team understands that students can be balancing multiple courses at the same time and are already experiencing heavy workloads and strict schedules. With this in mind, the team values a reasonable amount of flexibility. The team has also mutually agreed on treating each other with respect.
 
@@ -193,10 +193,16 @@ Communications with our partner, Dr. Tatiana Kalashnikova:
   - Either Ansh Chokshi or Anthony Duong is expected to respond within 48 hours (of the working week)
 - OneDrive folder where important documents and content are shared
 
-Weekly meetings in Zoom are scheduled. Teammates are required to attend the meetings which are important discussions for team deliverables. If a teammate is sick or has other commitments they are expected to ask what their task is and to complete it on time. Team leaders are the moderator to make sure meetings are held and everyone required attends them.
+Weekly meetings in Zoom are scheduled. Teammates are required to attend the meetings which are important discussions for team deliverables. If a teammate is sick or has other commitments they are expected to ask what their task is and to complete it on time. Team leaders are the moderators to make sure meetings are held and everyone required attends them.
 
 ![Shape3](RackMultipart20221002-1-1ibrpp_html_237499165a11f2b9.gif)
 
-**Highlights**
+## Highlights
 
-We decided to use Javascript, React Native, and Expo to build a cross-platform mobile app. We do not have enough time to make an app for iOS and another for Android, so we are developing one cross-platform app. Our team members are more familiar with Javascript, so we want to work with a framework with Javascript rather than learn a new programming language. React Native gives users a better experience than other frameworks that use Javascript, such as Ionic. Apps developed by React Native look and work similarly to native apps, as React Native contains some native UI components. We are using Expo as a tool because it is easy to get started with it and saves time for development. Also, we do not need to set up the environment of iOS and Android separately. For the database, we are using MongoDB. It is a NoSQL database, so it is more flexible and fast.
+In regards to our technology decisions, we decided to use Javascript, React Native, and Expo to build a cross-platform mobile app. We do not have enough time to make an app for iOS and another for Android, so we are developing one cross-platform app. Our team members are more familiar with Javascript, so we want to work with a framework with Javascript rather than learn a new programming language. React Native gives users a better experience than other frameworks that use Javascript, such as Ionic. Apps developed by React Native look and work similarly to native apps, as React Native contains some native UI components. We are using Expo as a tool because it is easy to get started with it and saves time for development. Also, we do not need to set up the environment of iOS and Android separately. For the database, we are using MongoDB. It is a NoSQL database, so it is more flexible and fast.
+
+One insight that came up was that it was very difficult to get all of us together in one time slot.
+This was due to the fact that seven people is quite a few people considering that we are all students taking different classes. It led us to choose odd times such as late Friday night.
+This had several implications. We decided to limit the number of meetings that required everyone to be in attendance and chose to have these large meetings only when necessary, i.e., before deliverable deadlines. We saw the importance of sub-teams so that we could have smaller meetings. We put more importance on asynchronous channels of communication (Slack and Trello).
+
+As a team, we have scattered and varied experiences. None of us have extreme expertise in the technologies that we are going to be working with so it will be a learning experience for all of us. We plan not only to complete tasks but to help each other when needed. This will be done through pair/group programming during the smaller sub-team meetings.
