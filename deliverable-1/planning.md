@@ -6,14 +6,17 @@
 
 **Note: The project partner had a heavy influence on this question's response.**
 
-- A unique health application that will help educate, monitor, and detect health issues with both women that are planning to conceive, pregnant, or have given birth in the last three months (perinatal women), and their children up to the age of 12 years old.
-- Significant changes and challenges occur in the life of a woman undergoing conception, pregnancy, or the baby nursing process and questions will arise due to this. Women in this category will search for answers to these questions. One of their greatest resources are family physicians and specialists. But access to these medical professionals can be limited in rural and remote areas of living. The lack of in-person consultations can directly affect the health of pregnant women and children. As alternatives, such as the Internet and existing mobile applications, can contain information that is not sufficient, nor detailed.
-- The goal of this health application is to become a reliable and accessible resource to help women understand all details of conception, pregnancy and baby development.
-- For women planning to conceive, the application will provide information on preconception activities related to medical examinations, lifestyle changes, diet.
+A unique health application that will help educate, monitor, and detect health issues with both women that are planning to conceive, pregnant, or have given birth in the last three months (perinatal women), and their children up to the age of 12 years old.
+ 
+Significant changes and challenges occur in the life of a woman undergoing conception, pregnancy, or the baby nursing process and questions will arise due to this. Women in this category will search for answers to these questions. One of their greatest resources are family physicians and specialists. But access to these medical professionals can be limited in rural and remote areas of living. The lack of in-person consultations can directly affect the health of pregnant women and children. As alternatives, such as the Internet and existing mobile applications, can contain information that is not sufficient, nor detailed.
 
-- For pregnant women, the application will provide weekly notifications of updated information about recommendations, preparation for delivery, possible expected changes after delivery, etc. The week may also contain specific questionnaires to spot red flags such as depression, suicidal thoughts, financial issues, and home violence.
+The goal of this health application is to become a reliable and accessible resource to help women understand all details of conception, pregnancy and baby development.
 
-- For women who have delivered the baby, the application will continue to provide information and surveys, not only about her health, but also about her child's development. This virtual monitoring of the child's health will be done every 1-4 weeks until the age of 12 years old. This period in a woman's life can be filled with many questions about the child's milestones in development. This application will guide her through important aspects of baby development, alarm signs and available services for support.
+For women planning to conceive, the application will provide information on preconception activities related to medical examinations, lifestyle changes, diet.
+
+For pregnant women, the application will provide weekly notifications of updated information about recommendations, preparation for delivery, possible expected changes after delivery, etc. The week may also contain specific questionnaires to spot red flags such as depression, suicidal thoughts, financial issues, and home violence.
+
+For women who have delivered the baby, the application will continue to provide information and surveys, not only about her health, but also about her child's development. This virtual monitoring of the child's health will be done every 1-4 weeks until the age of 12 years old. This period in a woman's life can be filled with many questions about the child's milestones in development. This application will guide her through important aspects of baby development, alarm signs and available services for support.
 
 **Q2: Who are your target users?**
 
@@ -31,12 +34,9 @@ The application has three main target users:
   - who are curious about how to best keep their child healthy, or
   - who would like to know about normal child development and milestones
 
-The application may accommodate for the other user groups:
-
-- Partners of one of the main target users
-  - who want to acquire the above-mentioned knowledge for their partners
-- Family physicians and medical students
-  - who are not as familiar with the knowledge domain of perinatal women
+The application may accommodate for other lesser-targeted user groups.
+This includes partners of one of the main target users who want to acquire the above-mentioned knowledge for their partners.
+It also includes family physicians and medical students who are not as familiar with the knowledge domain of perinatal women.
 
 **Q3: Why would your users choose your product? What are they using today to solve their problem/need?**
 
@@ -48,7 +48,7 @@ The application will also be available in the future to focus on accessibility, 
 
 In the future, the product may receive credibility via collaboration with medical researchers, local health public health units, and healthcare professionals. As the product can give some access to relevant data or relevant patients.
 
-This type of application exists in other forms, which can be found here:[https://www.forb](https://www.forbes.com/health/family/best-pregnancy-apps/)[es.com/health/family/best-pregnancy-apps/](https://www.forbes.com/health/family/best-pregnancy-apps/)
+This type of application exists in other forms, which can be found here: [https://www.forb](https://www.forbes.com/health/family/best-pregnancy-apps/)[es.com/health/family/best-pregnancy-apps/](https://www.forbes.com/health/family/best-pregnancy-apps/)
 
 However, there are significant differences, Healthy Mom And Baby:
 
@@ -87,15 +87,13 @@ However, there are significant differences, Healthy Mom And Baby:
 **Process Details**
 
 **Q6: What are the roles & responsibilities on the team?**
+We have decided to keep the structure of our team relatively flat (not so much hiearchy-oriented).
+Thus, we have three main roles of equal value:
+1. Frontend developer focuses on the mobile application.
+2. Backend developer focuses on the server and the database that the mobile application interacts with.
+3. Full-stack developer is a more general role than the first two as they work on both the frontend and backend.
 
-Describe the different roles on the team and the responsibilities associated with each role.
-
-- Roles should reflect the structure of your team and be appropriate for your project. Not necessarily one role to one team member.
-
-List each team member and:
-
-- A description of their role(s) and responsibilities including the components they'll work on and non-software related work
-- 3 technical strengths and weaknesses each (e.g. languages, frameworks, libraries, development methodologies, etc.)
+The following is a list of our team members along with their roles, and strengths and weaknesses.
 
 Abhigya Chhabra
 
@@ -142,7 +140,7 @@ In terms of external meetings (meetings with our project partner Dr. Tatiana Kal
 
 We have had two meetings with the doctor so far. They are described below.
 
-First Meeting on Wednesday, September 21st, 2022 at 6pm
+###### First Meeting on Wednesday, September 21st, 2022 at 6pm
 
 Attendants: Dr. Tatiana Kalashnikova, Ansh Chokshi, Anthony Duong
 
@@ -152,7 +150,7 @@ Attendants: Dr. Tatiana Kalashnikova, Ansh Chokshi, Anthony Duong
 | The Application | The doctor went through a diagram of how she envisioned the app and explained the importance of each feature, as Ansh and Anthony asked for clarifications of anything said. | The students gained clarity on the app's objectives and structure. |
 | Aligning Interests | The students raised the issue of not being able to accomplish everything that was discussed. The doctor responded with which features to prioritize and the importance of them. | The crucial features were highlighted and what distinguished the to-be-built application with existing applications was clarified. |
 
-Second Meeting on Wednesday, September 28th, 2022 at 6pm
+###### Second Meeting on Wednesday, September 28th, 2022 at 6pm
 
 Attendants: Dr. Tatiana Kalashnikova, Ansh Chokshi, Anthony Duong, Nazanin Ghazitabatabai
 
@@ -164,15 +162,6 @@ Attendants: Dr. Tatiana Kalashnikova, Ansh Chokshi, Anthony Duong, Nazanin Ghazi
 
 **Q8: What artifacts will you use to self-organize?**
 
-List/describe the artifacts you will produce in order to organize your team.
-
-- Artifacts can be To-Do lists, Task boards, schedule(s), meeting minutes, etc.
-- We want to understand:
-  - How do you keep track of what needs to get done?
-  - **How do you prioritize tasks?**
-  - How do tasks get assigned to team members?
-  - How do you determine the status of work from inception to completion?
-
 We will be using the following artifacts:
 
 - Trello for task management: Will be using Trello boards to keep a track of the ongoing, planned and past tasks for the team. Will also be using Trello to keep a track of the ongoing issues.
@@ -183,7 +172,7 @@ We will be using the following artifacts:
 
 **Q9: What are the rules regarding how your team works?**
 
-Our team understands that students can be balancing multiple courses at the same time and are already experiencing heavy workloads and strict schedules. With this in mind, the team values a reasonable amount of flexibility. Team has also mutually agreed on treating each other with respect.
+Our team understands that students can be balancing multiple courses at the same time and are already experiencing heavy workloads and strict schedules. With this in mind, the team values a reasonable amount of flexibility. The team has also mutually agreed on treating each other with respect.
 
 **Communications:**
 
@@ -210,4 +199,4 @@ Weekly meetings in Zoom are scheduled. Teammates are required to attend the meet
 
 **Highlights**
 
-We decided to use Javascript, React Native, and Expo to build a cross-platform mobile app. We do not have enough time to make an app for ios and another for Android, so we are developing one cross-platform app. Our team members are more familiar with Javascript, so we want to work with a framework with Javascript rather than learn a new programming language. React Native gives users a better experience than other frameworks that use Javascript, such as Ionic. Apps developed by React Native look and work similarly to native apps, as React Native contains some native UI components. We are using Expo as a tool because it is easy to get started with it and saves time for development. Also, we do not need to set up the environment of IOS and Android separately. For the database, we are using MongoDB. It is a NoSQL database, so it is more flexible and fast.
+We decided to use Javascript, React Native, and Expo to build a cross-platform mobile app. We do not have enough time to make an app for iOS and another for Android, so we are developing one cross-platform app. Our team members are more familiar with Javascript, so we want to work with a framework with Javascript rather than learn a new programming language. React Native gives users a better experience than other frameworks that use Javascript, such as Ionic. Apps developed by React Native look and work similarly to native apps, as React Native contains some native UI components. We are using Expo as a tool because it is easy to get started with it and saves time for development. Also, we do not need to set up the environment of iOS and Android separately. For the database, we are using MongoDB. It is a NoSQL database, so it is more flexible and fast.
