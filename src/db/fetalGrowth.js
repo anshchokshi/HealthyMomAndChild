@@ -1,11 +1,9 @@
 import firebase from "firebase/app";
 
-function getFetalGrowthData(week) {
-  return { length: 0, weight: 0 }
-}
-
-export function setFetalGrowthData() {
-  console.log("here")
-  var csv = require('jquery-csv');
-  // console.log(csv.toObject(file))
+export async function getFetalGrowthData(week_number, in_inches=true) {
+  const db = firebase.firestore()
+  const docRef = db.collection("FetalGrowth").doc(`week${week_number}`)
+  const document = await docRef.get()
+  const { length: lengthIn, weight: weightOz } = document.data()
+  return { length: lengthIn, weight: weightOz }
 }
