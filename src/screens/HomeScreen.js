@@ -1,7 +1,8 @@
 import { useNavigation } from '@react-navigation/core'
 import React from 'react'
 import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { firebase, db } from '../firebase'
+import { firebase } from '../firebase'
+import { setFetalGrowthData } from '../db/fetalGrowth'
 
 const HomeScreen = () => {
   const navigation = useNavigation()
@@ -19,16 +20,19 @@ const HomeScreen = () => {
       <Button
         title="test"
         onPress={async () => {
-          const uuid = firebase.auth().currentUser.uid
-          console.log(uuid)
-          const docRef = db.collection('test-coll').doc("uuid");
-          try {
-            const doc = await docRef.get()
-            console.log(doc.data())
-            console.log(doc.data().prop1)
-          } catch (error) {
-            console.log(error)
-          }
+          // const db = firebase.firestore()
+          // const collRef = db.collection('FetalGrowth')
+          setFetalGrowthData()
+          // const uuid = firebase.auth().currentUser.uid
+          // console.log(uuid)
+          // const docRef = db.collection('test-coll').doc("uuid");
+          // try {
+          //   const doc = await docRef.get()
+          //   console.log(doc.data())
+          //   console.log(doc.data().prop1)
+          // } catch (error) {
+          //   console.log(error)
+          // }
         }}
       />
       <TouchableOpacity
