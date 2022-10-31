@@ -20,8 +20,8 @@ export default function App() {
       <UserContext.Provider value={"hello"}>
       <Stack.Navigator>
         <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
-        <Stack.Screen name="Signup" component={SignupScreen} />
-        <Stack.Screen name="Welcome" component={WelcomePage}/>
+        <Stack.Screen options={{ headerShown: false }} name="Signup" component={SignupScreen} />
+        <Stack.Screen options={{ headerShown: false }} name="Welcome" component={WelcomePage}/>
         <Stack.Screen name="Dashboard" component={Dashboard} />
         <Stack.Screen name="Pregnant Survey1" component={PregnantSurvey1} options={{title:"Pregnant Survey"}}/>
         <Stack.Screen name="Pregnant Survey2" component={PregnantSurvey2} options={{title:"Pregnant Survey"}}/>
