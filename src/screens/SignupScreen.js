@@ -1,19 +1,22 @@
 import { useNavigation } from '@react-navigation/core'
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState, useContext} from 'react';
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { firebase } from '../firebase'
+import { UserContext } from '../Context'
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  
-
-  const navigation = useNavigation()
+  const {user, setUser} = useContext(UserContext);
+  const navigation = useNavigation();
+  const [Firstname, setFirstName] = useState();
+  const [Lastname, setLastName] = useState();
+  const [age, setAge] = useState();
 
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        navigation.replace("Welcome")
+       // navigation.replace("Welcome")
       }
     })
 
@@ -21,19 +24,27 @@ const LoginScreen = () => {
   }, [])
 
   const handleSignUp = () => {
-    console.log("here")
-    navigation.navigate("Signup")
-  }
-
-  const handleLogin = () => {
     firebase.auth()
-      .signInWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email, password)
       .then(userCredentials => {
         const user = userCredentials.user;
-        console.log('Logged in with:', user.email);
+        console.log('Registered with:', user.email);
       })
       .catch(error => alert(error.message))
+      
+    firebase.firestore()
+    .collection('users')
+    .doc(email)
+    .set({
+      FirstName: Firstname,
+      LastName: Lastname,
+      Age: age,
+      })
+    .then(() => {
+      console.log('User added!');
+    });
   }
+
 
   return (
     <KeyboardAvoidingView
@@ -54,15 +65,30 @@ const LoginScreen = () => {
           style={styles.input}
           secureTextEntry
         />
-      </View>
+        <TextInput
+          placeholder="FirstName"
+          value={Firstname}
+          onChangeText={text => setFirstName(text)}
+          style={styles.input}
+          
+        />
 
+        <TextInput
+          placeholder="LastName"
+          value={Lastname}
+          onChangeText={text => setLastName(text)}
+          style={styles.input}
+          
+        />
+        <TextInput
+          placeholder="Age"
+          value={age}
+          onChangeText={text => setAge(text)}
+          style={styles.input}
+          
+        />
+      </View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          onPress={handleLogin}
-          style={styles.button}
-        >
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
         <TouchableOpacity
           onPress={handleSignUp}
           style={[styles.button, styles.buttonOutline]}
