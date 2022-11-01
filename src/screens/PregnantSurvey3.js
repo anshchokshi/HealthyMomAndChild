@@ -1,8 +1,24 @@
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native'
+import { 
+  StyleSheet, 
+  Text, 
+  View, 
+  TextInput, 
+  TouchableOpacity,
+  Switch } from 'react-native'
 import React, { useEffect, useState, useContext} from 'react';
 import { useNavigation } from '@react-navigation/core'
 import { firebase } from '../firebase'
 import { useRoute } from '@react-navigation/core';
+import { WaveHeader } from '../component/WaveHeader'
+import { NormalHeader } from '../component/Header'
+import surStyle from '../helpers/SurveyStyle'
+import color from '../helpers/Color'
+import PregnantSurvey2 from './PregnantSurvey2';
+import {SelectButtonSwitch} from '../component/Switch'
+import Icon from 'react-native-vector-icons/AntDesign';
+
+
+
 
 const PregnantSurvey3 = () => {
     const route = useRoute();
@@ -10,8 +26,14 @@ const PregnantSurvey3 = () => {
     const [height, setHeight] = useState(null)
     const navigation = useNavigation();
     const auth = firebase.auth();
-    const handleAnswers = () => {
-          
+    const [unit, setUnit] = useState(false)
+    const changeunit = () => { 
+      setUnit(!unit)
+    }
+    // const handlepre = () => {
+    //     navigation.navigate("Pregnant Survey2")
+    // }
+    const handleAnswers = () => { 
         firebase.firestore()
         .collection('users')
         .doc(auth.currentUser?.email)
@@ -33,29 +55,72 @@ const PregnantSurvey3 = () => {
         });
       }
   return (
-    <View style={styles.inputContainer}>
+    <View style = {styles.container}>
+      <View style = {surStyle.headerContainer}>
+      <Text style ={surStyle.headerText}> I'm Pregant</Text>
+      </View>
+    <View style={surStyle.inputContainer}>
+      {/* <SelectButtonSwitch
+      values={['Imperial'
+        , 'Metric']}
+      selectedValue={unit}
+      setSelectedValue={setUnit}
+      ></SelectButtonSwitch> */}
+      <View style={surStyle.rowContainer}>
+      <Text style = {surStyle.text}>Metric</Text>
+      <Switch
+      trackColor={{ false: color.lightPink, true: color.mainPink }}
+      thumbColor={unit ? color.white : color.white}
+      ios_backgroundColor= "#3e3e3e"
+      onValueChange={changeunit}
+      value={unit}
+      ></Switch>
+      <Text style = {surStyle.text}>Imperial</Text>
+        </View>
+      <View
+        style = {surStyle.textContainer}>
+          <Text style = {surStyle.text}>What was your initial weight before 
+          pregnancy?</Text>
+      </View> 
+      <View style={surStyle.rowContainer}>
         <TextInput
-          placeholder="What was your initial weight before 
-          pregnancy?"
+          placeholder="your initial weight"
           value={weight}
           onChangeText={text => setWeight(text)}
-          style={styles.input}
+          style={surStyle.input}
         />
+        <Text style= {surStyle.text}>{unit? 'Lb':'Kg'}</Text></View>
+        <View
+        style = {surStyle.textContainer}>
+          <Text style = {surStyle.text}>What is your height?</Text>
+      </View> 
+      <View style={surStyle.rowContainer}>
         <TextInput
-          placeholder="What is your height?"
+          placeholder="your height"
           value={height}
           onChangeText={text => setHeight(text)}
-          style={styles.input}
+          style={surStyle.input}
         />
-        <View style={styles.buttonContainer}>
+        <Text style= {surStyle.text}>{unit? 'Ft/In':'Cm'}</Text></View>
+
+        <View style={[surStyle.rowContainer,surStyle.bottom]}>
+        <TouchableOpacity
+          //onPress={handlePre}
+          style={[surStyle.buttonLight]}
+        >
+          <Icon name= 'arrowleft' size={28} color={color.mainPink}></Icon>
+        </TouchableOpacity>
+
         <TouchableOpacity
           onPress={handleAnswers}
-          style={[styles.button, styles.buttonOutline]}
+          style={[surStyle.buttonDark]}
         >
-          <Text style={styles.buttonOutlineText}>Submit</Text>
+          <Icon name= 'arrowright' size={28} color={color.white}></Icon>
         </TouchableOpacity>
       </View>
       </View>
+      </View>
+
   )
 }
 
@@ -66,44 +131,7 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-    },
-    inputContainer: {
-      width: '80%'
-    },
-    input: {
-      backgroundColor: 'white',
-      paddingHorizontal: 15,
-      paddingVertical: 10,
-      borderRadius: 10,
-      marginTop: 5,
-    },
-    buttonContainer: {
-      width: '60%',
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginTop: 40,
-    },
-    button: {
-      backgroundColor: '#0782F9',
-      width: '100%',
-      padding: 15,
-      borderRadius: 10,
-      alignItems: 'center',
-    },
-    buttonOutline: {
-      backgroundColor: 'white',
-      marginTop: 5,
-      borderColor: '#0782F9',
-      borderWidth: 2,
-    },
-    buttonText: {
-      color: 'white',
-      fontWeight: '700',
-      fontSize: 16,
-    },
-    buttonOutlineText: {
-      color: '#0782F9',
-      fontWeight: '700',
-      fontSize: 16,
-    },
+      backgroundColor: color.mainPink,
+
+    }
   })
