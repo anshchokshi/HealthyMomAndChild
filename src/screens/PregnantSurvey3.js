@@ -29,7 +29,7 @@ const PregnantSurvey3 = () => {
 
         .then(() => {
           console.log('Details added!');
-          navigation.navigate("Dashboard")
+          navigation.navigate("UserDashboard")
         });
       }
   return (
