@@ -38,7 +38,6 @@ const LoginScreen = () => {
   return (
     <View
       style={styles.container}
-      behavior="padding"
     >
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}>Login</Text>
