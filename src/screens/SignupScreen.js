@@ -1,13 +1,13 @@
 import { useNavigation } from '@react-navigation/core'
 import React, { useEffect, useState, useContext} from 'react';
-import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View, Image } from 'react-native'
+import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View, Image, ScrollView } from 'react-native'
 import { firebase } from '../firebase'
 import { UserContext } from '../Context'
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [repeatPassword, setRepeatPassword] = useState('')
+  const [repeatPassword, setRepeatPassword] = useState(false)
   const {user, setUser} = useContext(UserContext);
   const navigation = useNavigation();
   const [Firstname, setFirstName] = useState();
@@ -33,29 +33,34 @@ const LoginScreen = () => {
       })
       .catch(error => alert(error.message))
       
-    firebase.firestore()
-    .collection('users')
-    .doc(email)
-    .set({
-      FirstName: Firstname,
-      LastName: Lastname,
-      Age: age,
-      })
-    .then(() => {
-      console.log('User added!');
-    });
+      if(repeatPassword !== password){
+        alert('Passwords should match')
+      }
+
+      firebase.firestore()
+      .collection('users')
+      .doc(email)
+      .set({
+        FirstName: Firstname,
+        LastName: Lastname,
+        Age: age,
+        })
+      .then(() => {
+        console.log('User added!');
+      });
+    
   }
 
 
   return (
     <KeyboardAvoidingView
       style={styles.container}
-      behavior="position"
+      behavior="padding"
     >
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}>Sign up</Text>
       </View>
-      <View style={styles.inputContainer} behavior='padding'>
+      <ScrollView style={styles.inputContainer} >
        
           <Text style={styles.queryText}>Email</Text>
           <TextInput
@@ -78,7 +83,7 @@ const LoginScreen = () => {
         <TextInput
           placeholder="Retype Password"
           value={repeatPassword}
-          onChangeText={text => setRepeatPassword(text)}
+          onChangeText={(text) => {setRepeatPassword(text)}}
           style={styles.input}
           secureTextEntry
         />
@@ -111,7 +116,7 @@ const LoginScreen = () => {
           
         />
         
-      </View>
+      </ScrollView>
       <View style={styles.buttonContainer}>
         <TouchableOpacity 
           onPress={handleSignUp}
@@ -123,7 +128,7 @@ const LoginScreen = () => {
           
           <Text style={styles.buttonOutlineText}>Create Account</Text>
         </TouchableOpacity>
-        <Text></Text>
+       
         <Text>By giving us permission to store data,</Text>
         <Text>important information that you've entered such as</Text>
         <Text> due date, weight tracking and other notes will be saved.</Text>
@@ -191,7 +196,6 @@ const styles = StyleSheet.create({
     height:'20%',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop:'-2%'
   },
 
   imageLogo: {
@@ -207,17 +211,19 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     flexDirection: 'row',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    marginTop:'1%'
+
   },
   buttonOutline: {
     borderColor: '#F08686',
     borderWidth: 2,
   },
-
+  
   buttonOutlineText: {
     color: 'white',
     fontWeight: '700',
     fontSize: 16,
-    marginLeft:'3%',
+    marginLeft:'2%'
   },
 })
