@@ -31,7 +31,7 @@ const PregnantSurvey2 = () => {
       navigation.navigate("Pregnant Survey3", {LMP: route.params.LMP, firstPreg:route.params.firstPreg, HBS: HBS, EBS: EBS})       
     }
     const handlepre = () => {
-      navigation.navigate("Pregnant Survey1")
+      navigation.goBack()
           
     }
     const changeHBS = () => { 

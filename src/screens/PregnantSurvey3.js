@@ -15,6 +15,8 @@ import color from '../helpers/Color'
 import PregnantSurvey2 from './PregnantSurvey2';
 import SelectButton1 from '../component/Switch'
 import Icon from 'react-native-vector-icons/AntDesign';
+import  {convertHeight, percentageHeight}  from '../helpers/ScreenSizeHelper';
+
 
 
 
@@ -30,7 +32,7 @@ const PregnantSurvey3 = () => {
       setUnit(!unit)
     }
     const handleback = () => {
-        navigation.navigate("Pregnant Survey2")
+      navigation.goBack()
     }
     const handleAnswers = () => { 
         firebase.firestore()
@@ -73,6 +75,7 @@ const PregnantSurvey3 = () => {
       ios_backgroundColor= "#3e3e3e"
       onValueChange={changeunit}
       value={unit}
+      maxLength={5}
       ></Switch>
       <Text style = {surStyle.text}>Imperial</Text>
         </View>
@@ -85,8 +88,10 @@ const PregnantSurvey3 = () => {
         <TextInput
           placeholder="your initial weight"
           value={weight}
+          keyboardType='numeric'
           onChangeText={text => setWeight(text)}
-          style={surStyle.input}
+          style={[surStyle.input, surStyle.text]}
+          maxLength={5}
         />
         <Text style= {surStyle.text}>{unit? 'Lb':'Kg'}</Text></View>
         <View
@@ -97,24 +102,26 @@ const PregnantSurvey3 = () => {
         <TextInput
           placeholder="your height"
           value={height}
+          keyboardType='numeric'
           onChangeText={text => setHeight(text)}
-          style={surStyle.input}
+          style={[surStyle.input, surStyle.text]}
         />
-        <Text style= {surStyle.text}>{unit? 'Ft/In':'Cm'}</Text></View>
+        <Text style= {[surStyle.text]}
+        >{unit? 'Ft/In':'Cm'}</Text></View>
       </View>
       <View style={[surStyle.rowContainer,surStyle.bottom]}>
         <TouchableOpacity
-          //onPress={handleback}
+          onPress={handleback}
           style={[surStyle.buttonLight, surStyle.roundButton]}
         >
-          <Icon name= 'arrowleft' size={28} color={color.mainPink}></Icon>
+          <Icon name= 'arrowleft' size={convertHeight(28)} color={color.mainPink}></Icon>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={handleAnswers}
           style={[surStyle.buttonDark, surStyle.roundButton]}
         >
-          <Icon name= 'arrowright' size={28} color={color.white}></Icon>
+          <Icon name= 'arrowright' size={convertHeight(28)} color={color.white}></Icon>
         </TouchableOpacity>
       </View>
       </View>

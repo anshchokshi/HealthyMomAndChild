@@ -10,7 +10,7 @@ export default {
         color: color.mainPink,
     },
     headerText: {
-        fontSize: 30,
+        fontSize: convertHeight(30),
         fontWeight: 'bold',
         color: color.white,
         textAlign: 'center',
@@ -44,48 +44,48 @@ export default {
       },
       textContainer:{
         flex:0.2,
-        margin:2,
+        margin:convertHeight(2),
         width:percentageWidth(0.9),
         justifyContent: 'center',
         // alignItems: 'center',
+
       },
       buttonDark:{
         backgroundColor: color.mainPink,
         padding: 15,
         borderRadius: 10,
         alignItems: 'center',
-        margin: 10,
+        margin: convertHeight(10),
       },
       buttonLight:{
         backgroundColor: color.lightPink,
         padding: 15,
         borderRadius: 10,
         alignItems: 'center',
-        margin: 10,
+        margin: convertHeight(10),
       },
       buttonDarkText:{
-        fontSize: 18,
+        fontSize: convertHeight(18),
         fontWeight:'bold',
         color:color.white,
     },
     buttonLightText:{
-        fontSize: 14,
-        fontSize: 18,
+        fontSize: convertHeight(18),
         fontWeight:'bold',
         color:color.mainPink,
     },
     text:{
-      fontSize:20,
+      fontSize:convertHeight(20),
       fontWeight:'bold',
-      margin: 5,
+      margin: convertHeight(5),
+      adjustFontSizeToFit: true,
     },
     input:{
       backgroundColor: color.lightPink,
       borderBottomColor: color.mainPink,
       borderBottomWidth: 1,
-      width: percentageWidth(0.7),
-      fontSize:20,      
-    },
+      width: percentageWidth(0.7)
+      },
     bottom:{
       position: 'absolute', 
       bottom: convertHeight(50),

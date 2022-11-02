@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,Switch, TextInput, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View,Switch, TextInput, TouchableOpacity, Button } from 'react-native'
 import React, { useEffect, useState, useContext} from 'react';
 import { useNavigation } from '@react-navigation/core'
 import PregnantSurvey2 from './PregnantSurvey2';
@@ -34,7 +34,7 @@ const PregnantSurvey1 = () => {
       navigation.navigate("Pregnant Survey2", {LMP: LMP, firstPreg: firstPreg})
     }
     const handlePre = () => {
-      navigation.navigate("Pregnant Survey2", {LMP: LMP, firstPreg: firstPreg})
+      navigation.goBack()
     }
 
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -60,14 +60,19 @@ const PregnantSurvey1 = () => {
       <View style = {surStyle.inputContainer}>
         <View
         style = {surStyle.textContainer}>
-          <Text style = {surStyle.text}> What was the first day of your last menstruial period?</Text>
+          <Text style = {[surStyle.text,{numberOfLines:2}]}> What was the first day of your last menstruial period?</Text>
         </View>
-        <View style = {surStyle.rowContainer}>
-          <Text>{LMP}</Text>
+        <View style = {[surStyle.rowContainer, surStyle.input]} onPress={showDatePicker}>
+          {/* <TextInput style = {[surStyle.text,{fontWeight:'light'}]}> {LMP}</TextInput> */}
+          <TouchableOpacity
+          style = {[surStyle.text]}
+          onPress={showDatePicker}>
+            <Text style = {[surStyle.text,{fontWeight:'light'}]}>{LMP}</Text>
+          </TouchableOpacity>
           <TouchableOpacity 
             onPress={showDatePicker}
           >
-            <Icon name= 'calendar' size={28} color={color.lightPink}></Icon>
+            <Icon name= 'calendar' size={28} color={color.mainPink}></Icon>
           </TouchableOpacity>
         </View>
         
@@ -77,18 +82,21 @@ const PregnantSurvey1 = () => {
         mode="date"
         onConfirm={handleConfirm}
         onCancel={hideDatePicker}
+        buttonTextColorIOS ={color.mainPink}
       />
 
 
         <View style = {surStyle.textContainer}>
-          <Text style = {surStyle.text}>Is this your first pregancy?</Text>
+          <Text style = {[surStyle.text,{numberOfLines:2}]}>Is this your first pregancy?</Text>
         </View>
         <SelectButton1 
         values={[true,false]}
               selectedValue={firstPreg}
               setSelectedValue={setfirstPreg}>
         </SelectButton1>
-        <View style={[surStyle.rowContainer,surStyle.bottom]}>
+        
+      </View>
+      <View style={[surStyle.rowContainer,surStyle.bottom]}>
         <TouchableOpacity
           //onPress={handlePre}
           style={[surStyle.buttonLight, surStyle.roundButton]}
@@ -102,7 +110,6 @@ const PregnantSurvey1 = () => {
         >
           <Icon name= 'arrowright' size={28} color={color.white}></Icon>
         </TouchableOpacity>
-      </View>
       </View>
       
     </View>
