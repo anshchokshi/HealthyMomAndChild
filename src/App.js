@@ -27,7 +27,7 @@ export default function App() {
         <Stack.Screen name="Pregnant Survey1" component={PregnantSurvey1} options={{title:"Pregnant Survey"}}/>
         <Stack.Screen name="Pregnant Survey2" component={PregnantSurvey2} options={{title:"Pregnant Survey"}}/>
         <Stack.Screen name="Pregnant Survey3" component={PregnantSurvey3} options={{title:"Pregnant Survey"}}/>
-        <Stack.Screen name="UserDashboard" component={UserDash} />
+        <Stack.Screen name="Dashboard" component={UserDash} />
         
       </Stack.Navigator>
       </UserContext.Provider>
