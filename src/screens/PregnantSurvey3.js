@@ -9,12 +9,11 @@ import React, { useEffect, useState, useContext} from 'react';
 import { useNavigation } from '@react-navigation/core'
 import { firebase } from '../firebase'
 import { useRoute } from '@react-navigation/core';
-import { WaveHeader } from '../component/WaveHeader'
-import { NormalHeader } from '../component/Header'
+import  WaveHeader  from '../component/WaveHeader'
 import surStyle from '../helpers/SurveyStyle'
 import color from '../helpers/Color'
 import PregnantSurvey2 from './PregnantSurvey2';
-import {SelectButtonSwitch} from '../component/Switch'
+import SelectButton1 from '../component/Switch'
 import Icon from 'react-native-vector-icons/AntDesign';
 
 
@@ -30,9 +29,9 @@ const PregnantSurvey3 = () => {
     const changeunit = () => { 
       setUnit(!unit)
     }
-    // const handlepre = () => {
-    //     navigation.navigate("Pregnant Survey2")
-    // }
+    const handleback = () => {
+        navigation.navigate("Pregnant Survey2")
+    }
     const handleAnswers = () => { 
         firebase.firestore()
         .collection('users')
@@ -56,8 +55,8 @@ const PregnantSurvey3 = () => {
       }
   return (
     <View style = {styles.container}>
-      <View style = {surStyle.headerContainer}>
-      <Text style ={surStyle.headerText}> I'm Pregant</Text>
+      <View style = {[surStyle.headerContainer]}>
+        <WaveHeader text="I'm Pregant"></WaveHeader>
       </View>
     <View style={surStyle.inputContainer}>
       {/* <SelectButtonSwitch
@@ -102,22 +101,21 @@ const PregnantSurvey3 = () => {
           style={surStyle.input}
         />
         <Text style= {surStyle.text}>{unit? 'Ft/In':'Cm'}</Text></View>
-
-        <View style={[surStyle.rowContainer,surStyle.bottom]}>
+      </View>
+      <View style={[surStyle.rowContainer,surStyle.bottom]}>
         <TouchableOpacity
-          //onPress={handlePre}
-          style={[surStyle.buttonLight]}
+          //onPress={handleback}
+          style={[surStyle.buttonLight, surStyle.roundButton]}
         >
           <Icon name= 'arrowleft' size={28} color={color.mainPink}></Icon>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={handleAnswers}
-          style={[surStyle.buttonDark]}
+          style={[surStyle.buttonDark, surStyle.roundButton]}
         >
           <Icon name= 'arrowright' size={28} color={color.white}></Icon>
         </TouchableOpacity>
-      </View>
       </View>
       </View>
 
@@ -129,9 +127,8 @@ export default PregnantSurvey3
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: color.mainPink,
+      backgroundColor: color.white,
 
     }
   })

@@ -1,21 +1,27 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View ,Text} from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import color from '../helpers/Color'
-import { convertWidth } from '../helpers/ScreenSizeHelper';
+import { convertHeight, convertWidth, percentageWidth } from '../helpers/ScreenSizeHelper';
 import surStyle from '../helpers/SurveyStyle'
 
-const WaveHeader= ({})=> (
+const WaveHeader= (prop)=> (
     <View>
-      <View style={{ backgroundColor: color.mainPink, height: 160 }}>
+      <View 
+      style={{ backgroundColor: color.mainPink, 
+      height: convertHeight(160),
+      width: percentageWidth(1),
+      justifyContent: 'center',
+      alignItem:'center' }}>
+        <Text style={surStyle.headerText}>{prop.text}</Text>
         <Svg
           height="60%"
           width="100%"
           viewBox="0 0 1440 320"
-          style={{ position: 'absolute', top: 130 }}
+          style={{ position: 'absolute', top: convertHeight(130) }}
         >
           <Path
-            fill="#5000ca"
+            fill={color.mainPink}
             d="M0,96L48,112C96,128,192,160,288,186.7C384
             ,213,480,235,576,213.3C672,192,768,128,864,
             128C960,128,1056,192,1152,208C1248,224,1344,192,
@@ -27,3 +33,4 @@ const WaveHeader= ({})=> (
       </View>
     </View>
 );
+export default WaveHeader;

@@ -14,14 +14,13 @@ export default {
         fontWeight: 'bold',
         color: color.white,
         textAlign: 'center',
+        
       },
       headerContainer:{
         width: percentageWidth(1),
-        height: percentageHeight(0.2),
-        justifyContent: 'center',
+        height: percentageHeight(0.3),
         alignItem:'center',
-        flex: 0.25,
-        backgroundColor: color.mainPink,
+        backgroundColor: color.white,
       },
       svgStyle:{
         height:"60%",
@@ -45,8 +44,8 @@ export default {
       },
       textContainer:{
         flex:0.2,
-        margin:1,
-        width:percentageWidth(0.8),
+        margin:2,
+        width:percentageWidth(0.9),
         justifyContent: 'center',
         // alignItems: 'center',
       },
@@ -65,13 +64,19 @@ export default {
         margin: 10,
       },
       buttonDarkText:{
-        fontSize: 14,
+        fontSize: 18,
+        fontWeight:'bold',
+        color:color.white,
     },
     buttonLightText:{
         fontSize: 14,
+        fontSize: 18,
+        fontWeight:'bold',
+        color:color.mainPink,
     },
     text:{
       fontSize:20,
+      fontWeight:'bold',
       margin: 5,
     },
     input:{
@@ -83,8 +88,10 @@ export default {
     },
     bottom:{
       position: 'absolute', 
-      bottom: convertHeight(30),
+      bottom: convertHeight(50),
       justifyContent: 'space-between',
-
+    },
+    roundButton:{
+      borderRadius: 100,
     }
 }

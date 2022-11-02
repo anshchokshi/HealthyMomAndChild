@@ -11,13 +11,9 @@ import React, { useEffect, useState, useContext} from 'react';
 import { useNavigation } from '@react-navigation/core'
 import PregnantSurvey2 from './PregnantSurvey2';
 import { useRoute } from '@react-navigation/core';
-import { WaveHeader } from '../component/WaveHeader'
-import { NormalHeader } from '../component/Header'
 import surStyle from '../helpers/SurveyStyle'
 import color from '../helpers/Color'
-import {SelectButtonSwitch} from '../component/Switch'
 import Icon from 'react-native-vector-icons/AntDesign';
-import DateTimePickerModal from "react-native-modal-datetime-picker";
 import {
     percentageWidth, 
     percentageHeight, 

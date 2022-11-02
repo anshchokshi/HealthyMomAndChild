@@ -3,14 +3,14 @@ import React, { useEffect, useState, useContext} from 'react';
 import { useNavigation } from '@react-navigation/core'
 import PregnantSurvey2 from './PregnantSurvey2';
 import { useRoute } from '@react-navigation/core';
-import { WaveHeader } from '../component/WaveHeader'
-import { NormalHeader } from '../component/Header'
+import WaveHeader  from '../component/WaveHeader'
 import surStyle from '../helpers/SurveyStyle'
 import color from '../helpers/Color'
-import {SelectButtonSwitch} from '../component/Switch'
+import SelectButton1 from '../component/Switch'
 import Icon from 'react-native-vector-icons/AntDesign';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
-import { convertHeight } from '../helpers/ScreenSizeHelper';
+import  {convertHeight, percentageHeight}  from '../helpers/ScreenSizeHelper';
+import Svg, { Path } from 'react-native-svg';
 
 
 
@@ -20,8 +20,15 @@ const PregnantSurvey1 = () => {
     const [firstPreg, setfirstPreg] = useState(true)
     const navigation = useNavigation();
     const route = useRoute();
-    const changeP = () => { 
-      setfirstPreg(!firstPreg)
+    const [firstStringP, setFirstStringP]= useState('Yes')
+    const handleClick= (butt) => {
+      if (butt.equal('Yes')){
+        setFirstStringP('Yes');
+        setfirstPreg(true);
+      }else{
+        setFirstStringP('No');
+        setfirstPreg(false);
+      }
     }
     const handleNext = () => {
       navigation.navigate("Pregnant Survey2", {LMP: LMP, firstPreg: firstPreg})
@@ -47,8 +54,8 @@ const PregnantSurvey1 = () => {
     
   return (
     <View style = {styles.container}>
-      <View style = {surStyle.headerContainer}>
-      <Text style ={surStyle.headerText}> I'm Pregant</Text>
+      <View style = {[surStyle.headerContainer]}>
+        <WaveHeader text="I'm Pregant"></WaveHeader>
       </View>
       <View style = {surStyle.inputContainer}>
         <View
@@ -76,31 +83,22 @@ const PregnantSurvey1 = () => {
         <View style = {surStyle.textContainer}>
           <Text style = {surStyle.text}>Is this your first pregancy?</Text>
         </View>
-        {/* <SelectButtonSwitch values={[true, false]}
+        <SelectButton1 
+        values={[true,false]}
               selectedValue={firstPreg}
               setSelectedValue={setfirstPreg}>
-        </SelectButtonSwitch> */}
-        <View style={surStyle.rowContainer}>
-          <Text style = {surStyle.text}>No</Text>
-        <Switch
-        trackColor={{ false: color.lightPink, true: color.mainPink }}
-        thumbColor={firstPreg ? color.white : color.white}
-        ios_backgroundColor= "#3e3e3e"
-        onValueChange={changeP}
-        value={firstPreg}></Switch>
-        <Text style = {surStyle.text}>Yes</Text>
-        </View>
+        </SelectButton1>
         <View style={[surStyle.rowContainer,surStyle.bottom]}>
         <TouchableOpacity
           //onPress={handlePre}
-          style={[surStyle.buttonLight]}
+          style={[surStyle.buttonLight, surStyle.roundButton]}
         >
           <Icon name= 'arrowleft' size={28} color={color.mainPink}></Icon>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={handleNext}
-          style={[surStyle.buttonDark]}
+          style={[surStyle.buttonDark, surStyle.roundButton]}
         >
           <Icon name= 'arrowright' size={28} color={color.white}></Icon>
         </TouchableOpacity>
@@ -118,7 +116,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: color.mainPink,
+    backgroundColor: color.white,
   },
   
   
