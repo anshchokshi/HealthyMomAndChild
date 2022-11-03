@@ -8,6 +8,7 @@ const WelcomePage = () => {
   const auth = firebase.auth();
   const [Firstname, setFirstName] = useState();
   const [modalVisible, setModalVisible] = useState(false);
+
   useEffect( () =>{
   async function fetchData(){
     const name = null;
@@ -51,6 +52,7 @@ const WelcomePage = () => {
 
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}>Welcome {Firstname}!</Text>
+        
       </View>
       
       <View style={styles.buttonContainer}>
@@ -72,8 +74,10 @@ const WelcomePage = () => {
           onPress={() => setModalVisible(true)}
         >
           <Text style={styles.buttonText}>I have a Baby</Text>
+
         </TouchableOpacity>
-      
+
+       
       </View>
       
       
