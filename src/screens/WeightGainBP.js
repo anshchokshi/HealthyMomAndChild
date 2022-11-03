@@ -18,10 +18,19 @@ const WeightGainBP = () => {
     //     } 
     // }
     const [toggle, setToggle] = useState(false);
+    const [units, setUnit] = useState('Lb')
 
     const handleToggle = () => {
         setToggle(!toggle);
     }
+
+    useEffect(() => {
+        if(toggle){
+            setUnit('Kg')
+        }else{
+            setUnit('Lb')
+        }
+    })
 
     return(
         <View style={styles.container}>
@@ -43,8 +52,11 @@ const WeightGainBP = () => {
                         <Switch value={toggle} onValueChange={handleToggle} color={"#F08686"}></Switch>
                         <Text style={styles.unitTextRight}>Kg</Text>
                     </View>
-                    <View>
-
+                    <View style={styles.dataBlock}>
+                        <Text>
+                            Your average weight gain since beginning of pregnancy {units}
+                        </Text>
+                        <Text>Average normal weight gain since beginning of pregnancy {units}</Text>
                     </View>
                 </View>
             </View>
@@ -59,6 +71,7 @@ const styles = StyleSheet.create({
     },
     dataBlock: {
         marginTop : "2%", 
+        marginLeft: "2%",
     },
     rowBlock: {
         marginTop: "1%",
