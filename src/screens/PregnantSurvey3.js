@@ -5,7 +5,8 @@ import {
   TextInput, 
   TouchableOpacity,
   Switch,
-  Keyboard } from 'react-native'
+  Keyboard,
+  TouchableWithoutFeedback } from 'react-native'
 import React, { useEffect, useState, useContext} from 'react';
 import { useNavigation } from '@react-navigation/core'
 import { firebase } from '../firebase'
@@ -62,7 +63,9 @@ const PregnantSurvey3 = () => {
       <View style = {[surStyle.headerContainer]}>
         <WaveHeader text="I'm Pregant"></WaveHeader>
       </View>
-    <View style={surStyle.inputContainer}>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+
+    <View style={surStyle.inputContainer} onPress={Keyboard.dismiss}>
       {/* <SelectButtonSwitch
       values={['Imperial'
         , 'Metric']}
@@ -86,8 +89,8 @@ const PregnantSurvey3 = () => {
           <Text style = {surStyle.text}>What was your initial weight before 
           pregnancy?</Text>
       </View> 
-      
-      <View style={surStyle.rowContainer}>
+      <View style={surStyle.rowContainer} 
+      keyboardShouldPersistTaps='handled'>
         <TextInput
           placeholder="your initial weight"
           value={weight}
@@ -96,7 +99,8 @@ const PregnantSurvey3 = () => {
           style={[surStyle.input, surStyle.text]}
           maxLength={5}
         />
-        <Text style= {surStyle.text}>{unit? 'Lb':'Kg'}</Text></View>
+        <Text style= {surStyle.text}>{unit? 'Lb':'Kg'}</Text>
+        </View>
         <View
         style = {surStyle.textContainer}>
           <Text style = {surStyle.text}>What is your height?</Text>
@@ -109,16 +113,19 @@ const PregnantSurvey3 = () => {
           onChangeText={text => setHeight(text)}
           style={[surStyle.input, surStyle.text]}
           returnKeyType='done'
+          maxLength={5}
         />
         <Text style= {[surStyle.text]}
         >{unit? 'Ft/In':'Cm'}</Text></View>
       </View>
-      <KeyboardAccessoryNavigation
+      </TouchableWithoutFeedback>
+
+      {/* <KeyboardAccessoryNavigation
           nextHidden={true}
           previousHidden={true}
           avoidKeyboard
           androidAdjustResize
-        />
+        /> */}
       <View style={[surStyle.rowContainer,surStyle.bottom]}>
         <TouchableOpacity
           onPress={handleback}
