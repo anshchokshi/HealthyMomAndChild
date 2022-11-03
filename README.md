@@ -2,7 +2,7 @@
 
 > _Note:_ This document is intended to be relatively short. Be concise and precise. Assume the reader has no prior knowledge of your application and is non-technical. 
 ## Description 
- * Provide a high-level description of your application and it's value from an end-user's perspective
+ *A unique health application that will help educate, monitor, and detect health issues with both women that are planning to conceive, pregnant, or have    given birth in the last three months (perinatal women), and their children up to the age of 12 years old.
  * What is the problem you're trying to solve?
  * Is there any context required to understand **why** the application solves this problem?
 
