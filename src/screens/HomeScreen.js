@@ -1,8 +1,8 @@
 import { useNavigation } from '@react-navigation/core'
 import React from 'react'
-import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Button, StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native'
 import { firebase } from '../firebase'
-import { getFetalGrowthData } from '../db/fetalGrowth'
+import { getFetalGrowthData, getFetalDevelopmentImage } from '../db/fetalGrowth'
 
 const HomeScreen = () => {
   const navigation = useNavigation()
@@ -13,6 +13,7 @@ const HomeScreen = () => {
       })
       .catch(error => alert(error.message))
   }
+  const [src, setSrc] = React.useState(null); 
 
   return (
     <View style={styles.container}>
@@ -25,6 +26,17 @@ const HomeScreen = () => {
             const { length, weight } = await getFetalGrowthData(i)
             console.log(`week${i} ${length}, ${weight}`)
           }
+        }}
+      />
+      <Image
+        onLoadStart={() => {
+          getFetalDevelopmentImage(11)
+            .then(url => { setSrc(url) })
+        }}
+        source={{
+          uri: src,
+          width: 200,
+          height: 100
         }}
       />
       <TouchableOpacity
