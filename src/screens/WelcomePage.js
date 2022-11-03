@@ -1,19 +1,14 @@
 import { useNavigation } from '@react-navigation/core';
 import React, { useEffect, useState, useContext} from 'react';
-import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Pressable, StyleSheet, Text, TouchableOpacity, View, Modal } from 'react-native'
 import { firebase } from '../firebase'
-import { getFetalGrowthData } from '../db/fetalGrowth'
 
 const WelcomePage = () => {
   const navigation = useNavigation()
   const auth = firebase.auth();
   const [Firstname, setFirstName] = useState();
-  const handleSignOut = () => {
-    auth.signOut().then(() => {
-        navigation.replace("Login")
-      })
-      .catch(error => alert(error.message))
-  }
+  const [modalVisible, setModalVisible] = useState(false);
+
   useEffect( () =>{
   async function fetchData(){
     const name = null;
@@ -36,6 +31,25 @@ const WelcomePage = () => {
 
   return (
     <View style={styles.container}>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+      >
+
+      <View style={styles.modalView}>
+          <Text style={styles.modalText}>This feature will be developed later.</Text>
+          <Pressable
+            style={styles.buttonClose}
+            onPress={() => setModalVisible(!modalVisible)}
+          >
+            <Text style={{fontSize:17}}>Hide</Text>
+          </Pressable>
+      </View>
+        
+      </Modal>
+
+
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}>Welcome {Firstname}!</Text>
         
@@ -45,6 +59,7 @@ const WelcomePage = () => {
         <Text style={{fontSize:20, fontWeight:'500'}}>Select from the following:</Text>
         <TouchableOpacity
           style={styles.button}
+          onPress={() => setModalVisible(true)}
         >
           <Text style={styles.buttonText}>I want to become pregnant</Text>
         </TouchableOpacity>
@@ -56,6 +71,7 @@ const WelcomePage = () => {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
+          onPress={() => setModalVisible(true)}
         >
           <Text style={styles.buttonText}>I have a Baby</Text>
 
@@ -116,5 +132,31 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 16,
   },
-
+  modalView: {
+    marginTop: '80%',
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center",
+    fontSize:18,
+    fontWeight:'700'
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
+    borderRadius: 10,
+    padding: 15,
+    elevation: 2
+  },
 })
