@@ -13,6 +13,7 @@ const LoginScreen = () => {
   const [Firstname, setFirstName] = useState();
   const [Lastname, setLastName] = useState();
   const [age, setAge] = useState();
+  const auth = firebase.auth();
 
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged(user => {
@@ -25,21 +26,23 @@ const LoginScreen = () => {
   }, [])
 
   const handleSignUp = () => {
-    firebase.auth()
+    
+      
+      if(repeatPassword !== password){
+        alert('Passwords should match')
+        console.log("Passwords should match")
+      }
+      else{
+
+
+        firebase.auth()
       .createUserWithEmailAndPassword(email, password)
       .then(userCredentials => {
         const user = userCredentials.user;
         console.log('Registered with:', user.email);
-      })
-      .catch(error => alert(error.message))
-      
-      if(repeatPassword !== password){
-        alert('Passwords should match')
-      }
-
       firebase.firestore()
       .collection('users')
-      .doc(email)
+      .doc(auth.currentUser?.email)
       .set({
         FirstName: Firstname,
         LastName: Lastname,
@@ -48,6 +51,11 @@ const LoginScreen = () => {
       .then(() => {
         console.log('User added!');
       });
+      })
+      .catch(error => alert(error.message))
+
+
+      }
     
   }
 

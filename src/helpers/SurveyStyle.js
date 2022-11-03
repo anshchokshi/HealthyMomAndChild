@@ -38,7 +38,7 @@ export default {
       },
       inputContainer: {
         position: 'absolute', 
-        top: percentageHeight(0.3),
+        top: percentageHeight(0.2),
         width: percentageWidth(1),
         alignItems: 'center',
         backgroundColor: color.white,
@@ -91,7 +91,7 @@ export default {
       },
     bottom:{
       position: 'absolute', 
-      top: percentageHeight(0.8),
+      top: percentageHeight(0.75),
       justifyContent: 'space-between',
     },
     roundButton:{

@@ -6,11 +6,12 @@ import { Header } from '@rneui/themed'
 import {LinearGradient} from 'react-native-linear-gradient';
 import { Image } from '@rneui/themed';
 
-
 const UserDash = () => {
     const navigation = useNavigation()
 
-    const handleBabyDev = () => {}
+    const handleBabyDev = () => {
+        navigation.navigate("Fetal Screen")
+    }
 
     const handleWeightBP = () => {navigation.navigate("Summary")}
 

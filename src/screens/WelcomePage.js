@@ -8,6 +8,12 @@ const WelcomePage = () => {
   const navigation = useNavigation()
   const auth = firebase.auth();
   const [Firstname, setFirstName] = useState();
+  const handleSignOut = () => {
+    auth.signOut().then(() => {
+        navigation.replace("Login")
+      })
+      .catch(error => alert(error.message))
+  }
   useEffect( () =>{
   async function fetchData(){
     const name = null;
@@ -32,6 +38,7 @@ const WelcomePage = () => {
     <View style={styles.container}>
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}>Welcome {Firstname}!</Text>
+        
       </View>
       
       <View style={styles.buttonContainer}>
@@ -51,8 +58,10 @@ const WelcomePage = () => {
           style={styles.button}
         >
           <Text style={styles.buttonText}>I have a Baby</Text>
+
         </TouchableOpacity>
-      
+
+       
       </View>
       
       
