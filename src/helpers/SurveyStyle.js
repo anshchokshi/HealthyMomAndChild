@@ -17,6 +17,8 @@ export default {
         
       },
       headerContainer:{
+        position: 'absolute', 
+        top: 0,
         width: percentageWidth(1),
         height: percentageHeight(0.3),
         alignItem:'center',
@@ -35,7 +37,8 @@ export default {
         margin: convertHeight(10),
       },
       inputContainer: {
-        flex:0.85,
+        position: 'absolute', 
+        top: percentageHeight(0.3),
         width: percentageWidth(1),
         alignItems: 'center',
         backgroundColor: color.white,
@@ -43,7 +46,7 @@ export default {
         borderTopRightRadius: 30,
       },
       textContainer:{
-        flex:0.2,
+        flex:0.3,
         margin:convertHeight(2),
         width:percentageWidth(0.9),
         justifyContent: 'center',
@@ -88,7 +91,7 @@ export default {
       },
     bottom:{
       position: 'absolute', 
-      bottom: convertHeight(50),
+      top: percentageHeight(0.8),
       justifyContent: 'space-between',
     },
     roundButton:{

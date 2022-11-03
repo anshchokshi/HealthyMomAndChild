@@ -45,7 +45,6 @@ const PregnantSurvey2 = () => {
       <View style = {[surStyle.headerContainer]}>
         <WaveHeader text="I'm Pregant"></WaveHeader>
       </View>
-    <View style = {surStyle.inputContainer}>
       <View style = {surStyle.inputContainer}>
         <View
         style = {surStyle.textContainer}>
@@ -85,7 +84,6 @@ const PregnantSurvey2 = () => {
         </SelectButton1>
 
 
-      </View>
     </View>
     <View style={[surStyle.rowContainer,surStyle.bottom]}>
         <TouchableOpacity

@@ -4,7 +4,8 @@ import {
   View, 
   TextInput, 
   TouchableOpacity,
-  Switch } from 'react-native'
+  Switch,
+  Keyboard } from 'react-native'
 import React, { useEffect, useState, useContext} from 'react';
 import { useNavigation } from '@react-navigation/core'
 import { firebase } from '../firebase'
@@ -16,6 +17,7 @@ import PregnantSurvey2 from './PregnantSurvey2';
 import SelectButton1 from '../component/Switch'
 import Icon from 'react-native-vector-icons/AntDesign';
 import  {convertHeight, percentageHeight}  from '../helpers/ScreenSizeHelper';
+import { KeyboardAccessoryNavigation } from 'react-native-keyboard-accessory'
 
 
 
@@ -84,6 +86,7 @@ const PregnantSurvey3 = () => {
           <Text style = {surStyle.text}>What was your initial weight before 
           pregnancy?</Text>
       </View> 
+      
       <View style={surStyle.rowContainer}>
         <TextInput
           placeholder="your initial weight"
@@ -105,10 +108,17 @@ const PregnantSurvey3 = () => {
           keyboardType='numeric'
           onChangeText={text => setHeight(text)}
           style={[surStyle.input, surStyle.text]}
+          returnKeyType='done'
         />
         <Text style= {[surStyle.text]}
         >{unit? 'Ft/In':'Cm'}</Text></View>
       </View>
+      <KeyboardAccessoryNavigation
+          nextHidden={true}
+          previousHidden={true}
+          avoidKeyboard
+          androidAdjustResize
+        />
       <View style={[surStyle.rowContainer,surStyle.bottom]}>
         <TouchableOpacity
           onPress={handleback}
