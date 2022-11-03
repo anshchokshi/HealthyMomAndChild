@@ -7,56 +7,55 @@ import {LinearGradient} from 'react-native-linear-gradient';
 import { Image } from '@rneui/themed';
 
 
-class UserDash extends React.Component {
+const UserDash = () => {
+    const navigation = useNavigation()
 
-    handleBabyDev = () => {}
+    const handleBabyDev = () => {}
 
-    handleWeightBP = () => {}
+    const handleWeightBP = () => {navigation.navigate("Summary")}
 
-    handleAppointments = () => {}
+    const handleAppointments = () => {}
 
-    render(){
-        return(
-            <View style={styles.container}>
-                <View style={styles.headerContainer}> 
-                    <Text style={styles.textMargin}>Your Dashboard</Text>
+    return(
+        <View style={styles.container}>
+            <View style={styles.headerContainer}> 
+                <Text style={styles.textMargin}>Your Dashboard</Text>
+            </View>
+            <View 
+                style = {styles.dashContainer}>
+                {/* <Text>MainPage</Text> */}
+                <View style={styles.buttonCont}>
+                    <TouchableOpacity style={styles.buttonLeft}
+                        onPress={handleBabyDev}>
+                        <Image source={require('../assets/BD.png')} style={styles.buttonImg} blurRadius={5}></Image>
+                        <Text style={styles.buttonText}>Baby Development</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.buttonRight}
+                        onPress={handleWeightBP}>
+                    <Image source={require('../assets/WBP.png')} style={styles.buttonImg} blurRadius={5}></Image>
+                        <Text style={styles.buttonText}>Your Weight Gain and Blood Pressure</Text>
+                    </TouchableOpacity>
                 </View>
-                <View 
-                    style = {styles.dashContainer}>
-                    {/* <Text>MainPage</Text> */}
-                    <View style={styles.buttonCont}>
-                        <TouchableOpacity style={styles.buttonLeft}
-                            onPress={this.handleBabyDev}>
-                            <Image source={require('../assets/BD.png')} style={styles.buttonImg} blurRadius={5}></Image>
-                            <Text style={styles.buttonText}>Baby Development</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.buttonRight}
-                            onPress={this.handleWeightBP}>
-                        <Image source={require('../assets/WBP.png')} style={styles.buttonImg} blurRadius={5}></Image>
-                            <Text style={styles.buttonText}>Your Weight Gain and Blood Pressure</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.buttonCont}>
-                        <TouchableOpacity style={styles.buttonLeft}
-                            onPress={this.handleAppointments}>
-                            <Image source={require('../assets/APTS.png')} style={styles.buttonImg} blurRadius={5}></Image>
-                            <Text style={styles.buttonText}>Your Appointments</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.buttonRight}>
-                        <Image source={require('../assets/SA.png')} style={styles.buttonImg} blurRadius={5}></Image>
-                            <Text style={styles.buttonText}>Surveys and Articles</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.buttonContCenter}>
-                        <TouchableOpacity style={styles.buttonCenter}>
-                        <Image source={require('../assets/EMC.png')} style={styles.buttonImg} blurRadius={5}></Image>
-                            <Text style={styles.buttonText}>Educational Medical Content</Text>
-                        </TouchableOpacity>
-                    </View>
+                <View style={styles.buttonCont}>
+                    <TouchableOpacity style={styles.buttonLeft}
+                        onPress={handleAppointments}>
+                        <Image source={require('../assets/APTS.png')} style={styles.buttonImg} blurRadius={5}></Image>
+                        <Text style={styles.buttonText}>Your Appointments</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.buttonRight}>
+                    <Image source={require('../assets/SA.png')} style={styles.buttonImg} blurRadius={5}></Image>
+                        <Text style={styles.buttonText}>Surveys and Articles</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.buttonContCenter}>
+                    <TouchableOpacity style={styles.buttonCenter}>
+                    <Image source={require('../assets/EMC.png')} style={styles.buttonImg} blurRadius={5}></Image>
+                        <Text style={styles.buttonText}>Educational Medical Content</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
-        )
-    }
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
