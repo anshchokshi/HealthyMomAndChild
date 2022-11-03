@@ -23,8 +23,8 @@ const HomeScreen = () => {
         onPress={async () => {
           console.log("test")
           for (let i = 10; i <= 41; i++) {
-            const { length, weight } = await getFetalGrowthData(i)
-            console.log(`week${i} ${length}, ${weight}`)
+            const { lengthIn, weightOz, weightPounds, weightGrams } = await getFetalGrowthData(i)
+            console.log(`week${i} ${lengthIn}", ${lengthIn * 2.54}cm, ${weightOz} ounces, ${weightPounds} pounds, ${weightGrams} grams`)
           }
         }}
       />
