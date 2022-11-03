@@ -1,8 +1,28 @@
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native'
+import { 
+  StyleSheet, 
+  Text, 
+  View, 
+  TextInput, 
+  TouchableOpacity,
+  Switch,
+  Keyboard,
+  TouchableWithoutFeedback } from 'react-native'
 import React, { useEffect, useState, useContext} from 'react';
 import { useNavigation } from '@react-navigation/core'
 import { firebase } from '../firebase'
 import { useRoute } from '@react-navigation/core';
+import  WaveHeader  from '../component/WaveHeader'
+import surStyle from '../helpers/SurveyStyle'
+import color from '../helpers/Color'
+import PregnantSurvey2 from './PregnantSurvey2';
+import SelectButton1 from '../component/Switch'
+import Icon from 'react-native-vector-icons/AntDesign';
+import  {convertHeight, percentageHeight}  from '../helpers/ScreenSizeHelper';
+import { KeyboardAccessoryNavigation } from 'react-native-keyboard-accessory'
+
+
+
+
 
 const PregnantSurvey3 = () => {
     const route = useRoute();
@@ -10,8 +30,14 @@ const PregnantSurvey3 = () => {
     const [height, setHeight] = useState(null)
     const navigation = useNavigation();
     const auth = firebase.auth();
-    const handleAnswers = () => {
-          
+    const [unit, setUnit] = useState(false)
+    const changeunit = () => { 
+      setUnit(!unit)
+    }
+    const handleback = () => {
+      navigation.goBack()
+    }
+    const handleAnswers = () => { 
         firebase.firestore()
         .collection('users')
         .doc(auth.currentUser?.email)
@@ -33,29 +59,90 @@ const PregnantSurvey3 = () => {
         });
       }
   return (
-    <View style={styles.inputContainer}>
+    <View style = {styles.container}>
+      <View style = {[surStyle.headerContainer]}>
+        <WaveHeader text="I'm Pregant"></WaveHeader>
+      </View>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+
+    <View style={surStyle.inputContainer} onPress={Keyboard.dismiss}>
+      {/* <SelectButtonSwitch
+      values={['Imperial'
+        , 'Metric']}
+      selectedValue={unit}
+      setSelectedValue={setUnit}
+      ></SelectButtonSwitch> */}
+      <View style={surStyle.rowContainer}>
+      <Text style = {surStyle.text}>Metric</Text>
+      <Switch
+      trackColor={{ false: color.lightPink, true: color.mainPink }}
+      thumbColor={unit ? color.white : color.white}
+      ios_backgroundColor= "#3e3e3e"
+      onValueChange={changeunit}
+      value={unit}
+      maxLength={5}
+      ></Switch>
+      <Text style = {surStyle.text}>Imperial</Text>
+        </View>
+      <View
+        style = {surStyle.textContainer}>
+          <Text style = {surStyle.text}>What was your initial weight before 
+          pregnancy?</Text>
+      </View> 
+      <View style={surStyle.rowContainer} 
+      keyboardShouldPersistTaps='handled'>
         <TextInput
-          placeholder="What was your initial weight before 
-          pregnancy?"
+          placeholder="your initial weight"
           value={weight}
+          keyboardType='numeric'
           onChangeText={text => setWeight(text)}
-          style={styles.input}
+          style={[surStyle.input, surStyle.text]}
+          maxLength={5}
         />
+        <Text style= {surStyle.text}>{unit? 'Lb':'Kg'}</Text>
+        </View>
+        <View
+        style = {surStyle.textContainer}>
+          <Text style = {surStyle.text}>What is your height?</Text>
+      </View> 
+      <View style={surStyle.rowContainer}>
         <TextInput
-          placeholder="What is your height?"
+          placeholder="your height"
           value={height}
+          keyboardType='numeric'
           onChangeText={text => setHeight(text)}
-          style={styles.input}
+          style={[surStyle.input, surStyle.text]}
+          returnKeyType='done'
+          maxLength={5}
         />
-        <View style={styles.buttonContainer}>
+        <Text style= {[surStyle.text]}
+        >{unit? 'Ft/In':'Cm'}</Text></View>
+      </View>
+      </TouchableWithoutFeedback>
+
+      {/* <KeyboardAccessoryNavigation
+          nextHidden={true}
+          previousHidden={true}
+          avoidKeyboard
+          androidAdjustResize
+        /> */}
+      <View style={[surStyle.rowContainer,surStyle.bottom]}>
+        <TouchableOpacity
+          onPress={handleback}
+          style={[surStyle.buttonLight, surStyle.roundButton]}
+        >
+          <Icon name= 'arrowleft' size={convertHeight(28)} color={color.mainPink}></Icon>
+        </TouchableOpacity>
+
         <TouchableOpacity
           onPress={handleAnswers}
-          style={[styles.button, styles.buttonOutline]}
+          style={[surStyle.buttonDark, surStyle.roundButton]}
         >
-          <Text style={styles.buttonOutlineText}>Submit</Text>
+          <Icon name= 'arrowright' size={convertHeight(28)} color={color.white}></Icon>
         </TouchableOpacity>
       </View>
       </View>
+
   )
 }
 
@@ -64,46 +151,8 @@ export default PregnantSurvey3
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: 'center',
       alignItems: 'center',
-    },
-    inputContainer: {
-      width: '80%'
-    },
-    input: {
-      backgroundColor: 'white',
-      paddingHorizontal: 15,
-      paddingVertical: 10,
-      borderRadius: 10,
-      marginTop: 5,
-    },
-    buttonContainer: {
-      width: '60%',
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginTop: 40,
-    },
-    button: {
-      backgroundColor: '#0782F9',
-      width: '100%',
-      padding: 15,
-      borderRadius: 10,
-      alignItems: 'center',
-    },
-    buttonOutline: {
-      backgroundColor: 'white',
-      marginTop: 5,
-      borderColor: '#0782F9',
-      borderWidth: 2,
-    },
-    buttonText: {
-      color: 'white',
-      fontWeight: '700',
-      fontSize: 16,
-    },
-    buttonOutlineText: {
-      color: '#0782F9',
-      fontWeight: '700',
-      fontSize: 16,
-    },
+      backgroundColor: color.white,
+
+    }
   })
