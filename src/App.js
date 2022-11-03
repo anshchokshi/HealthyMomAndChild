@@ -10,8 +10,12 @@ import PregnantSurvey1 from './screens/PregnantSurvey1';
 import PregnantSurvey2 from './screens/PregnantSurvey2';
 import PregnantSurvey3 from './screens/PregnantSurvey3';
 import Dashboard from './screens/Dashboard';
+
 import UserDash from './screens/UserDash';
 import WeightGainBP from './screens/WeightGainBP';
+
+import FetalScreen from './screens/FetalScreen';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +34,8 @@ export default function App() {
         <Stack.Screen name="Pregnant Survey3" component={PregnantSurvey3} options={{title:"Pregnant Survey"}}/>
         <Stack.Screen name="Dashboard" component={UserDash} />
         <Stack.Screen name="Summary" component={WeightGainBP}/>
+        <Stack.Screen options={{ headerShown: false }} name="Fetal Screen" component={FetalScreen}/>
+
         
       </Stack.Navigator>
       </UserContext.Provider>

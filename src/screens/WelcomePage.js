@@ -30,25 +30,33 @@ const WelcomePage = () => {
 
   return (
     <View style={styles.container}>
-      <Text>Welcome, {Firstname}</Text>
+      <View style={styles.headerContainer}>
+        <Text style={styles.headerText}>Welcome {Firstname}!</Text>
+      </View>
       
-      <TouchableOpacity
-        style={styles.button}
-      >
-        <Text style={styles.buttonText}>I want to become pregnant</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={handlePregnant}
-        style={styles.button}
-      >
-        <Text style={styles.buttonText}>I am already pregnant</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-      >
-        <Text style={styles.buttonText}>I have a Baby</Text>
-      </TouchableOpacity>
+      <View style={styles.buttonContainer}>
+        <Text style={{fontSize:20, fontWeight:'500'}}>Select from the following:</Text>
+        <TouchableOpacity
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}>I want to become pregnant</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={handlePregnant}
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}>I am already pregnant</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}>I have a Baby</Text>
+        </TouchableOpacity>
       
+      </View>
+      
+      
+  
     </View>
   )
 }
@@ -58,19 +66,46 @@ export default WelcomePage
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor:'#F08686',
   },
+  headerContainer :{
+    width: "100%",
+    height:"20%"
+
+  },
+  headerText: {
+    color: "white",
+    fontWeight: '700',
+    fontSize: 32,
+    textAlign:'center',
+    marginTop:'20%'
+  },
+
+  buttonContainer: {
+    backgroundColor: 'white',
+    width: '100%',
+    height:'80%',
+    justifyContent: 'center',
+    alignItems: 'center',
+   
+    
+  },
+
    button: {
-    backgroundColor: '#0782F9',
-    width: '60%',
-    padding: 15,
+    backgroundColor: '#F08686',
+    width: '65%',
+    padding: 19,
     borderRadius: 10,
     alignItems: 'center',
-    marginTop: 40,
+    marginTop: "10%",
+    marginBottom:'15%'
   },
+  
   buttonText: {
     color: 'white',
     fontWeight: '700',
     fontSize: 16,
   },
+
 })
