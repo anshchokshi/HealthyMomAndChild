@@ -10,7 +10,12 @@ import PregnantSurvey1 from './screens/PregnantSurvey1';
 import PregnantSurvey2 from './screens/PregnantSurvey2';
 import PregnantSurvey3 from './screens/PregnantSurvey3';
 import Dashboard from './screens/Dashboard';
+
+import UserDash from './screens/UserDash';
+import WeightGainBP from './screens/WeightGainBP';
+
 import FetalScreen from './screens/FetalScreen';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -21,13 +26,16 @@ export default function App() {
       <UserContext.Provider value={"hello"}>
       <Stack.Navigator>
         <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
-        <Stack.Screen options={{ headerShown: false }} name="Signup" component={SignupScreen} />
-        <Stack.Screen options={{ headerShown: false }} name="Welcome" component={WelcomePage}/>
-        <Stack.Screen name="Dashboard" component={Dashboard} />
+        <Stack.Screen name="Signup" component={SignupScreen} />
+        <Stack.Screen name="Welcome" component={WelcomePage}/>
+        {/* <Stack.Screen name="Dashboard" component={Dashboard} /> */}
         <Stack.Screen name="Pregnant Survey1" component={PregnantSurvey1} options={{title:"Pregnant Survey"}}/>
         <Stack.Screen name="Pregnant Survey2" component={PregnantSurvey2} options={{title:"Pregnant Survey"}}/>
         <Stack.Screen name="Pregnant Survey3" component={PregnantSurvey3} options={{title:"Pregnant Survey"}}/>
+        <Stack.Screen name="Dashboard" component={UserDash} />
+        <Stack.Screen name="Summary" component={WeightGainBP}/>
         <Stack.Screen options={{ headerShown: false }} name="Fetal Screen" component={FetalScreen}/>
+
         
       </Stack.Navigator>
       </UserContext.Provider>
