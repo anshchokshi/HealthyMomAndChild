@@ -8,8 +8,9 @@ async function getFetalGrowthDataFromDatabase(week_number) {
   return { lengthIn, weightOz }
 }
 
-export async function getFetalGrowthData() {
+export async function getFetalGrowthData(i) {
     const { lengthIn, weightOz } = await getFetalGrowthDataFromDatabase(i)
-    return {length: lengthIn, weightOz: weightOz, weightPounds: weightOz / 16, weightGrams: weightOz * 28.35}
-}
+    return {lengthIn, weightOz, weightPounds: weightOz / 16, weightGrams: weightOz * 28.35}
+  }
+
 

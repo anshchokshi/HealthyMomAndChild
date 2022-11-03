@@ -2,10 +2,22 @@ import { useNavigation } from '@react-navigation/core'
 import React, { useEffect, useState, useContext } from 'react'
 import { TouchableOpacity, StyleSheet, Text, ImageBackground, View, Image, ScrollView } from 'react-native'
 import { firebase } from '../firebase'
+import { getFetalGrowthData } from '../db/fetalGrowth'
 
 const FetalScreen = () => {
+    const [fetalData, setFetalData] = useState([])
     const navigation = useNavigation()
     
+    useEffect(() => {
+        const fetchData = (async() => {
+            const { lengthIn, weightOz, weightPounds, weightGrams } =  await getFetalGrowthData(11)
+
+            setFetalData([lengthIn, weightOz, weightPounds, weightGrams])
+        })
+        fetchData()        
+      }, [])
+
+    console.log(fetalData)
     const handleDashboard = () => {
         navigation.navigate("Dashboard")
     }
@@ -15,14 +27,16 @@ const FetalScreen = () => {
             <View style={styles.headerContainer}>
                     <ImageBackground style={styles.imageLogo}
                             source={{uri: 'https://media.istockphoto.com/vectors/fetus-stage-illustration-vector-id628342574?s=612x612'}}>
-                    <Text style={styles.headerText}>Baby development on week xx</Text>
+                    <Text style={styles.headerText}>Baby development on week 11</Text>
                     </ImageBackground>
             </View>
             <ScrollView style={styles.container}>
             
                 <View style={styles.sizeInfoContainer}>
-                    <Text style={styles.sizeInfoText}>Your baby size</Text>
-                    <Text style={styles.sizeInfoText}>...</Text>        
+                    <Text style={styles.sizeInfoText}>Your baby size:</Text>
+                    <Text style={styles.sizeInfoText}>{fetalData[0]} inches and {fetalData[1]} ounces</Text>
+                    <Text style={styles.sizeInfoText}>OR</Text> 
+                    <Text style={styles.sizeInfoText}>{fetalData[0] * 2.54} cm and {fetalData[3]} grams</Text>         
                 </View>
                 <Text>Additional content ...</Text>
 
@@ -87,7 +101,7 @@ const styles = StyleSheet.create({
   sizeInfoText: {
     color: "black",
     fontWeight: '700',
-    fontSize: 20,
+    fontSize: 18,
     textAlign:'center', 
     marginTop:'10%'
   },
