@@ -1,4 +1,5 @@
 import firebase from "firebase/app";
+import "firebase/storage";
 
 async function getFetalGrowthDataFromDatabase(week_number) {
   const db = firebase.firestore()
