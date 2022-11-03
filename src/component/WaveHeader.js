@@ -13,7 +13,6 @@ const WaveHeader= (prop)=> (
       width: percentageWidth(1),
       justifyContent: 'center',
       alignItem:'center' }}>
-        <Text style={surStyle.headerText}>{prop.text}</Text>
         <Svg
           height="110%"
           width="100%"
@@ -25,6 +24,8 @@ const WaveHeader= (prop)=> (
             d={surStyle.wavePatten}
           />
         </Svg>
+        <Text style={[surStyle.headerText, { top: percentageHeight(0.05)}]} >{prop.text}</Text>
+
       </View>
     </View>
 );
