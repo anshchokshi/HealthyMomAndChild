@@ -22,6 +22,9 @@ List **process-related** (i.e. team organization and how you work) decisions tha
  * Ordered from most to least important.
  * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
  * Feel free to refer/link to process artifact(s).
+ - Decided to design the application initially in Figma where the members of the frontend team had a meeting and went over the slides mocking the application provided by the partner and came up with an initial outline. The document was shown to the partner before coding it up in order to make sure that we were on the right track. Discussions regarding improving the design were held and the figma was shared with the backend team. Through this decision, keeping track of the app components and potential changes got easier. 
+Link to Figma: https://www.figma.com/file/TJukEWVr3OUzJCsFjdhVTM/Healthy-Child-and-Baby-%2B?node-id=0%3A1
+
 
 #### Q2. Decisions that did not turn out as well as we hoped
 
