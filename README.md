@@ -37,11 +37,13 @@
 
 Describe your Git / GitHub workflow. Essentially, we want to understand how your team members shares a codebase, avoid conflicts and deploys the application.
 
- * Be concise, yet precise. For example, "we use pull-requests" is not a precise statement since it leaves too many open questions - Pull-requests from where to where? Who reviews the pull-requests? Who is responsible for merging them? etc.
- * If applicable, specify any naming conventions or standards you decide to adopt.
- * Describe your overall deployment process from writing code to viewing a live applicatioon
- * What deployment tool(s) are you using and how
- * Don't forget to **briefly explain why** you chose this workflow or particular aspects of it!
+* We divided the team equally in the front-end and back end. In one of our meetings, we decided on all the things required to be done by the frontend and backend teams and assigned tasks to each team member. Then we decided to create an individual branch for each task and followed the below naming convention. Each team member creates a pull request of their branch once the task is done and then Ansh and Anthony were responsible to review each branch and merge it to the main as they were coordinating between frontend and backend teams. To avoid conflicts we decided to only create pull requests once the code did not have any errors or dependency issues so the people reviewing the code do not have to worry about that part and just check the logic and basic requirements. 
+* We used the following naming convention to make it clear to all teammates what that particular branch did and who owned it.
+	  branch name -> <task_name>-<member_name>
+	  for example -> authentication-ansh
+* We used Expo as it is a platform for making universal native apps for Android, and iOS. Expo lets us run the Application on a local environment if connected to a simulator. All team members used that for testing purposes to check if the application was running without any errors before pushing code on their branch.
+* We similarly used expo publish to deploy our application on the expo server which can be retrieved by anyone using a barcode and Expo App on mobile phones or simulators.
+* We decided to choose this workflow as we all did our A2 using the same workflow of Expo, React Native and Javascript. A couple of other advantages of this workflow are - Publishes over-the-air updates instantly with Expo and doesn’t need to code in two different languages for Android and IOS. The second was really important to us as our Partner wanted an Application for both Android and IOS
 
  ## Licenses 
 
