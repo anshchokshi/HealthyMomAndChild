@@ -13,6 +13,7 @@ const LoginScreen = () => {
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged(user => {
       if (user) {
+        
         navigation.replace("Welcome")
       }
     })

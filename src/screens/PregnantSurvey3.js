@@ -57,6 +57,7 @@ const PregnantSurvey3 = () => {
           console.log('Details added!');
           navigation.navigate("Dashboard")
         });
+        
       }
   return (
     <View style = {styles.container}>
