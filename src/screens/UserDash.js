@@ -15,7 +15,7 @@ const UserDash = () => {
 
     const handleWeightBP = () => {navigation.navigate("Summary")}
 
-    const handleAppointments = () => {}
+    const handleAppointments = () => {navigation.navigate("Appointment")}
 
     return(
         <View style={styles.container}>

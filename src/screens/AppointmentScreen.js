@@ -3,6 +3,7 @@ import {
     Text, 
     View,
     ScrollView,
+    ImageBackground,
     Image,
     Switch, 
     TextInput, 
@@ -57,14 +58,17 @@ const AppointmentScreen = () => {
   return (
     <View style = {styles.container}>
         
-      <View style = {surStyle.headerContainer}>
-      <Text style ={surStyle.headerText}>Your Appointments</Text>
+      <View style = {[surStyle.headerContainer,{backgroundColor:'transparent'}]}>
+      <ImageBackground 
+      source={require('../assets/APTS.png')}
+      style ={[{width: '100%', height:'100%'}]}
+      blurRadius={4}>
+      <Text style ={[surStyle.headerText,{color:color.mainPink}]}>Your Appointments</Text>
+
+      </ImageBackground>
       </View>
       <View style = {surStyle.inputContainer}>
         <ScrollView>
-
-        
-
         <View style = {styles.pinkContainer}>
             <Text>Family Doctor appointments</Text>
             <View style = {styles.smallerContainer}>
@@ -116,7 +120,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: color.mainPink,
+    backgroundColor: color.white,
   },
   pinkContainer:{
     flex:0.3,

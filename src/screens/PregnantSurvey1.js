@@ -98,7 +98,7 @@ const PregnantSurvey1 = () => {
       </View>
       <View style={[surStyle.rowContainer,surStyle.bottom]}>
         <TouchableOpacity
-          //onPress={handlePre}
+          onPress={handlePre}
           style={[surStyle.buttonLight, surStyle.roundButton]}
         >
           <Icon name= 'arrowleft' size={28} color={color.mainPink}></Icon>

@@ -9,6 +9,7 @@ import WelcomePage from './screens/WelcomePage';
 import PregnantSurvey1 from './screens/PregnantSurvey1';
 import PregnantSurvey2 from './screens/PregnantSurvey2';
 import PregnantSurvey3 from './screens/PregnantSurvey3';
+import AppointmentScreen from './screens/AppointmentScreen';
 import Dashboard from './screens/Dashboard';
 
 import UserDash from './screens/UserDash';
@@ -29,12 +30,14 @@ export default function App() {
         <Stack.Screen name="Signup" component={SignupScreen} />
         <Stack.Screen name="Welcome" component={WelcomePage}/>
         {/* <Stack.Screen name="Dashboard" component={Dashboard} /> */}
-        <Stack.Screen name="Pregnant Survey1" component={PregnantSurvey1} options={{title:"Pregnant Survey"}}/>
-        <Stack.Screen name="Pregnant Survey2" component={PregnantSurvey2} options={{title:"Pregnant Survey"}}/>
-        <Stack.Screen name="Pregnant Survey3" component={PregnantSurvey3} options={{title:"Pregnant Survey"}}/>
-        <Stack.Screen name="Dashboard" component={UserDash} />
+        <Stack.Screen options={{ headerShown: false }} name="Pregnant Survey1" component={PregnantSurvey1}/>
+        <Stack.Screen options={{ headerShown: false }} name="Pregnant Survey2" component={PregnantSurvey2}/>
+        <Stack.Screen options={{ headerShown: false }} name="Pregnant Survey3" component={PregnantSurvey3}/>
+        <Stack.Screen options={{ headerShown: false }} name="Dashboard" component={UserDash} />
         <Stack.Screen name="Summary" component={WeightGainBP}/>
         <Stack.Screen options={{ headerShown: false }} name="Fetal Screen" component={FetalScreen}/>
+        <Stack.Screen name="Appointment" component={AppointmentScreen}/>
+
 
         
       </Stack.Navigator>
