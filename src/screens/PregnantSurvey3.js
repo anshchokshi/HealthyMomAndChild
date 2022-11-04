@@ -42,7 +42,7 @@ const PregnantSurvey3 = () => {
         .collection('users')
         .doc(auth.currentUser?.email)
         .collection('pregnant')
-        .doc()
+        .doc(auth.currentUser?.email)
         .set({
             LastMentrualPeriod: route.params.LMP,
             FirstPregnancy: route.params.firstPreg,
