@@ -38,7 +38,7 @@
 Describe your Git / GitHub workflow. Essentially, we want to understand how your team members shares a codebase, avoid conflicts and deploys the application.
 
 * We divided the team equally in the front-end and back end. In one of our meetings, we decided on all the things required to be done by the frontend and backend teams and assigned tasks to each team member. Then we decided to create an individual branch for each task and followed the below naming convention. Each team member creates a pull request of their branch once the task is done and then Ansh and Anthony were responsible to review each branch and merge it to the main as they were coordinating between frontend and backend teams. To avoid conflicts we decided to only create pull requests once the code did not have any errors or dependency issues so the people reviewing the code do not have to worry about that part and just check the logic and basic requirements. 
-* We used the following naming convention to make it clear to all teammates what that particular branch did and who owned it.
+* We used the following naming convention to make it clear to all teammates what that particular branch did and who owned it.         
 	 `branch name -> <task_name>-<member_name>`
 	  `for example -> authentication-ansh`
 * We used Expo as it is a platform for making universal native apps for Android, and iOS. Expo lets us run the Application on a local environment if connected to a simulator. All team members used that for testing purposes to check if the application was running without any errors before pushing code on their branch.
