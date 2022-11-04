@@ -13,16 +13,27 @@
  * This section will be used to assess the value of the features built
 
 ## Instructions
+### Installation Steps
+1. Download the Expo Go App on the App Store or the Google Play Store (links below).
+2. In the Expo Go App, scan the QR Code below.
+3. Wait for the app to load. This may take a few minutes.
+
+| | iOS | Android |
+|--|--|--|
+|Expo Go| https://itunes.apple.com/app/apple-store/id982107779 | https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www |
+|QR Code| <img src="https://user-images.githubusercontent.com/53279821/199995305-8c4f54c3-a071-4cf9-a741-6f01500f709c.svg" width="250"> | <img src="https://user-images.githubusercontent.com/53279821/199995376-dd924f15-0a9c-4c77-a53f-577e3a3f50c2.svg" width="250">
+|Alternative to QR Code| exp://u.expo.dev/update/d59f8d9a-079c-4536-812b-f44a7e2c19c5 | exp://u.expo.dev/update/c17b2916-1c05-408c-8ec8-f508eba4109b |
+
+### Usage
  * Clear instructions for how to use the application from the end-user's perspective
- * How do you access it? Are accounts pre-created or does a user register? Where do you start? etc. 
  * Provide clear steps for using each feature described above
  * This section is critical to testing your application and must be done carefully and thoughtfully
 
- ## Development requirements
+## Development requirements
  * If a developer were to set this up on their machine or a remote server, what are the technical requirements (e.g. OS, libraries, etc.)?
  * Briefly describe instructions for setting up and running the application (think a true README).
 
- ## Deployment and Github Workflow
+## Deployment and Github Workflow
 
 Describe your Git / GitHub workflow. Essentially, we want to understand how your team members shares a codebase, avoid conflicts and deploys the application.
 
