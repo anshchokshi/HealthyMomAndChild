@@ -14,15 +14,15 @@
 
 ## Instructions
 ### Installation Steps
-1. Download the Expo Go App on the App Store or the Google Play Store (links below).
+1. Download the Expo Go App on the App Store or the Google Play Store. Link for iOS: https://itunes.apple.com/app/apple-store/id982107779. Link for Android: https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www.
 2. In the Expo Go App, scan the QR Code below.
-3. Wait for the app to load. This may take a few minutes.
 
 | | iOS | Android |
 |--|--|--|
-|Expo Go| https://itunes.apple.com/app/apple-store/id982107779 | https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www |
-|QR Code| <img src="https://user-images.githubusercontent.com/53279821/199995305-8c4f54c3-a071-4cf9-a741-6f01500f709c.svg" width="250"> | <img src="https://user-images.githubusercontent.com/53279821/199995376-dd924f15-0a9c-4c77-a53f-577e3a3f50c2.svg" width="250">
-|Alternative to QR Code| exp://u.expo.dev/update/d59f8d9a-079c-4536-812b-f44a7e2c19c5 | exp://u.expo.dev/update/c17b2916-1c05-408c-8ec8-f508eba4109b |
+|QR Code| <img src="https://user-images.githubusercontent.com/53279821/200085389-ed15fa58-dc78-4452-b2df-f389d3cc1cf6.svg" width="250"> | <img src="https://user-images.githubusercontent.com/53279821/200085541-f91d7350-d459-4047-91df-741f7145556e.svg" width="250">
+|Alternative to QR Code| exp://u.expo.dev/update/3dc66328-9941-4453-8796-64c17959c805 | exp://u.expo.dev/update/e4159adc-1eae-4ca2-9a5e-0ca884b431ef |
+3. Wait for the app to load. This may take a few minutes.
+
 
 ### Usage
  * Clear instructions for how to use the application from the end-user's perspective
