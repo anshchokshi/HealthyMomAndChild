@@ -17,11 +17,6 @@
 
 List **process-related** (i.e. team organization and how you work) decisions that, in retrospect, turned out to be successful.
 
-
- * 2 - 4 decisions.
- * Ordered from most to least important.
- * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
- * Feel free to refer/link to process artifact(s).
  - Decided to design the application initially in Figma where the members of the frontend team had a meeting and went over the slides provided by the partner regarding the mock of the application. We came up with an initial outline and the document was shown to the partner before coding it up in order to ensure that we were on the right track. Discussions regarding improving the design were held and the figma was shared with the backend team. Through this decision, keeping track of the app components and potential changes got easier. 
 Link to Figma: https://www.figma.com/file/TJukEWVr3OUzJCsFjdhVTM/Healthy-Child-and-Baby-%2B?node-id=0%3A1
 - Decided to have at least one meeting per week with the partner to display our progress and discuss any questions that we came up with while coding. In the first meeting after td1, the backend team designed one single login page and showed to the partner to get feedback for the rest of the app design. 
@@ -32,10 +27,6 @@ Link to Figma: https://www.figma.com/file/TJukEWVr3OUzJCsFjdhVTM/Healthy-Child-a
 
 List **process-related** (i.e. team organization and how you work) decisions that, in retrospect, were not as successful as you thought they would be.
 
- * 2 - 4 decisions.
- * Ordered from most to least important.
- * Explain why (i.e. give a supporting argument) you consider a decision to be unsuccessful
- * Feel free to refer/link to process artifact(s).
 - Although we decided the roles of each member, we didn't use Trello or any similar applications to formally assign roles, keep track of to-dos, tasks that were in progress, and the tasks that were completed. Thus, coordination between members of frontend and backend got a bit unclear.
 - After assigning roles to frontend and backend team during the first meeting, we decided to make a fair amount of progress weekly. However, due to heavy workload of school, we fell behind in some of the tasks and had to work more towards the end.
 
