@@ -36,7 +36,7 @@ List any **process-related** (i.e. team organization and how you work) changes y
 
  * Ordered from most to least important.
  * Explain why you are making a change.
-
+-  We plan to have more in person meetings with the respective teams as well such as front end and back end over the next few weeks in order to collaborate on the tasks to be completed to finish the project more efficiently.
 
 ## Product - Review
 
