@@ -1,6 +1,6 @@
 # Healthy Mom and Child+
 
-## Iteration 03 - Review & Retrospect
+## Iteration 02 - Review & Retrospect
 
  * When: 21st October 2022
  * Where: Gerstein Library B105A
