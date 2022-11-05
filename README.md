@@ -13,11 +13,11 @@
  	* Users will be able to sign up and login into the app. For signup, users have to provide basic information like First and Last Name, Email and password.Passwords have to be at least 6 characters long. Wrong login attempts will result in a pop up message.
   *  Multiple flows: Our app will have three flows: one for users trying to concieve, one for pregnant users and one for users who already have a child. Users will be able to select the flow from the first screen after login. For this iteration, we have focused on the flow for pregnant users only.
   *  Onboarding Survey: New users of the pregnant flow will be redirected to a onboarding survey which will ask some questions regarding their pregnancy.The questions are:
-	* Date of last menstrual period
-	* Whether it is their first pregnancy
-	* If they have high BP
-	* If they have elevated blood sugar
-	* Inital weight and height pregnancy. Users will have the option to input the information in both metric and imperial systems.
+* Date of last menstrual period
+* Whether it is their first pregnancy
+* If they have high BP
+* If they have elevated blood sugar
+* Inital weight and height pregnancy. Users will have the option to input the information in both metric and imperial systems.
 * User Dashboard: This is the homepage of the application for the application's pregant flow. Users can navigate to all the other screens in this app from this page.
 * Baby Development Page: Users will be able to see the expected size and wieght of the baby on this page. Additional content pertaining to the baby's development will be shown here too. The information will be provided by the partner on a later date and will be stored in(and pulled from) our database.
 * Weight Gain Page: Users will be able to review the basic information that they provided in their onboarding survey (like last menstural period) and other calulated values like dude date and initial BMI. They will also be able to view the average weight gain since the beginning of their pregnancy (calculated from their inputs over the weeks) and compare it with the average normal (expected) weight gain which is stored in our database weekwise. Users will have the option to view the information both in Kg and Lb.
