@@ -29,6 +29,7 @@ Significant changes and challenges occur in this period of a woman's life. One o
 2. In the Expo Go App, scan the QR Code below.
 <img src="https://user-images.githubusercontent.com/53279821/200095567-5660985f-6fda-46fd-b385-9d4ab6d918cd.svg" width="250"> 
 Alternative to the QR codes is to enter the following URL manually: exp://u.expo.dev/update/90d7eb09-d1c1-400d-bfbe-bd6865f24e71
+
 3. Wait for the app to load. This may take a few minutes.
 
 
