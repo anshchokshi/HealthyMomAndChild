@@ -38,6 +38,17 @@ const PregnantSurvey3 = () => {
       navigation.goBack()
     }
     const handleAnswers = () => { 
+     
+      firebase.firestore()
+      .collection('users')
+      .doc(auth.currentUser?.email)
+      .update({
+        isPregnant: true
+      })
+      .then(function(docRef) {
+       /* log data */
+      })
+      
         firebase.firestore()
         .collection('users')
         .doc(auth.currentUser?.email)

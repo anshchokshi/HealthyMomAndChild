@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/core';
 import React, { useEffect, useState, useContext} from 'react';
-import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Button, StyleSheet, Text, TouchableOpacity, View, Modal, Pressable } from 'react-native'
 import { firebase } from '../firebase'
 import { Header } from '@rneui/themed'
 import {LinearGradient} from 'react-native-linear-gradient';
@@ -16,6 +16,7 @@ const UserDash = () => {
     const handleWeightBP = () => {navigation.navigate("Summary")}
 
     const handleAppointments = () => {navigation.navigate("Appointment")}
+    const [modalVisible, setModalVisible] = useState(false);
 
     return(
         <View style={styles.container}>
@@ -24,6 +25,23 @@ const UserDash = () => {
             </View>
             <View 
                 style = {styles.dashContainer}>
+                <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={modalVisible}
+                        >
+
+                <View style={styles.modalView}>
+                    <Text style={styles.modalText}>This feature will be developed later.</Text>
+                    <Pressable
+                         style={styles.buttonClose}
+                        onPress={() => setModalVisible(!modalVisible)}
+                         >
+                         <Text style={{fontSize:17}}>Hide</Text>
+                        </Pressable>
+                    </View>
+        
+                 </Modal>
                 {/* <Text>MainPage</Text> */}
                 <View style={styles.buttonCont}>
                     <TouchableOpacity style={styles.buttonLeft}
@@ -43,13 +61,17 @@ const UserDash = () => {
                         <Image source={require('../assets/APTS.png')} style={styles.buttonImg} blurRadius={5}></Image>
                         <Text style={styles.buttonText}>Your Appointments</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonRight}>
+                    <TouchableOpacity style={styles.buttonRight}
+                    onPress={() => setModalVisible(true)}
+                    >
                     <Image source={require('../assets/SA.png')} style={styles.buttonImg} blurRadius={5}></Image>
                         <Text style={styles.buttonText}>Surveys and Articles</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.buttonContCenter}>
-                    <TouchableOpacity style={styles.buttonCenter}>
+                    <TouchableOpacity style={styles.buttonCenter}
+                    onPress={() => setModalVisible(true)}
+                    >
                     <Image source={require('../assets/EMC.png')} style={styles.buttonImg} blurRadius={5}></Image>
                         <Text style={styles.buttonText}>Educational Medical Content</Text>
                     </TouchableOpacity>
@@ -174,7 +196,34 @@ const styles = StyleSheet.create({
     },
     abs: {
         // position: 'absolute'
-    }
+    },
+    modalView: {
+        marginTop: '80%',
+        backgroundColor: "white",
+        borderRadius: 20,
+        padding: 35,
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5
+      },
+      modalText: {
+        marginBottom: 15,
+        textAlign: "center",
+        fontSize:18,
+        fontWeight:'700'
+      },
+      buttonClose: {
+        backgroundColor: "#2196F3",
+        borderRadius: 10,
+        padding: 15,
+        elevation: 2
+      },
     
 })
 

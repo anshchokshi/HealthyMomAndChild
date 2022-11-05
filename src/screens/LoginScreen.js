@@ -6,15 +6,33 @@ import { firebase } from '../firebase'
 const LoginScreen = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [check, setCheck] = useState(false)
   
 
   const navigation = useNavigation()
+  const auth = firebase.auth()
 
   useEffect(() => {
+    async function fetchData(){
+    const name = null;
+    firebase.firestore().collection('users')
+    .doc(auth.currentUser?.email)
+    .get()
+    .then(documentSnapshot => {
+      const count = documentSnapshot.get("isPregnant")
+      console.log('User exists: ', count);
+      setCheck(count)
+    });}
+    fetchData();
     const unsubscribe = firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        
-        navigation.replace("Welcome")
+        if (check){
+          navigation.replace("Dashboard")
+        }
+        else{
+          navigation.replace("Welcome")
+        }
+       
       }
     })
 

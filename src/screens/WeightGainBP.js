@@ -22,21 +22,6 @@ const WeightGainBP = () => {
     const auth = firebase.auth();
     const [LMP, setLMP] = useState();
 
-    useEffect( () =>{
-        async function fetchData(){
-          const name = null;
-          firebase.firestore().collection('users')
-          .doc(auth.currentUser?.email)
-          .collection('pregnant')
-          .doc(auth.currentUser?.email)
-          .then(documentSnapshot => {
-            const lmp = documentSnapshot.get("LastMentrualPeriod")
-            console.log('User LMP: ', lmp);
-            setLMP(lmp)
-          });}
-        fetchData();
-      }, [] );
-
     const handleToggle = () => {
         setToggle(!toggle);
     }

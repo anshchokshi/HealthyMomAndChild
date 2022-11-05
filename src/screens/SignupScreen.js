@@ -14,11 +14,29 @@ const LoginScreen = () => {
   const [Lastname, setLastName] = useState();
   const [age, setAge] = useState();
   const auth = firebase.auth();
+  const [check, setCheck] = useState(false)
 
   useEffect(() => {
+    async function fetchData(){
+    const name = null;
+    firebase.firestore().collection('users')
+    .doc(auth.currentUser?.email)
+    .get()
+    .then(documentSnapshot => {
+      const count = documentSnapshot.get("isPregnant")
+      console.log('count exists: ', count);
+      setCheck(count)
+    });}
+    fetchData();
     const unsubscribe = firebase.auth().onAuthStateChanged(user => {
       if (user) {
-       navigation.replace("Welcome")
+        if (check){
+          navigation.replace("Dashboard")
+        }
+        else{
+          navigation.replace("Welcome")
+        }
+       
       }
     })
 
@@ -47,6 +65,7 @@ const LoginScreen = () => {
         FirstName: Firstname,
         LastName: Lastname,
         Age: age,
+        isPregnant: false
         })
       .then(() => {
         console.log('User added!');
