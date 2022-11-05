@@ -1,6 +1,5 @@
 # HEALTHY MOM AND CHILD+
 
-> _Note:_ This document is intended to be relatively short. Be concise and precise. Assume the reader has no prior knowledge of your application and is non-technical. 
 ## Description 
 *Health Mom and Child+* is a mobile application that will help educate, monitor, and detect health issues for women that are planning to conceive, women who are already pregnant, or women that have given birth in the last three months (perinatal women).
 Significant changes and challenges occur in this period of a woman's life. One of their greatest resources is family physicians and specialists, but access to these medical professionals can be limited in rural and remote areas of living. Alternatives, such as the Internet and existing mobile applications, can contain information that is not sufficient, so this application is meant to supply the necessary information in a digestible format.
@@ -30,7 +29,6 @@ Significant changes and challenges occur in this period of a woman's life. One o
 2. In the Expo Go App, scan the QR Code below.
 <img src="https://user-images.githubusercontent.com/53279821/200095567-5660985f-6fda-46fd-b385-9d4ab6d918cd.svg" width="250"> 
 Alternative to the QR codes is to enter the following URL manually: exp://u.expo.dev/update/90d7eb09-d1c1-400d-bfbe-bd6865f24e71
-
 3. Wait for the app to load. This may take a few minutes.
 
 
@@ -56,8 +54,6 @@ Alternative to the QR codes is to enter the following URL manually: exp://u.expo
 
 ## Deployment and Github Workflow
 
-Describe your Git / GitHub workflow. Essentially, we want to understand how your team members shares a codebase, avoid conflicts and deploys the application.
-
 * We divided the team equally in the front-end and back end. In one of our meetings, we decided on all the things required to be done by the frontend and backend teams and assigned tasks to each team member. Then we decided to create an individual branch for each task and followed the below naming convention. Each team member creates a pull request of their branch once the task is done and then Ansh and Anthony were responsible to review each branch and merge it to the main as they were coordinating between frontend and backend teams. To avoid conflicts we decided to only create pull requests once the code did not have any errors or dependency issues so the people reviewing the code do not have to worry about that part and just check the logic and basic requirements. 
 * We used the following naming convention to make it clear to all teammates what that particular branch did and who owned it.         
 	 branch name -> `<task_name>-<member_name>`
@@ -68,8 +64,6 @@ Describe your Git / GitHub workflow. Essentially, we want to understand how your
 
  ## Licenses 
 
- Keep this section as brief as possible. You may read this [Github article](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository) for a start.
-
- * What type of license will you apply to your codebase?
- * What affect does it have on the development and use of your codebase?
- * Why did you or your partner make this choice?
+ * The GNU General Public License
+ * If others use our project they have to use same license, hence no else can make money out of our code and commercially distribute our work.
+ * We decided to agree to this license as it is restrictive and also we have mutually agreed with the partner that code can be freely uploaded on open-   source platform but all the other documents or content provided are confidential. 
