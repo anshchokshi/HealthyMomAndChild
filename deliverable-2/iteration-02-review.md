@@ -27,11 +27,9 @@ Link to Figma: https://www.figma.com/file/TJukEWVr3OUzJCsFjdhVTM/Healthy-Child-a
 
 #### Q3. Planned changes
 
-List any **process-related** (i.e. team organization and how you work) changes you are planning to make (if there are any)
-
- * Ordered from most to least important.
- * Explain why you are making a change.
 -  We plan to have more in person meetings with the respective teams as well such as front end and back end over the next few weeks in order to collaborate on the tasks to be completed to finish the project more efficiently.
+-  We have decided to spend more time on the deliverable reports and plan them ahead of time. This time we focused mainly on the Application and later found out reports are 50% of the grade, hence moving forward we have decided to give product and reports equal attention.
+-  Lastly, we have decided to make a Trello or similar application going ahead to manage tasks. This time orally tried to do things and team members had to be reminded again on slack to complete the task. Instead, a todo task list would be a better and more efficient solution.
 
 ## Product - Review
 
