@@ -11,8 +11,8 @@
  * This section will be used to assess the value of the features built
  * Signup/Login:
  	* Users will be able to sign up and login into the app. For signup, users have to provide basic information like First and Last Name, Email and password.Passwords have to be at least 6 characters long. Wrong login attempts will result in a pop up message.
-  *  Multiple flows: Our app will have three flows: one for users trying to concieve, one for pregnant users and one for users who already have a child. Users will be able to select the flow from the first screen after login. For this iteration, we have focused on the flow for pregnant users only.
-  *  Onboarding Survey: New users of the pregnant flow will be redirected to a onboarding survey which will ask some questions regarding their pregnancy.The questions are:
+  * Multiple flows: Our app will have three flows: one for users trying to concieve, one for pregnant users and one for users who already have a child. Users will be able to select the flow from the first screen after login. For this iteration, we have focused on the flow for pregnant users only.
+  * Onboarding Survey: New users of the pregnant flow will be redirected to a onboarding survey which will ask some questions regarding their pregnancy.The questions are:
 	* Date of last menstrual period
 	* Whether it is their first pregnancy
 	* If they have high BP
