@@ -65,5 +65,5 @@ Alternative to the QR codes is to enter the following URL manually: exp://u.expo
  ## Licenses 
 
  * The GNU General Public License
- * If others use our project they have to use same license, hence no else can make money out of our code and commercially distribute our work.
+ * If others use our project they have to use same license, hence no one else can make money out of our code and commercially distribute our work.
  * We decided to agree to this license as it is restrictive and also we have mutually agreed with the partner that code can be freely uploaded on open-   source platform but all the other documents or content provided are confidential. 
