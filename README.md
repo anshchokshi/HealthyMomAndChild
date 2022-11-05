@@ -46,8 +46,13 @@ Alternative to the QR codes is to enter the following URL manually: exp://u.expo
  * Tapping the Your Appointments page will take you to the Your Appointments page. You can see all the family doctor, diagnostic, lab appointments and vaccinations here. This information will be provided at a later date by the partner so we currently have placeholder information.
 
 ## Development requirements
- * If a developer were to set this up on their machine or a remote server, what are the technical requirements (e.g. OS, libraries, etc.)?
- * Briefly describe instructions for setting up and running the application (think a true README).
+ * Git clone the repository.
+ * See that the simulator is connected and running.
+ * Open terminal on the folder the repo is cloned locally and run the below commands -
+ * Run - `npm install`
+ * Run - `expo start --ios` or  `expo start --android` (depending on your simulator)
+ * This will automatically load the App on your simulator.
+ 
 
 ## Deployment and Github Workflow
 
