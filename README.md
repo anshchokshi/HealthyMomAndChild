@@ -2,8 +2,8 @@
 
 > _Note:_ This document is intended to be relatively short. Be concise and precise. Assume the reader has no prior knowledge of your application and is non-technical. 
 ## Description 
- * A unique health application that will help educate, monitor, and detect health issues with both women that are planning to conceive, pregnant, or have      given birth in the last three months (perinatal women), and their children up to the age of 12 years old.
- * Significant changes and challenges occur in the life of a woman undergoing conception, pregnancy, or the baby nursing process and questions will arise due to this. Women in this category will search for answers to these questions. One of their greatest resources are family physicians and specialists. But access to these medical professionals can be limited in rural and remote areas of living. The lack of in-person consultations can directly affect the health of pregnant women and children. As alternatives, such as the Internet and existing mobile applications, can contain information that is not sufficient, nor detailed.
+*Health Mom and Child+* is a mobile application that will help educate, monitor, and detect health issues for women that are planning to conceive, women who are already pregnant, or women that have given birth in the last three months (perinatal women).
+Significant changes and challenges occur in this period of a woman's life. One of their greatest resources is family physicians and specialists, but access to these medical professionals can be limited in rural and remote areas of living. Alternatives, such as the Internet and existing mobile applications, can contain information that is not sufficient, so this application is meant to supply the necessary information in a digestible format.
 
 ## Key Features
  * Described the key features in the application that the user can access
@@ -26,13 +26,11 @@
 
 ## Instructions
 ### Installation Steps
-1. Download the Expo Go App on the App Store or the Google Play Store. Link for iOS: https://itunes.apple.com/app/apple-store/id982107779. Link for Android: https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www.
+1. Download the Expo Go App on the App Store. Link for iOS: https://itunes.apple.com/app/apple-store/id982107779. At the moment, the application is only available for iOS.
 2. In the Expo Go App, scan the QR Code below.
+<img src="https://user-images.githubusercontent.com/53279821/200095567-5660985f-6fda-46fd-b385-9d4ab6d918cd.svg" width="250"> 
+Alternative to the QR codes is to enter the following URL manually: exp://u.expo.dev/update/90d7eb09-d1c1-400d-bfbe-bd6865f24e71
 
-| | iOS | Android |
-|--|--|--|
-|QR Code| <img src="https://user-images.githubusercontent.com/53279821/200085389-ed15fa58-dc78-4452-b2df-f389d3cc1cf6.svg" width="250"> | <img src="https://user-images.githubusercontent.com/53279821/200085541-f91d7350-d459-4047-91df-741f7145556e.svg" width="250">
-|Alternative to QR Code| exp://u.expo.dev/update/3dc66328-9941-4453-8796-64c17959c805 | exp://u.expo.dev/update/e4159adc-1eae-4ca2-9a5e-0ca884b431ef |
 3. Wait for the app to load. This may take a few minutes.
 
 
