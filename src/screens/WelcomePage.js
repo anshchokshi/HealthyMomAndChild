@@ -2,32 +2,26 @@ import { useNavigation } from '@react-navigation/core';
 import React, { useEffect, useState, useContext} from 'react';
 import { Pressable, StyleSheet, Text, TouchableOpacity, View, Modal } from 'react-native'
 import { firebase } from '../firebase'
+import { UserContext, getUserProfile } from "../context/UserContext";
+
 
 const WelcomePage = () => {
   const navigation = useNavigation()
   const auth = firebase.auth();
-  const [Firstname, setFirstName] = useState();
   const [modalVisible, setModalVisible] = useState(false);
+  const { setUserProfile } = useContext(UserContext)
 
-  useEffect( () =>{
-  async function fetchData(){
-    const name = null;
-    firebase.firestore().collection('users')
-    .doc(auth.currentUser?.email)
-    .get()
-    .then(documentSnapshot => {
-      const name = documentSnapshot.get("FirstName")
-      console.log('User exists: ', name);
-      setFirstName(name)
-    });}
-  fetchData();
-}, [] );
-
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const profile = await getUserProfile(auth.currentUser?.email)
+      setUserProfile(profile)
+    }
+    fetchProfile()
+  }, []);
 
   const handlePregnant = () => {
     navigation.navigate("Pregnant Survey1")
   }
-
 
   return (
     <View style={styles.container}>
@@ -48,12 +42,13 @@ const WelcomePage = () => {
       </View>
         
       </Modal>
-
-
-      <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>Welcome {Firstname}!</Text>
-        
-      </View>
+      <UserContext.Consumer>
+        {userContext => (
+          <View style={styles.headerContainer}>
+            <Text style={styles.headerText}>Welcome {userContext?.userProfile?.FirstName}!</Text>
+          </View>
+        )}
+      </UserContext.Consumer>
       
       <View style={styles.buttonContainer}>
         <Text style={{fontSize:20, fontWeight:'500'}}>Select from the following:</Text>
