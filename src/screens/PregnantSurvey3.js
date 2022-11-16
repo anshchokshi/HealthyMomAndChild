@@ -14,7 +14,6 @@ import { useRoute } from '@react-navigation/core';
 import  WaveHeader  from '../component/WaveHeader'
 import surStyle from '../helpers/SurveyStyle'
 import color from '../helpers/Color'
-import PregnantSurvey2 from './PregnantSurvey2';
 import SelectButton1 from '../component/Switch'
 import Icon from 'react-native-vector-icons/AntDesign';
 import  {convertHeight, percentageHeight}  from '../helpers/ScreenSizeHelper';
