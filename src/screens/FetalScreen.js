@@ -1,26 +1,65 @@
 import { useNavigation } from '@react-navigation/core'
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState, useContext, useCallback } from 'react'
+import { UserContext } from '../context/UserContext'
 import { TouchableOpacity, StyleSheet, Text, ImageBackground, View, Image, ScrollView, Modal, Pressable } from 'react-native'
-import { getFetalGrowthData } from '../db/fetalGrowth'
+import { getFetalGrowthMeasurements, getFetalMeasurementString } from '../db/fetalGrowth'
+import { getWeeksDiff } from '../helpers/Date'
 
 const FetalScreen = () => {
-    const [fetalData, setFetalData] = useState([])
+	const [weekNumber, setWeekNumber] = useState(null)
+    const [measurements, setMeasurements] = useState(null)
     const navigation = useNavigation()
     const [modalVisible, setModalVisible] = useState(false);
+    const { userProfile } = useContext(UserContext)
     
+	useEffect(() => {
+		console.log(userProfile)
+		const lmpString = userProfile?.pregnantProfile?.LastMenstrualPeriod
+		if (lmpString != null) {
+			const lmp = new Date(lmpString)
+			const weekNumber = getWeeksDiff(lmp, new Date())
+			setWeekNumber(Math.min(weekNumber, 42))
+		}
+	}, [userProfile])
+
     useEffect(() => {
-        const fetchData = (async() => {
-            const { lengthIn, weightOz, weightPounds, weightGrams } =  await getFetalGrowthData(11)
+		console.log(weekNumber)
+        const fetchData = async () => {
+			const measurements =  await getFetalGrowthMeasurements(weekNumber)
+			setMeasurements(measurements)
+        }
+		if (weekNumber > 10) {
+			fetchData()
+		}
+      }, [weekNumber])
 
-            setFetalData([lengthIn, weightOz, weightPounds, weightGrams])
-        })
-        fetchData()        
-      }, [])
-
-    console.log(fetalData)
     const handleDashboard = () => {
         navigation.navigate("Dashboard")
     }
+
+	const getFetalGrowthMeasurementElements = useCallback(() => {
+		if (measurements != null) {
+			const imperial = true // take this from userprofile in future
+			const headerElement = <Text style={styles.sizeInfoText}>Your baby size:</Text>
+			const followingElement = (() => {
+				if (imperial) {
+					if (weekNumber <= 21) {
+						return(<Text style={styles.sizeInfoText}>{measurements.lengthIn} inches and {measurements.weightOz} ounces</Text>)
+					} else {
+						return(<Text style={styles.sizeInfoText}>{measurements.lengthIn} inches and {measurements.weightPounds} pounds</Text>)
+					}
+				} else {
+					return(<Text style={styles.sizeInfoText}>{measurements.lengthCm.toFixed(2)} cm and {measurements.weightGrams.toFixed(2)} grams</Text>)
+				}
+			})()
+			return (<>{headerElement}{followingElement}</>)
+		} else {
+			return(<>
+				<Text style={styles.sizeInfoText}>Your baby is an embryo and is</Text>
+				<Text style={styles.sizeInfoText}>{`${getFetalMeasurementString(weekNumber)}.`}</Text>
+			</>)
+		}
+	}, [weekNumber, measurements])
 
     return (
         <View>
@@ -50,10 +89,7 @@ const FetalScreen = () => {
             <ScrollView style={styles.container}>
             
                 <View style={styles.sizeInfoContainer}>
-                    <Text style={styles.sizeInfoText}>Your baby size:</Text>
-                    <Text style={styles.sizeInfoText}>{fetalData[0]} inches and {fetalData[1]} ounces</Text>
-                    <Text style={styles.sizeInfoText}>OR</Text> 
-                    <Text style={styles.sizeInfoText}>{fetalData[0] * 2.54} cm and {fetalData[3]} grams</Text>         
+					{getFetalGrowthMeasurementElements()}
                 </View>
                 <Text>Additional content ...</Text>
 

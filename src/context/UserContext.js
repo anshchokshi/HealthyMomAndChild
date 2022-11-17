@@ -7,6 +7,10 @@ export const UserContext = createContext({
 });
 
 export async function getUserProfile(id) {
-  const document = await firebase.firestore().collection('users').doc(id).get()
-  return document.data()
+  const userDocRef = firebase.firestore().collection('users').doc(id)
+  const userDoc = await userDocRef.get()
+  const userProfile = userDoc.data()
+  const pregnantProfileDoc = await userDocRef.collection('pregnant').doc(id).get()
+  userProfile.pregnantProfile = pregnantProfileDoc.data()
+  return userProfile
 }

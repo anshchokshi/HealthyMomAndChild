@@ -18,7 +18,7 @@ import SelectButton1 from '../component/Switch'
 import Icon from 'react-native-vector-icons/AntDesign';
 import  {convertHeight, percentageHeight}  from '../helpers/ScreenSizeHelper';
 import { KeyboardAccessoryNavigation } from 'react-native-keyboard-accessory'
-
+import { UserContext, getUserProfile } from '../context/UserContext';
 
 
 
@@ -30,6 +30,8 @@ const PregnantSurvey3 = () => {
     const navigation = useNavigation();
     const auth = firebase.auth();
     const [unit, setUnit] = useState(false)
+    const { setUserProfile } = useContext(UserContext)
+
     const changeunit = () => { 
       setUnit(!unit)
     }
@@ -54,7 +56,7 @@ const PregnantSurvey3 = () => {
         .collection('pregnant')
         .doc(auth.currentUser?.email)
         .set({
-            LastMentrualPeriod: route.params.LMP,
+            LastMenstrualPeriod: route.params.LMP,
             FirstPregnancy: route.params.firstPreg,
             HBS: route.params.HBS,
             EBS: route.params.EBS,
@@ -65,7 +67,11 @@ const PregnantSurvey3 = () => {
 
         .then(() => {
           console.log('Details added!');
-          navigation.navigate("Dashboard")
+          (async () => {
+            const profile = await getUserProfile(auth.currentUser?.email)
+            setUserProfile(profile)
+            navigation.navigate("Dashboard")
+          })()
         });
         
       }
