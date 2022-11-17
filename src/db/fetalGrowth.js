@@ -28,7 +28,8 @@ export function getFetalMeasurementString(weekNumber) {
 			return "between 2 and 4 mm in length"
 		case 7:
 			return "approximately 1 cm in length"
-		case 8, 9:
+		case 8:
+		case 9:
 			return "approximately 13 to 18 mm in length and weighs about 3 grams"
 		default:
 		  return ""
@@ -36,7 +37,7 @@ export function getFetalMeasurementString(weekNumber) {
 }
 
 export async function getFetalGrowthImage(weekNumber) {
-	if (!(11 <= weekNumber && weekNumber <= 42)) {
+	if (!(5 <= weekNumber && weekNumber <= 42)) {
 		return null
 	}
 	const storage = firebase.storage()
