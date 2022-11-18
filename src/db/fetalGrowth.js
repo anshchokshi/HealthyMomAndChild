@@ -3,13 +3,19 @@ import "firebase/storage";
 
 async function getFetalGrowthMeasurementsFromDatabase(weekNumber) {
 	if (!(11 <= weekNumber && weekNumber <= 42)) {
+		console.warn("Invalid week number")
 		return null
 	}
-	const db = firebase.firestore()
-	const docRef = db.collection("FetalGrowth").doc(`week${weekNumber}`)
-	const document = await docRef.get()
-	const { length: lengthIn, weight: weightOz } = document.data()
-	return { lengthIn, weightOz }
+	try {
+		const db = firebase.firestore()
+		const docRef = db.collection("FetalGrowth").doc(`week${weekNumber}`)
+		const document = await docRef.get()
+		const { length: lengthIn, weight: weightOz } = document.data()
+		return { lengthIn, weightOz }
+	} catch (error) {
+		console.error(error)
+		return null
+	}
 }
 
 export async function getFetalGrowthMeasurements(weekNumber) {
@@ -36,8 +42,26 @@ export function getFetalMeasurementString(weekNumber) {
 	}
 }
 
+export async function getFetalGrowthDescription(weekNumber) {
+	if (!(5 <= weekNumber && weekNumber <= 42)) {
+		console.warn("Invalid week number")
+		return null
+	}
+	try {
+		const db = firebase.firestore()
+		const docRef = db.collection("fetalDevelopmentDescription").doc(`week${weekNumber}`)
+		const document = await docRef.get()
+		const { description } = document.data()
+		return description
+	} catch (error) {
+		console.error(error)
+		return null
+	}
+}
+
 export async function getFetalGrowthImage(weekNumber) {
 	if (!(5 <= weekNumber && weekNumber <= 42)) {
+		console.warn("Invalid week number")
 		return null
 	}
 	const storage = firebase.storage()

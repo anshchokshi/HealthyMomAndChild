@@ -2,8 +2,15 @@ import { useNavigation } from '@react-navigation/core'
 import React, { useEffect, useState, useContext, useCallback } from 'react'
 import { UserContext } from '../context/UserContext'
 import { TouchableOpacity, StyleSheet, Text, ImageBackground, View, Image, ScrollView, Modal, Pressable } from 'react-native'
-import { getFetalGrowthMeasurements, getFetalMeasurementString, getFetalGrowthImage } from '../db/fetalGrowth'
+import RenderHtml from 'react-native-render-html';
+import { 
+	getFetalGrowthMeasurements, 
+	getFetalMeasurementString,
+	getFetalGrowthDescription, 
+	getFetalGrowthImage 
+} from '../db/fetalGrowth'
 import { getWeeksDiff } from '../helpers/Date'
+import { useWindowDimensions } from 'react-native';
 
 const FetalScreen = () => {
 	const [weekNumber, setWeekNumber] = useState(null)
@@ -12,6 +19,8 @@ const FetalScreen = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const { userProfile } = useContext(UserContext)
 	const [fetalDevImage, setFetalDevImage] = useState(null)
+	const [fetalDevDescription, setFetalDevDescription] = useState(null)
+	const { width } = useWindowDimensions();
     
 	useEffect(() => {
 		const lmpString = userProfile?.pregnantProfile?.LastMenstrualPeriod
@@ -27,12 +36,16 @@ const FetalScreen = () => {
 			(async () => {
 				const measurements = await getFetalGrowthMeasurements(weekNumber)
 				setMeasurements(measurements)
-			})()
+			})();
 		}
 		(async () => {
 			const url = await getFetalGrowthImage(weekNumber)
 			setFetalDevImage({ uri: url, width: 115, height: 175 })
-		})()
+		})();
+		(async () => {
+			const developmentDescription = await getFetalGrowthDescription(weekNumber)
+			setFetalDevDescription(developmentDescription)
+		})();
       }, [weekNumber])
 
     const handleDashboard = () => {
@@ -93,9 +106,18 @@ const FetalScreen = () => {
             
                 <View style={styles.sizeInfoContainer}>
 					{getFetalGrowthMeasurementElements()}
+					{/* The below two elements can be re-placed to outside this View
+					On Android, it just wasn't showing up when it was outside this View */}
 					<Image source={fetalDevImage}></Image>
+          {fetalDevDescription != null &&
+            <RenderHtml
+              contentWidth={width}
+              source={{ html: fetalDevDescription }}
+              tagsStyles={descriptionTagsStyles}
+            />
+          }
+					
                 </View>
-                <Text>Additional content ...</Text>
 
             </ScrollView>
 
@@ -123,6 +145,15 @@ const FetalScreen = () => {
 }
 
 export default FetalScreen
+
+const descriptionTagsStyles = {
+	p: {
+		color: "black"
+	},
+	li: {
+		color: "black"
+	}
+};
 
 const styles = StyleSheet.create({
   container: {
