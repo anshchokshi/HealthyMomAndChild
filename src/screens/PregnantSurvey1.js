@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View,Switch, TextInput, TouchableOpacity, Button } from 'react-native'
 import React, { useEffect, useState, useContext} from 'react';
 import { useNavigation } from '@react-navigation/core'
-import PregnantSurvey2 from './PregnantSurvey2';
 import { useRoute } from '@react-navigation/core';
 import WaveHeader  from '../component/WaveHeader'
 import surStyle from '../helpers/SurveyStyle'
