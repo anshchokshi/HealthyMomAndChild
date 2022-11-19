@@ -43,7 +43,7 @@ const PregnantSurvey2 = () => {
   return (
     <View style = {styles.container}>
       <View style = {[surStyle.headerContainer]}>
-        <WaveHeader text="I'm Pregant"></WaveHeader>
+        <WaveHeader text="I'm Pregnant"></WaveHeader>
       </View>
       <View style = {surStyle.inputContainer}>
         <View
