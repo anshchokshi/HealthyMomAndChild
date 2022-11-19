@@ -32,6 +32,7 @@ const FetalScreen = () => {
 	}, [userProfile])
 
   useEffect(() => {
+    if (weekNumber == null) { return }
     if (weekNumber > 10) {
       (async () => {
         const measurements = await getFetalGrowthMeasurements(weekNumber)
