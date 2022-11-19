@@ -14,10 +14,10 @@ import { useWindowDimensions } from 'react-native';
 
 const FetalScreen = () => {
 	const [weekNumber, setWeekNumber] = useState(null)
-    const [measurements, setMeasurements] = useState(null)
-    const navigation = useNavigation()
-    const [modalVisible, setModalVisible] = useState(false);
-    const { userProfile } = useContext(UserContext)
+  const [measurements, setMeasurements] = useState(null)
+  const navigation = useNavigation()
+  const [modalVisible, setModalVisible] = useState(false);
+  const { userProfile } = useContext(UserContext)
 	const [fetalDevImage, setFetalDevImage] = useState(null)
 	const [fetalDevDescription, setFetalDevDescription] = useState(null)
 	const { width } = useWindowDimensions();
@@ -31,22 +31,22 @@ const FetalScreen = () => {
 		}
 	}, [userProfile])
 
-    useEffect(() => {
-		if (weekNumber > 10) {
-			(async () => {
-				const measurements = await getFetalGrowthMeasurements(weekNumber)
-				setMeasurements(measurements)
-			})();
-		}
-		(async () => {
-			const url = await getFetalGrowthImage(weekNumber)
-			setFetalDevImage({ uri: url, width: 115, height: 175 })
-		})();
-		(async () => {
-			const developmentDescription = await getFetalGrowthDescription(weekNumber)
-			setFetalDevDescription(developmentDescription)
-		})();
-      }, [weekNumber])
+  useEffect(() => {
+    if (weekNumber > 10) {
+      (async () => {
+        const measurements = await getFetalGrowthMeasurements(weekNumber)
+        setMeasurements(measurements)
+      })();
+    }
+    (async () => {
+      const url = await getFetalGrowthImage(weekNumber)
+      setFetalDevImage({ uri: url, width: 115, height: 175 })
+    })();
+    (async () => {
+      const developmentDescription = await getFetalGrowthDescription(weekNumber)
+      setFetalDevDescription(developmentDescription)
+    })();
+  }, [weekNumber])
 
     const handleDashboard = () => {
         navigation.navigate("Dashboard")
