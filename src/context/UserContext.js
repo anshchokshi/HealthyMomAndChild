@@ -7,6 +7,19 @@ export const UserContext = createContext({
 });
 
 export async function getUserProfile(id) {
-  const document = await firebase.firestore().collection('users').doc(id).get()
-  return document.data()
+  try {
+    const userDocRef = firebase.firestore().collection('users').doc(id)
+    const userDoc = await userDocRef.get()
+    const userProfile = userDoc.data()
+    try {
+      const pregnantProfileDoc = await userDocRef.collection('pregnant').doc(id).get()
+      userProfile.pregnantProfile = pregnantProfileDoc.data()
+    } catch (error) {
+      console.warn("User has no pregnant profile")
+    }
+    return userProfile
+  } catch (error) {
+    console.error(error)
+    return null
+  }
 }

@@ -1,26 +1,82 @@
 import { useNavigation } from '@react-navigation/core'
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState, useContext, useCallback } from 'react'
+import { UserContext } from '../context/UserContext'
 import { TouchableOpacity, StyleSheet, Text, ImageBackground, View, Image, ScrollView, Modal, Pressable } from 'react-native'
-import { getFetalGrowthData } from '../db/fetalGrowth'
+import RenderHtml from 'react-native-render-html';
+import { 
+	getFetalGrowthMeasurements, 
+	getFetalMeasurementString,
+	getFetalGrowthDescription, 
+	getFetalGrowthImage 
+} from '../db/fetalGrowth'
+import { getWeeksDiff } from '../helpers/Date'
+import { useWindowDimensions } from 'react-native';
 
 const FetalScreen = () => {
-    const [fetalData, setFetalData] = useState([])
-    const navigation = useNavigation()
-    const [modalVisible, setModalVisible] = useState(false);
+	const [weekNumber, setWeekNumber] = useState(null)
+  const [measurements, setMeasurements] = useState(null)
+  const navigation = useNavigation()
+  const [modalVisible, setModalVisible] = useState(false);
+  const { userProfile } = useContext(UserContext)
+	const [fetalDevImage, setFetalDevImage] = useState(null)
+	const [fetalDevDescription, setFetalDevDescription] = useState(null)
+	const { width } = useWindowDimensions();
     
-    useEffect(() => {
-        const fetchData = (async() => {
-            const { lengthIn, weightOz, weightPounds, weightGrams } =  await getFetalGrowthData(11)
+	useEffect(() => {
+		const lmpString = userProfile?.pregnantProfile?.LastMenstrualPeriod
+		if (lmpString != null) {
+			const lmp = new Date(lmpString)
+			const weekNumber = getWeeksDiff(lmp, new Date())
+			setWeekNumber(Math.min(weekNumber, 42))
+		}
+	}, [userProfile])
 
-            setFetalData([lengthIn, weightOz, weightPounds, weightGrams])
-        })
-        fetchData()        
-      }, [])
+  useEffect(() => {
+    if (weekNumber == null) { return }
+    if (weekNumber > 10) {
+      (async () => {
+        const measurements = await getFetalGrowthMeasurements(weekNumber)
+        setMeasurements(measurements)
+      })();
+    }
+    (async () => {
+      const url = await getFetalGrowthImage(weekNumber)
+      setFetalDevImage({ uri: url, width: 115, height: 175 })
+    })();
+    (async () => {
+      const developmentDescription = await getFetalGrowthDescription(weekNumber)
+      setFetalDevDescription(developmentDescription)
+    })();
+  }, [weekNumber])
 
-    console.log(fetalData)
     const handleDashboard = () => {
         navigation.navigate("Dashboard")
     }
+
+	const getFetalGrowthMeasurementElements = useCallback(() => {
+		if (measurements != null) {
+			const { lengthIn, lengthCm, weightOz, weightPounds, weightGrams } = measurements
+			const headerElement = <Text style={styles.sizeInfoText}>Your baby size:</Text>
+			const followingElement = (() => {
+				const imperial = true // take this from userprofile in future
+				if (imperial) {
+					if (weekNumber <= 21) {
+						return(<Text style={styles.sizeInfoText}>{lengthIn} inches and {weightOz} ounces</Text>)
+					} else {
+						return(<Text style={styles.sizeInfoText}>{lengthIn} inches and {weightPounds} pounds</Text>)
+					}
+				} else {
+					return(<Text style={styles.sizeInfoText}>{lengthCm.toFixed(2)} cm and {weightGrams.toFixed(2)} grams</Text>)
+				}
+			})()
+			return (<>{headerElement}{followingElement}</>)
+		} else {
+			return(<>
+				<Text style={styles.sizeInfoText}>Your baby is an embryo and is</Text>
+				<Text style={styles.sizeInfoText}>{`${getFetalMeasurementString(weekNumber)}.`}</Text>
+			</>)
+		}
+	}, [weekNumber, measurements])
 
     return (
         <View>
@@ -44,18 +100,25 @@ const FetalScreen = () => {
             <View style={styles.headerContainer}>
                     <ImageBackground style={styles.imageLogo}
                             source={{uri: 'https://media.istockphoto.com/vectors/fetus-stage-illustration-vector-id628342574?s=612x612'}}>
-                    <Text style={styles.headerText}>Baby development on week 11</Text>
+                    <Text style={styles.headerText}>Baby development on week {`${weekNumber}`}</Text>
                     </ImageBackground>
             </View>
             <ScrollView style={styles.container}>
             
                 <View style={styles.sizeInfoContainer}>
-                    <Text style={styles.sizeInfoText}>Your baby size:</Text>
-                    <Text style={styles.sizeInfoText}>{fetalData[0]} inches and {fetalData[1]} ounces</Text>
-                    <Text style={styles.sizeInfoText}>OR</Text> 
-                    <Text style={styles.sizeInfoText}>{fetalData[0] * 2.54} cm and {fetalData[3]} grams</Text>         
+					{getFetalGrowthMeasurementElements()}
+					{/* The below two elements can be re-placed to outside this View
+					On Android, it just wasn't showing up when it was outside this View */}
+					<Image source={fetalDevImage}></Image>
+          {fetalDevDescription != null &&
+            <RenderHtml
+              contentWidth={width}
+              source={{ html: fetalDevDescription }}
+              tagsStyles={descriptionTagsStyles}
+            />
+          }
+					
                 </View>
-                <Text>Additional content ...</Text>
 
             </ScrollView>
 
@@ -83,6 +146,15 @@ const FetalScreen = () => {
 }
 
 export default FetalScreen
+
+const descriptionTagsStyles = {
+	p: {
+		color: "black"
+	},
+	li: {
+		color: "black"
+	}
+};
 
 const styles = StyleSheet.create({
   container: {
