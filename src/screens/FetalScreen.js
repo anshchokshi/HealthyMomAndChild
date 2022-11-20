@@ -109,7 +109,7 @@ const FetalScreen = () => {
 					{getFetalGrowthMeasurementElements()}
 					{/* The below two elements can be re-placed to outside this View
 					On Android, it just wasn't showing up when it was outside this View */}
-					<Image source={fetalDevImage}></Image>
+					<Image style={styles.fetalImage} source={fetalDevImage}></Image>
           {fetalDevDescription != null &&
             <RenderHtml
               contentWidth={width}
@@ -148,11 +148,28 @@ const FetalScreen = () => {
 export default FetalScreen
 
 const descriptionTagsStyles = {
-	p: {
-		color: "black"
+	p : {
+		color: "black",
+    fontSize: 16,
+    fontWeight:'500', 
+    textAlign: 'justify',
+    marginLeft: '3%',
+    marginRight: '4%'
+	},
+  h4: {
+		color: "black",
+    fontSize: 17,
+    fontWeight:'700', 
+    textAlign: 'justify',
+    marginLeft: '3%',
 	},
 	li: {
-		color: "black"
+		color: "black",
+    fontSize: 16,
+    fontWeight:'500', 
+    textAlign: 'justify',
+    marginLeft: '3%',
+    marginRight: '3%'
 	}
 };
 
@@ -178,12 +195,17 @@ const styles = StyleSheet.create({
     height:'100%',
   },
 
+  fetalImage: {
+    marginTop:"2%",
+    marginLeft:"33%"
+  },
+
   sizeInfoContainer: {
-    width: "80%",
-    height:"90%",
-    backgroundColor:'#F08686',
+    width: "90%",
+    height:"100%",
+    backgroundColor:'#F79D9D',
     alignSelf:'center',
-    marginTop:'15%',
+    marginTop:'8%',
     borderRadius: 14,
   },
 
