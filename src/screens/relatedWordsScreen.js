@@ -64,7 +64,7 @@ const RelatedWords = () => {
         <ScrollView >
         {words.map((prop, key) => {
           return (
-            <View><Text style={styles.keyWords} key={key}>{key + 1} . {prop} - <Text style={styles.description}>{description[key]}</Text></Text></View>
+            <View key={key}><Text style={styles.keyWords} >{key + 1} . {prop} - <Text style={styles.description}>{description[key]}</Text></Text></View>
           );
         })}
 
