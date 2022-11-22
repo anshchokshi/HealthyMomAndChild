@@ -7,7 +7,6 @@ export const UserContext = createContext({
 });
 
 export async function getUserProfile(id) {
-  // Gets the user profile from the database
   try {
     const userDocRef = firebase.firestore().collection('users').doc(id)
     const userDoc = await userDocRef.get()
