@@ -20,40 +20,24 @@ import {
     percentageHeight, 
     convertHeight, 
     convertWidth} from '../helpers/ScreenSizeHelper'
-
+import { UserContext } from '../context/UserContext'
+import { 
+  firstAppointDate, 
+  nextAppointDate 
+} from '../helpers/AppoiCalculator';
 
 
 const AppointmentScreen = () => {
     const today = new Date();
-    const [LMP, setLMP] = useState(today.toDateString())
-    const [firstPreg, setfirstPreg] = useState(true)
-    const navigation = useNavigation();
+    const [LMP, setLMP] = useState()
     const route = useRoute();
-    const changeP = () => { 
-      setfirstPreg(!firstPreg)
-    }
-    const handleNext = () => {
-      navigation.navigate("Pregnant Survey2", {LMP: LMP, firstPreg: firstPreg})
-    }
-    const handlePre = () => {
-      navigation.navigate("Pregnant Survey2", {LMP: LMP, firstPreg: firstPreg})
-    }
+    const navigation = useNavigation()
+    const { userProfile } = useContext(UserContext)
 
-    const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
-
-    const showDatePicker = () => {
-      setDatePickerVisibility(true);
-    };
-
-    const hideDatePicker = () => {
-      setDatePickerVisibility(false);
-    };
-
-    const handleConfirm = (date) => {
-      setLMP(date.toDateString());
-      console.warn("A date has been picked: ", date);
-      hideDatePicker();
-  };
+    useEffect(() => {
+      const lmpString = userProfile?.pregnantProfile?.LastMenstrualPeriod
+      setLMP(lmpString);
+    }, [userProfile])
     
   return (
     <View style = {styles.container}>
@@ -73,12 +57,14 @@ const AppointmentScreen = () => {
             <Text>Family Doctor appointments</Text>
             <View style = {styles.smallerContainer}>
                 <Text>First visit  to your should be completed by:  </Text>
-                <Text>(Some Date)  </Text>
+                {/* <Text> {LMP} </Text> */}
+                <Text> {firstAppointDate(LMP)} </Text>
 
             </View>
             <View style = {styles.smallerContainer}>
                 <Text>Next visit to should be completed in 4-6 weeks after your visit by:</Text>
-                <Text>(Some Date)  </Text>
+                {/* <Text> {LMP} </Text> */}
+                <Text>{nextAppointDate(LMP)}  </Text>
 
             </View>
         </View> 
