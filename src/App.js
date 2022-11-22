@@ -10,6 +10,9 @@ import PregnantSurvey1 from './screens/PregnantSurvey1';
 import PregnantSurvey2 from './screens/PregnantSurvey2';
 import PregnantSurvey3 from './screens/PregnantSurvey3';
 import AppointmentScreen from './screens/AppointmentScreen';
+import RelatedWords from './screens/relatedWordsScreen';
+import RiskFetal from './screens/riskFetal';
+import HealthCareProviders from './screens/healthcareProviders';
 import Dashboard from './screens/Dashboard';
 
 import UserDash from './screens/UserDash';
@@ -28,7 +31,7 @@ export default function App() {
         <Stack.Navigator>
           <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
           <Stack.Screen name="Signup" component={SignupScreen} />
-          <Stack.Screen name="Welcome" component={WelcomePage}/>
+          <Stack.Screen name="Welcome" component={WelcomePage} options={{ headerShown: false }}/>
           {/* <Stack.Screen name="Dashboard" component={Dashboard} /> */}
           <Stack.Screen options={{ headerShown: false }} name="Pregnant Survey1" component={PregnantSurvey1}/>
           <Stack.Screen options={{ headerShown: false }} name="Pregnant Survey2" component={PregnantSurvey2}/>
@@ -37,6 +40,9 @@ export default function App() {
           <Stack.Screen name="Summary" component={WeightGainBP}/>
           <Stack.Screen options={{ headerShown: false }} name="Fetal Screen" component={FetalScreen}/>
           <Stack.Screen name="Appointment" component={AppointmentScreen}/>
+          <Stack.Screen name="related words screen" component={RelatedWords} options={{ headerShown: false }}/>
+          <Stack.Screen name="Risk of fetal" component={RiskFetal} options={{ headerShown: false }}/>
+          <Stack.Screen name="Health care providers" component={HealthCareProviders} options={{ headerShown: false }}/>
         </Stack.Navigator>
       </UserContext.Provider>
     </NavigationContainer>
