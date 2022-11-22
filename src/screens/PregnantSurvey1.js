@@ -59,7 +59,7 @@ const PregnantSurvey1 = () => {
       <View style = {surStyle.inputContainer}>
         <View
         style = {surStyle.textContainer}>
-          <Text style = {[surStyle.text,{numberOfLines:2}]}> What was the first day of your last menstruial period?</Text>
+          <Text style = {[surStyle.text,{numberOfLines:2}]}> What was the first day of your last menstrual period?</Text>
         </View>
         <View style = {[surStyle.rowContainer, surStyle.input]} onPress={showDatePicker}>
           {/* <TextInput style = {[surStyle.text,{fontWeight:'light'}]}> {LMP}</TextInput> */}

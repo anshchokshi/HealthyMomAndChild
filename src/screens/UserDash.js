@@ -70,7 +70,7 @@ const UserDash = () => {
                 </View>
                 <View style={styles.buttonContCenter}>
                     <TouchableOpacity style={styles.buttonCenter}
-                    onPress={() => setModalVisible(true)}
+                    onPress={() => navigation.navigate("related words screen")}
                     >
                     <Image source={require('../assets/EMC.png')} style={styles.buttonImg} blurRadius={5}></Image>
                         <Text style={styles.buttonText}>Educational Medical Content</Text>
