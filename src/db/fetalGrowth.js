@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 import "firebase/storage";
 
 async function getFetalGrowthMeasurementsFromDatabase(weekNumber) {
-	if (!(11 <= weekNumber && weekNumber <= 42)) {
+	if (!(5 <= weekNumber && weekNumber <= 9)) {
 		console.warn("Invalid week number")
 		return null
 	}
@@ -43,7 +43,7 @@ export function getFetalMeasurementString(weekNumber) {
 }
 
 export async function getFetalGrowthDescription(weekNumber) {
-	if (!(5 <= weekNumber && weekNumber <= 42)) {
+	if (!(5 <= weekNumber && weekNumber <= 9)) {
 		console.warn("Invalid week number")
 		return null
 	}
@@ -60,7 +60,7 @@ export async function getFetalGrowthDescription(weekNumber) {
 }
 
 export async function getFetalGrowthImage(weekNumber) {
-	if (!(5 <= weekNumber && weekNumber <= 42)) {
+	if (!(5 <= weekNumber && weekNumber <= 9)) {
 		console.warn("Invalid week number")
 		return null
 	}
