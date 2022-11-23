@@ -13,7 +13,6 @@ import AppointmentScreen from './screens/AppointmentScreen';
 import RelatedWords from './screens/relatedWordsScreen';
 import RiskFetal from './screens/riskFetal';
 import HealthCareProviders from './screens/healthcareProviders';
-import Dashboard from './screens/Dashboard';
 
 import UserDash from './screens/UserDash';
 import WeightGainBP from './screens/WeightGainBP';
