@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
-import { UserContext } from "./context/UserContext";
+import { UserContext, createFetchUserProfile } from "./context/UserContext";
 import WelcomePage from './screens/WelcomePage';
 import PregnantSurvey1 from './screens/PregnantSurvey1';
 import PregnantSurvey2 from './screens/PregnantSurvey2';
@@ -20,14 +20,28 @@ import WeightGainBP from './screens/WeightGainBP';
 
 import FetalScreen from './screens/FetalScreen';
 
+import { firebase } from './firebase'
+
+
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [userProfile, setUserProfile] = useState(null);
+  const refetchUserProfile = createFetchUserProfile(setUserProfile)
+
+  useEffect(() => {
+    const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        refetchUserProfile()
+      }
+    })
+    return unsubscribe
+  }, []);
+
   return (
     <NavigationContainer>
-      <UserContext.Provider value={{ userProfile, setUserProfile }}>
+      <UserContext.Provider value={{ userProfile, refetchUserProfile }}>
         <Stack.Navigator>
           <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
           <Stack.Screen name="Signup" component={SignupScreen} />

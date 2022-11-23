@@ -1,58 +1,34 @@
 import { useNavigation } from '@react-navigation/core'
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState, useContext, useCallback } from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View, Image } from 'react-native'
-import { firebase } from '../firebase'
+import { login } from '../auth/auth'
+import { UserContext } from '../context/UserContext'
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [check, setCheck] = useState(false)
-  
+  const { userProfile } = useContext(UserContext)
 
   const navigation = useNavigation()
-  const auth = firebase.auth()
 
   useEffect(() => {
-    async function fetchData(){
-    const name = null;
-    firebase.firestore().collection('users')
-    .doc(auth.currentUser?.email)
-    .get()
-    .then(documentSnapshot => {
-      const count = documentSnapshot.get("isPregnant")
-      console.log('User exists: ', count);
-      setCheck(count)
-    });}
-    fetchData();
-    const unsubscribe = firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        if (check){
-          navigation.replace("Dashboard")
-        }
-        else{
-          navigation.replace("Welcome")
-        }
-       
-      }
-    })
-
-    return unsubscribe
-  }, [])
+    console.log(userProfile)
+    if (userProfile == null) { return }
+    if (userProfile.pregnantProfile != null) {
+      navigation.replace("Dashboard")
+    } else {
+      navigation.replace("Welcome")
+    }
+  }, [userProfile])
 
   const handleSignUp = () => {
     console.log("here")
     navigation.navigate("Signup")
   }
 
-  const handleLogin = () => {
-    firebase.auth()
-      .signInWithEmailAndPassword(email, password)
-      .then(userCredentials => {
-        const user = userCredentials.user;
-        console.log('Logged in with:', user.email);
-      })
-      .catch(error => alert(error.message))
-  }
+  const handleLogin = useCallback(() => {
+    login(email, password)
+  }, [email, password])
 
   return (
     <View

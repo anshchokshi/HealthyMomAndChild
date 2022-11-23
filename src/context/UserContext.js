@@ -3,10 +3,10 @@ import { firebase } from '../firebase'
 
 export const UserContext = createContext({
   userProfile: null,
-  setUserProfile: () => {}
+  refetchUserProfile: () => {}
 });
 
-export async function getUserProfile(id) {
+async function getUserProfileFromDatabase(id) {
   // Gets the user profile from the database
   try {
     const userDocRef = firebase.firestore().collection('users').doc(id)
@@ -22,5 +22,19 @@ export async function getUserProfile(id) {
   } catch (error) {
     console.error(error)
     return null
+  }
+}
+
+export function createFetchUserProfile(setUserProfile) {
+  // Returns a function that fetches the user profile and sets it with the setter
+  return () => {
+    (async () => {
+      const auth = firebase.auth()
+      const id = auth.currentUser?.email
+      if (id == null) { return }
+      const userProfile = await getUserProfileFromDatabase(id)
+      console.log(userProfile)
+      setUserProfile(userProfile)
+    })()
   }
 }
