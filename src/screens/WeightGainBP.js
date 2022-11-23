@@ -1,10 +1,11 @@
 import { useNavigation } from '@react-navigation/core';
 import React, { useEffect, useState, useContext} from 'react';
-import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Button, StyleSheet, Text, TouchableOpacity, View, TextInput, TouchableWithoutFeedback, SafeAreaView, Keyboard } from 'react-native'
 import { firebase } from '../firebase'
 import { Header } from '@rneui/themed'
 import {LinearGradient} from 'react-native-linear-gradient';
 import { Image, Switch } from '@rneui/themed';
+
 // import { async } from 'node-stream-zip';
 
 const WeightGainBP = () => {
@@ -21,9 +22,19 @@ const WeightGainBP = () => {
     const [units, setUnit] = useState('Lb')
     const auth = firebase.auth();
     const [LMP, setLMP] = useState();
+    const [currWeight, setcurrWeight] = useState(0)
 
     const handleToggle = () => {
         setToggle(!toggle);
+    }
+
+    const handleTextInput = (text) => {
+        setcurrWeight(text)
+        console.log(currWeight)
+    }
+
+    const handleSubmit = () => {
+        // Send the current weight to backend
     }
 
     useEffect(() => {
@@ -55,8 +66,34 @@ const WeightGainBP = () => {
                         <Text style={styles.unitTextRight}>Kg</Text>
                     </View>
                     <View style={styles.dataBlock}>
-                        <Text>
+                        <Text
+                            style={styles.secondBlockHeaderText}
+                        >
+                            What is your current weight (in {units})?
+                        </Text>
+                        <View style={styles.rowBlock}>
+                            <TextInput
+                                style={styles.textBoxStyle}
+                                placeholder="Enter current weight"
+                                value={currWeight}
+                                keyboardType="number-pad"
+                                // keyboardAppearance="light"
+                                onChangeText={handleTextInput}
+                                defaultValue={currWeight}
+                                maxLength={6}
+                            />
+                        </View>
+                        <TouchableOpacity
+                            style={styles.button}
+                            onPress={handleSubmit}
+                        >
+                            <Text style={styles.buttonText}>Submit</Text>
+                        </TouchableOpacity>
+                        {/* <Text style={styles.secondBlockHeaderText}>
                             Your average weight gain since beginning of pregnancy {units}
+                        </Text> */}
+                        <Text style={styles.secondBlockHeaderText}>
+                            Your current weight is {units}
                         </Text>
                         <Text>Average normal weight gain since beginning of pregnancy {units}</Text>
                     </View>
@@ -67,6 +104,22 @@ const WeightGainBP = () => {
 }
 
 const styles = StyleSheet.create({
+    wi: {
+        width: '100%',
+        height: '100%'
+    },
+    button: {
+        marginTop: '3%',
+        marginBottom: '2%',
+        backgroundColor: '#F08686',
+        height: '12.5%',
+        width: "20%",
+        borderRadius: '25px',
+    },
+    buttonText: {
+        textAlign: 'center',
+        marginTop: '7%'
+    },
     container: {
         flex: 1,
         backgroundColor:'#ffffff'
@@ -152,8 +205,23 @@ const styles = StyleSheet.create({
         // flex: 1
         // position:'absolute'
     },
-
-
+    textBoxStyle: {
+        width: '50%',
+        borderBottomWidth: 1,
+        padding: 10,
+        backgroundColor: 'rgba(250, 250, 250, 0.35)',
+        borderTopLeftRadius: '10%',
+        borderTopRightRadius: '10%'
+    },
+    secondBlockUnitText: {
+        marginLeft: '2%'
+    },
+    secondBlockHeaderText: {
+        fontWeight: 'bold',
+        fontSize: '17.5 px',
+        marginBottom: '2%',
+        marginTop: '2%'
+    },   
 })
 
 export default WeightGainBP
