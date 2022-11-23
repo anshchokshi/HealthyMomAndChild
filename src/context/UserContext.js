@@ -34,7 +34,6 @@ export function createFetchUserProfile(setUserProfile) {
       const id = auth.currentUser?.email
       if (id == null) { return }
       const userProfile = await getUserProfileFromDatabase(id)
-      console.log(userProfile)
       setUserProfile(userProfile)
     })()
   }

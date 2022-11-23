@@ -14,8 +14,7 @@ import PregnantSurvey2 from './PregnantSurvey2';
 import { useRoute } from '@react-navigation/core';
 import surStyle from '../helpers/SurveyStyle'
 import color from '../helpers/Color'
-import { firebase } from '../firebase'
-import { UserContext, getUserProfile } from "../context/UserContext";
+import { UserContext } from "../context/UserContext";
 import { CalculateAppointments } from '../helpers/CalculateAppointments';
 import {
     percentageWidth, 
@@ -27,7 +26,6 @@ import {
 
 const AppointmentScreen = () => {
     const today = new Date();
-    const auth = firebase.auth();
     const [first, setFirst] = useState();
     const [next, setNext] = useState();
     const navigation = useNavigation();

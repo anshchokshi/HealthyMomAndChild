@@ -12,7 +12,6 @@ const LoginScreen = () => {
   const navigation = useNavigation()
 
   useEffect(() => {
-    console.log(userProfile)
     if (userProfile == null) { return }
     if (userProfile.pregnantProfile != null) {
       navigation.replace("Dashboard")

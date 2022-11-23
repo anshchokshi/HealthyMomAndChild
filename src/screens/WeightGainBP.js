@@ -1,7 +1,6 @@
 import { useNavigation } from '@react-navigation/core';
 import React, { useEffect, useState, useContext} from 'react';
 import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { firebase } from '../firebase'
 import { Header } from '@rneui/themed'
 import {LinearGradient} from 'react-native-linear-gradient';
 import { Image, Switch } from '@rneui/themed';
@@ -15,7 +14,6 @@ const WeightGainBP = () => {
 
     const [toggle, setToggle] = useState(false);
     const [units, setUnit] = useState('Lb')
-    const auth = firebase.auth();
     const [LMP, setLMP] = useState();
     const [BMI, setBMI] = useState();
     const [month, setMonth] = useState();
