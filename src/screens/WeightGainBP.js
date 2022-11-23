@@ -1,29 +1,62 @@
 import { useNavigation } from '@react-navigation/core';
 import React, { useEffect, useState, useContext} from 'react';
+
 import { Button, StyleSheet, Text, TouchableOpacity, View, TextInput, TouchableWithoutFeedback, SafeAreaView, Keyboard } from 'react-native'
 import { firebase } from '../firebase'
 import { Header } from '@rneui/themed'
 import {LinearGradient} from 'react-native-linear-gradient';
 import { Image, Switch } from '@rneui/themed';
+import { UserContext, getUserProfile } from "../context/UserContext";
+import { CalculateDueDate } from '../helpers/CalculateDueDate';
 
 // import { async } from 'node-stream-zip';
 
 const WeightGainBP = () => {
-    // const [units, setUnits] = useState('Lb');
+    
+    const { userProfile } = useContext(UserContext)
 
-    // const handleToggle = () => {
-    //     if (units === 'Lb'){
-    //         setUnits('Kg')
-    //     }else{
-    //         setUnits('Lb')
-    //     } 
-    // }
     const [toggle, setToggle] = useState(false);
     const [units, setUnit] = useState('Lb')
-    const auth = firebase.auth();
     const [LMP, setLMP] = useState();
     const [currWeight, setcurrWeight] = useState(0)
 
+    const [BMI, setBMI] = useState();
+    const [month, setMonth] = useState();
+    const [year, setYear] = useState();
+    const [day, setDay] = useState();
+
+
+    useEffect(() => {
+        
+          //const profile = const lmpString = userProfile?.pregnantProfile?.LastMenstrualPeriod
+          //setUserProfile(profile)
+          const lmp = userProfile?.pregnantProfile?.LastMenstrualPeriod
+          const h = userProfile?.pregnantProfile?.Height
+          const w = userProfile?.pregnantProfile?.InitialWeight
+        if (lmp != null) {
+            const check = new Date (lmp)
+            const dd = CalculateDueDate(check.getMonth(), check.getDate(), check.getFullYear())
+            setDay(dd.day)
+            setMonth(dd.month)
+            setYear(dd.year) 
+
+		}
+        else{
+            console.log("user null")
+
+        }
+        if (h!= null & w!= null){
+          const bmi = (Math.round((w/h/h)*10000 * 10) / 10)
+          setBMI(bmi)
+          setLMP(lmp)
+
+        }
+        else{
+            console.log("user null")
+
+        }
+      }, [userProfile]);
+  
     const handleToggle = () => {
         setToggle(!toggle);
     }
@@ -39,7 +72,8 @@ const WeightGainBP = () => {
 
     useEffect(() => {
         if(toggle){
-            setUnit('Kg')
+            setUnit('Kg') 
+
         }else{
             setUnit('Lb')
         }
@@ -54,9 +88,9 @@ const WeightGainBP = () => {
             <View style={styles.dashContainer}>
                 <View style={styles.firstBlock}>
                     <Text style={styles.leftAlignHeading}>Key Dates and Figures</Text>
-                    <Text style={styles.firstBlockText}>Your last menstual period was on </Text>
-                    <Text style={styles.firstBlockText}>Your due date is</Text>
-                    <Text style={styles.firstBlockText}>Your initial BMI is</Text>
+                    <Text style={styles.firstBlockText}>Your last menstual period was on {LMP} </Text>
+                    <Text style={styles.firstBlockText}>Your due date is {month}/{day}/{year}</Text>
+                    <Text style={styles.firstBlockText}>Your initial BMI is {BMI} </Text>
                 </View>
                 <View style={styles.secondBlock}>
                     <Text style={styles.leftAlignHeading}>Weight Gain and BP</Text>

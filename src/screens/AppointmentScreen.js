@@ -14,7 +14,8 @@ import PregnantSurvey2 from './PregnantSurvey2';
 import { useRoute } from '@react-navigation/core';
 import surStyle from '../helpers/SurveyStyle'
 import color from '../helpers/Color'
-import Icon from 'react-native-vector-icons/AntDesign';
+import { UserContext } from "../context/UserContext";
+import { CalculateAppointments } from '../helpers/CalculateAppointments';
 import {
     percentageWidth, 
     percentageHeight, 
@@ -25,19 +26,35 @@ import {
 
 const AppointmentScreen = () => {
     const today = new Date();
-    const [LMP, setLMP] = useState(today.toDateString())
-    const [firstPreg, setfirstPreg] = useState(true)
+    const [first, setFirst] = useState();
+    const [next, setNext] = useState();
     const navigation = useNavigation();
     const route = useRoute();
-    const changeP = () => { 
-      setfirstPreg(!firstPreg)
+    const { userProfile } = useContext(UserContext)
+
+  useEffect(() => {
+    
+      const lmp = userProfile?.pregnantProfile?.LastMenstrualPeriod
+      if (lmp != null) {
+      const date = new Date (lmp)
+      const f = CalculateAppointments(date, 12)
+      const check = new Date (f)
+      const n = CalculateAppointments(check, 5)
+      console.log(f.toDateString())
+      console.log(n.toDateString())
+      setFirst(f.toDateString())
+      setNext(n.toDateString())
+      }
+    else{
+        console.log("user null")
+
     }
-    const handleNext = () => {
-      navigation.navigate("Pregnant Survey2", {LMP: LMP, firstPreg: firstPreg})
-    }
-    const handlePre = () => {
-      navigation.navigate("Pregnant Survey2", {LMP: LMP, firstPreg: firstPreg})
-    }
+      
+
+  }, [userProfile]);
+
+
+
 
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
@@ -72,13 +89,13 @@ const AppointmentScreen = () => {
         <View style = {styles.pinkContainer}>
             <Text>Family Doctor appointments</Text>
             <View style = {styles.smallerContainer}>
-                <Text>First visit  to your should be completed by:  </Text>
-                <Text>(Some Date)  </Text>
+                <Text>First visit  to your should be completed by: </Text>
+                <Text>{first}  </Text>
 
             </View>
             <View style = {styles.smallerContainer}>
                 <Text>Next visit to should be completed in 4-6 weeks after your visit by:</Text>
-                <Text>(Some Date)  </Text>
+                <Text>{next} </Text>
 
             </View>
         </View> 

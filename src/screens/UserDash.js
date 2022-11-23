@@ -1,13 +1,10 @@
-import { useNavigation } from '@react-navigation/core';
 import React, { useEffect, useState, useContext} from 'react';
 import { Button, StyleSheet, Text, TouchableOpacity, View, Modal, Pressable } from 'react-native'
 import { firebase } from '../firebase'
 import { Header } from '@rneui/themed'
 import {LinearGradient} from 'expo-linear-gradient';
 import { Image } from '@rneui/themed';
-
-const UserDash = () => {
-    const navigation = useNavigation()
+const UserDash = ({ navigation }) => {
 
     const handleBabyDev = () => {
         navigation.navigate("Fetal Screen")
@@ -16,6 +13,7 @@ const UserDash = () => {
     const handleWeightBP = () => {navigation.navigate("Summary")}
 
     const handleAppointments = () => {navigation.navigate("Appointment")}
+    const handlerelatedWords = () => {navigation.navigate("related words screen")}
     const [modalVisible, setModalVisible] = useState(false);
 
     return(
@@ -51,19 +49,22 @@ const UserDash = () => {
                 {/* <Text>MainPage</Text> */}
                 <View style={styles.buttonCont}>
                     <TouchableOpacity style={styles.buttonLeft}
-                        onPress={handleBabyDev}>
+                        onPress={handleBabyDev}
+                        testID="baby-development">
                         <Image source={require('../assets/BD.png')} style={styles.buttonImg} blurRadius={5}></Image>
                         <Text style={styles.buttonText}>Baby Development</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.buttonRight}
-                        onPress={handleWeightBP}>
+                        onPress={handleWeightBP}
+                        testID="weight-gain">
                     <Image source={require('../assets/WBP.png')} style={styles.buttonImg} blurRadius={5}></Image>
                         <Text style={styles.buttonText}>Your Weight Gain and Blood Pressure</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.buttonCont}>
                     <TouchableOpacity style={styles.buttonLeft}
-                        onPress={handleAppointments}>
+                        onPress={handleAppointments}
+                        testID="appointments">
                         <Image source={require('../assets/APTS.png')} style={styles.buttonImg} blurRadius={5}></Image>
                         <Text style={styles.buttonText}>Your Appointments</Text>
                     </TouchableOpacity>
@@ -76,8 +77,8 @@ const UserDash = () => {
                 </View>
                 <View style={styles.buttonContCenter}>
                     <TouchableOpacity style={styles.buttonCenter}
-                    onPress={() => setModalVisible(true)}
-                    >
+                    onPress={handlerelatedWords}
+                    testID="related-words">
                     <Image source={require('../assets/EMC.png')} style={styles.buttonImg} blurRadius={5}></Image>
                         <Text style={styles.buttonText}>Educational Medical Content</Text>
                     </TouchableOpacity>

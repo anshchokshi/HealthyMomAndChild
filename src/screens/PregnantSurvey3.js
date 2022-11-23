@@ -9,7 +9,6 @@ import {
   TouchableWithoutFeedback } from 'react-native'
 import React, { useEffect, useState, useContext} from 'react';
 import { useNavigation } from '@react-navigation/core'
-import { firebase } from '../firebase'
 import { useRoute } from '@react-navigation/core';
 import  WaveHeader  from '../component/WaveHeader'
 import surStyle from '../helpers/SurveyStyle'
@@ -18,7 +17,8 @@ import SelectButton1 from '../component/Switch'
 import Icon from 'react-native-vector-icons/AntDesign';
 import  {convertHeight, percentageHeight}  from '../helpers/ScreenSizeHelper';
 import { KeyboardAccessoryNavigation } from 'react-native-keyboard-accessory'
-
+import { UserContext } from '../context/UserContext';
+import { submitPregnantProfile } from '../db/pregnantSurvey';
 
 
 
@@ -28,8 +28,9 @@ const PregnantSurvey3 = () => {
     const [weight, setWeight] = useState(null)
     const [height, setHeight] = useState(null)
     const navigation = useNavigation();
-    const auth = firebase.auth();
     const [unit, setUnit] = useState(false)
+    const { refetchUserProfile } = useContext(UserContext)
+
     const changeunit = () => { 
       setUnit(!unit)
     }
@@ -37,42 +38,28 @@ const PregnantSurvey3 = () => {
       navigation.goBack()
     }
     const handleAnswers = () => { 
-     
-      firebase.firestore()
-      .collection('users')
-      .doc(auth.currentUser?.email)
-      .update({
-        isPregnant: true
-      })
-      .then(function(docRef) {
-       /* log data */
-      })
-      
-        firebase.firestore()
-        .collection('users')
-        .doc(auth.currentUser?.email)
-        .collection('pregnant')
-        .doc(auth.currentUser?.email)
-        .set({
-            LastMentrualPeriod: route.params.LMP,
-            FirstPregnancy: route.params.firstPreg,
-            HBS: route.params.HBS,
-            EBS: route.params.EBS,
-            InitialWeight: weight,
-            Height: height
-            
-          })
-
+      submitPregnantProfile(
+        route.params.LMP, 
+        route.params.firstPreg,
+        route.params.HBS,
+        route.params.EBS,
+        weight,
+        height
+      )
         .then(() => {
           console.log('Details added!');
-          navigation.navigate("Dashboard")
-        });
+          (async () => {
+            refetchUserProfile()
+            navigation.navigate("Dashboard")
+          })()
+        })
+        .catch(error => console.error(error));
         
       }
   return (
     <View style = {styles.container}>
       <View style = {[surStyle.headerContainer]}>
-        <WaveHeader text="I'm Pregant"></WaveHeader>
+        <WaveHeader text="I'm Pregnant"></WaveHeader>
       </View>
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
 

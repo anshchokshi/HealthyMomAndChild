@@ -1,23 +1,14 @@
 import { useNavigation } from '@react-navigation/core';
 import React, { useEffect, useState, useContext} from 'react';
 import { Pressable, StyleSheet, Text, TouchableOpacity, View, Modal } from 'react-native'
-import { firebase } from '../firebase'
-import { UserContext, getUserProfile } from "../context/UserContext";
+import { UserContext } from "../context/UserContext";
 
 
 const WelcomePage = () => {
   const navigation = useNavigation()
-  const auth = firebase.auth();
   const [modalVisible, setModalVisible] = useState(false);
-  const { setUserProfile } = useContext(UserContext)
+  const { userProfile } = useContext(UserContext)
 
-  useEffect(() => {
-    const fetchProfile = async () => {
-      const profile = await getUserProfile(auth.currentUser?.email)
-      setUserProfile(profile)
-    }
-    fetchProfile()
-  }, []);
 
   const handlePregnant = () => {
     navigation.navigate("Pregnant Survey1")
@@ -42,13 +33,9 @@ const WelcomePage = () => {
       </View>
         
       </Modal>
-      <UserContext.Consumer>
-        {userContext => (
-          <View style={styles.headerContainer}>
-            <Text style={styles.headerText}>Welcome {userContext?.userProfile?.FirstName}!</Text>
-          </View>
-        )}
-      </UserContext.Consumer>
+        <View style={styles.headerContainer}>
+          <Text style={styles.headerText}>Welcome {userProfile?.FirstName}!</Text>
+        </View>
       
       <View style={styles.buttonContainer}>
         <Text style={{fontSize:20, fontWeight:'500'}}>Select from the following:</Text>
