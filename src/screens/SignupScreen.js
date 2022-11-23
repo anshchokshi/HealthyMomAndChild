@@ -1,47 +1,27 @@
 import { useNavigation } from '@react-navigation/core'
-import React, { useEffect, useState, useContext} from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View, Image, ScrollView } from 'react-native'
-import { firebase } from '../firebase'
-import { UserContext } from '../context/UserContext'
+import { signup } from '../auth/auth';
+import { UserContext } from '../context/UserContext';
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [repeatPassword, setRepeatPassword] = useState(false)
-  const {user, setUser} = useContext(UserContext);
   const navigation = useNavigation();
   const [Firstname, setFirstName] = useState();
   const [Lastname, setLastName] = useState();
   const [age, setAge] = useState();
-  const auth = firebase.auth();
-  const [check, setCheck] = useState(false)
+  const { userProfile } = useContext(UserContext);
 
   useEffect(() => {
-    async function fetchData(){
-    const name = null;
-    firebase.firestore().collection('users')
-    .doc(auth.currentUser?.email)
-    .get()
-    .then(documentSnapshot => {
-      const count = documentSnapshot.get("isPregnant")
-      console.log('count exists: ', count);
-      setCheck(count)
-    });}
-    fetchData();
-    const unsubscribe = firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        if (check){
-          navigation.replace("Dashboard")
-        }
-        else{
-          navigation.replace("Welcome")
-        }
-       
-      }
-    })
-
-    return unsubscribe
-  }, [])
+    if (userProfile == null) { return }
+    if (userProfile.pregnantProfile != null) {
+      navigation.replace("Dashboard")
+    } else {
+      navigation.replace("Welcome")
+    }
+  }, [userProfile])
 
   const handleSignUp = () => {
     
@@ -50,30 +30,8 @@ const LoginScreen = () => {
         alert('Passwords should match')
         console.log("Passwords should match")
       }
-      else{
-
-
-        firebase.auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then(userCredentials => {
-        const user = userCredentials.user;
-        console.log('Registered with:', user.email);
-      firebase.firestore()
-      .collection('users')
-      .doc(auth.currentUser?.email)
-      .set({
-        FirstName: Firstname,
-        LastName: Lastname,
-        Age: age,
-        isPregnant: false
-        })
-      .then(() => {
-        console.log('User added!');
-      });
-      })
-      .catch(error => alert(error.message))
-
-
+      else {
+        signup(email, password, Firstname, Lastname, age)
       }
     
   }
