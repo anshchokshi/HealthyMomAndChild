@@ -11,7 +11,7 @@ import { CalculateDueDate } from '../helpers/CalculateDueDate';
 
 const WeightGainBP = () => {
     
-    const { setUserProfile } = useContext(UserContext)
+    const { userProfile } = useContext(UserContext)
 
     const [toggle, setToggle] = useState(false);
     const [units, setUnit] = useState('Lb')
@@ -23,29 +23,36 @@ const WeightGainBP = () => {
     const [day, setDay] = useState();
 
     useEffect(() => {
-        const fetchProfile = async () => {
-          const profile = await getUserProfile(auth.currentUser?.email)
-          setUserProfile(profile)
-          console.log(profile)
-          const lmp = profile.pregnantProfile.LastMenstrualPeriod
-          const check = new Date (lmp)
-          const h = profile.pregnantProfile.Height
-          const w = profile.pregnantProfile.InitialWeight
-          const dd = CalculateDueDate(check.getMonth(), check.getDate(), check.getFullYear())
-          setDay(dd.day)
-          setMonth(dd.month)
-          setYear(dd.year) 
+        
+          //const profile = const lmpString = userProfile?.pregnantProfile?.LastMenstrualPeriod
+          //setUserProfile(profile)
+          const lmp = userProfile?.pregnantProfile?.LastMenstrualPeriod
+          const h = userProfile?.pregnantProfile?.Height
+          const w = userProfile?.pregnantProfile?.InitialWeight
+        if (lmp != null) {
+            const check = new Date (lmp)
+            const dd = CalculateDueDate(check.getMonth(), check.getDate(), check.getFullYear())
+            setDay(dd.day)
+            setMonth(dd.month)
+            setYear(dd.year) 
+
+		}
+        else{
+            console.log("user null")
+
+        }
+        if (h!= null & w!= null){
           const bmi = (Math.round((w/h/h)*10000 * 10) / 10)
           setBMI(bmi)
           setLMP(lmp)
-          
-        }
-        fetchProfile()
-      }, []);
-    
-    
-    
 
+        }
+        else{
+            console.log("user null")
+
+        }
+      }, [userProfile]);
+  
     const handleToggle = () => {
         setToggle(!toggle);
     }

@@ -32,11 +32,12 @@ const AppointmentScreen = () => {
     const [next, setNext] = useState();
     const navigation = useNavigation();
     const route = useRoute();
+    const { userProfile } = useContext(UserContext)
 
   useEffect(() => {
-    const fetchProfile = async () => {
-      const profile = await getUserProfile(auth.currentUser?.email)
-      const lmp = profile.pregnantProfile.LastMenstrualPeriod
+    
+      const lmp = userProfile?.pregnantProfile?.LastMenstrualPeriod
+      if (lmp != null) {
       const date = new Date (lmp)
       const f = CalculateAppointments(date, 12)
       const check = new Date (f)
@@ -45,10 +46,14 @@ const AppointmentScreen = () => {
       console.log(n.toDateString())
       setFirst(f.toDateString())
       setNext(n.toDateString())
+      }
+    else{
+        console.log("user null")
 
     }
-    fetchProfile()
-  }, []);
+      
+
+  }, [userProfile]);
 
 
 
