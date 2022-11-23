@@ -15,6 +15,7 @@ const WelcomePage = () => {
     const fetchProfile = async () => {
       const profile = await getUserProfile(auth.currentUser?.email)
       setUserProfile(profile)
+      console.log(profile)
     }
     fetchProfile()
   }, []);

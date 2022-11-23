@@ -60,8 +60,8 @@ const PregnantSurvey3 = () => {
             FirstPregnancy: route.params.firstPreg,
             HBS: route.params.HBS,
             EBS: route.params.EBS,
-            InitialWeight: weight,
-            Height: height
+            InitialWeight: parseInt(weight),
+            Height: parseInt(height)
             
           })
 
