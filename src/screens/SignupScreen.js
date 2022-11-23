@@ -15,7 +15,8 @@ const LoginScreen = () => {
   const { userProfile } = useContext(UserContext);
 
   useEffect(() => {
-    if (userProfile?.pregnantProfile != null) {
+    if (userProfile == null) { return }
+    if (userProfile.pregnantProfile != null) {
       navigation.replace("Dashboard")
     } else {
       navigation.replace("Welcome")
@@ -30,7 +31,7 @@ const LoginScreen = () => {
         console.log("Passwords should match")
       }
       else {
-        signup(Firstname, Lastname, age)
+        signup(email, password, Firstname, Lastname, age)
       }
     
   }

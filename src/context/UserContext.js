@@ -17,6 +17,7 @@ async function getUserProfileFromDatabase(id) {
       userProfile.pregnantProfile = pregnantProfileDoc.data()
     } catch (error) {
       console.warn("User has no pregnant profile")
+      userProfile.pregnantProfile = null
     }
     return userProfile
   } catch (error) {

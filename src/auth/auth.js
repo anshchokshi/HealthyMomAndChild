@@ -1,7 +1,8 @@
 import { firebase } from '../firebase'
 
-export function signup(Firstname, Lastname, age) {
-    firebase.auth()
+export function signup(email, password, Firstname, Lastname, age) {
+    const auth = firebase.auth()
+    auth
     .createUserWithEmailAndPassword(email, password)
     .then(userCredentials => {
       const user = userCredentials.user;
