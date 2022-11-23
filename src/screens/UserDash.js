@@ -1,5 +1,8 @@
 import React, { useEffect, useState, useContext} from 'react';
 import { Button, StyleSheet, Text, TouchableOpacity, View, Modal, Pressable } from 'react-native'
+import { firebase } from '../firebase'
+import { Header } from '@rneui/themed'
+import {LinearGradient} from 'expo-linear-gradient';
 import { Image } from '@rneui/themed';
 const UserDash = ({ navigation }) => {
 
@@ -15,8 +18,14 @@ const UserDash = ({ navigation }) => {
 
     return(
         <View style={styles.container}>
-            <View style={styles.headerContainer}> 
-                <Text style={styles.textMargin}>Your Dashboard</Text>
+            <View style={styles.headerContainer}>
+                <LinearGradient
+                    colors= {['#fa7878','#F08686', 'white']}
+                    style= {styles.gradientHeaderStyle}
+                    locations= {[0.1, 0.2, 1.0]}
+                >
+                    <Text style={styles.textMargin}>Your Dashboard</Text>
+                </LinearGradient>
             </View>
             <View 
                 style = {styles.dashContainer}>
@@ -29,14 +38,14 @@ const UserDash = ({ navigation }) => {
                 <View style={styles.modalView}>
                     <Text style={styles.modalText}>This feature will be developed later.</Text>
                     <Pressable
-                         style={styles.buttonClose}
+                        style={styles.buttonClose}
                         onPress={() => setModalVisible(!modalVisible)}
-                         >
-                         <Text style={{fontSize:17}}>Hide</Text>
+                        >
+                        <Text style={{fontSize:17}}>Hide</Text>
                         </Pressable>
                     </View>
         
-                 </Modal>
+                </Modal>
                 {/* <Text>MainPage</Text> */}
                 <View style={styles.buttonCont}>
                     <TouchableOpacity style={styles.buttonLeft}
@@ -85,27 +94,32 @@ const styles = StyleSheet.create({
         // alignItems: 'center',
         backgroundColor:'#ffffff',
       },
+      gradientHeaderStyle :{
+        width: "100%",
+        height: "100%",
+        borderRadius: "25px"
+      },
       headerContainer :{
         width: "100%",
-        height: "30%",
+        height: "100%",
         backgroundColor: "#F08686",
       },
       dashContainer :{
           position: "absolute",
-          marginTop: "20%",
-          marginLeft: "3%",
-          marginRight: "3%",
-          width: "95%",
+          marginTop: "30%",
+        //   marginLeft: "3%",
+        //   marginRight: "3%",
+          width: "100%",
           height: "80%",
-          backgroundColor: '#ffffff',
-          borderRadius: "25px"
+          backgroundColor: 'rgba(250, 250, 250, 0.35)',
+          borderRadius: "25px",
       },
       textMargin :{
-          marginTop: "5%",
+          marginTop: "15%",
           marginLeft: "3%",
           fontSize: "40px",
           color: "#ffffff",
-          fontWeight:"bold"
+          fontWeight:"bold",
       },
       buttonCont: {
           width: "100%",
@@ -124,7 +138,7 @@ const styles = StyleSheet.create({
           marginRight: "3%",
           position: "relative",
           left: 0,
-        //   backgroundColor: "#000000",
+        //   backgroundColor: "rgba(250, 250, 250, 0.5)",
           borderRadius: "25%",
           flex: 1
       },
@@ -136,7 +150,7 @@ const styles = StyleSheet.create({
         // marginLeft: "3%",
         marginRight: "3%",
         // position: "relative",
-        // backgroundColor: "#000000",
+        // backgroundColor: "rgba(250, 250, 250, 0.5)",
         // right: 0,
         borderRadius: "25%",
         flex: 1
