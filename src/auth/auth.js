@@ -1,6 +1,7 @@
 import { firebase } from '../firebase'
 
 export function signup(email, password, Firstname, Lastname, age) {
+    // Create an authorized user and create the user's profile in the database
     const auth = firebase.auth()
     auth
     .createUserWithEmailAndPassword(email, password)
@@ -24,6 +25,7 @@ export function signup(email, password, Firstname, Lastname, age) {
 }
 
 export function login(email, password) {
+    // Log a user in by email and password
     firebase.auth()
       .signInWithEmailAndPassword(email, password)
       .then(userCredentials => {

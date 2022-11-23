@@ -1,6 +1,7 @@
 import { firebase } from '../firebase'
 
 export async function submitPregnantProfile(LMP, firstPreg, HBS, EBS, weight, height) {
+    // Submit the pregnancy information to the user's profile
     const auth = firebase.auth()
     await firebase.firestore()
       .collection('users')
