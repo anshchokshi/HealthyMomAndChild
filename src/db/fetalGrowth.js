@@ -2,7 +2,9 @@ import firebase from "firebase/app";
 import "firebase/storage";
 
 async function getFetalGrowthMeasurementsFromDatabase(weekNumber) {
-	if (!(5 <= weekNumber && weekNumber <= 9)) {
+	// Get the average weight (in ounces) and length (in inches) of the fetus 
+	// based on the week of the pregnancy from the database for week 11 and onward
+	if (!(11 <= weekNumber && weekNumber <= 42)) {
 		console.warn("Invalid week number")
 		return null
 	}
@@ -19,6 +21,9 @@ async function getFetalGrowthMeasurementsFromDatabase(weekNumber) {
 }
 
 export async function getFetalGrowthMeasurements(weekNumber) {
+	// Get the average weight and length in both imperial and metric 
+	// based on the week of the pregnancy for week 11 and onward
+	// Note: This function can be refactored to not use a database at all
 	const { lengthIn, weightOz } = await getFetalGrowthMeasurementsFromDatabase(weekNumber)
 	const lengthCm = lengthIn * 2.54
 	const weightPounds = weightOz / 16
@@ -27,6 +32,8 @@ export async function getFetalGrowthMeasurements(weekNumber) {
 }
 
 export function getFetalMeasurementString(weekNumber) {
+	// Get information about the length and weight (when appropriate)
+	// for weeks 5 to 9 (inclusive) in string format
 	switch(weekNumber) {
 		case 5:
 			return "between 1 and 2 mm in length"
@@ -43,7 +50,8 @@ export function getFetalMeasurementString(weekNumber) {
 }
 
 export async function getFetalGrowthDescription(weekNumber) {
-	if (!(5 <= weekNumber && weekNumber <= 9)) {
+	// Get a medical description of the development of the fetus based on the week
+	if (!(5 <= weekNumber && weekNumber <= 42)) {
 		console.warn("Invalid week number")
 		return null
 	}
