@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
 
   buttonText: {
     fontWeight: '700',
-    fontSize: 11,
+    fontSize: 10,
     marginTop:'30%'
   },
   modalView: {
