@@ -68,7 +68,7 @@ export async function getFetalGrowthDescription(weekNumber) {
 }
 
 export async function getFetalGrowthImage(weekNumber) {
-	if (!(5 <= weekNumber && weekNumber <= 9)) {
+	if (!(5 <= weekNumber && weekNumber <= 42)) {
 		console.warn("Invalid week number")
 		return null
 	}
