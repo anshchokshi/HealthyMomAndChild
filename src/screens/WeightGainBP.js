@@ -35,7 +35,7 @@ const WeightGainBP = () => {
           const w = userProfile?.pregnantProfile?.InitialWeight
         if (lmp != null) {
             const check = new Date (lmp)
-            const dd = CalculateDueDate(check.getMonth(), check.getDate(), check.getFullYear())
+            const dd = CalculateDueDate((check.getMonth()+1), check.getDate(), check.getFullYear())
             setDay(dd.day)
             setMonth(dd.month)
             setYear(dd.year) 
