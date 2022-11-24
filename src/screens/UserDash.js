@@ -4,11 +4,19 @@ import { firebase } from '../firebase'
 import { Header } from '@rneui/themed'
 import {LinearGradient} from 'expo-linear-gradient';
 import { Image } from '@rneui/themed';
+
 const UserDash = ({ navigation }) => {
+    const auth = firebase.auth();
 
     const handleBabyDev = () => {
         navigation.navigate("Fetal Screen")
     }
+    const handleSignOut = () => {
+        auth.signOut().then(() => {
+            navigation.replace("Login")
+          })
+          .catch(error => alert(error.message))
+      }
 
     const handleWeightBP = () => {navigation.navigate("Summary")}
 
@@ -42,6 +50,12 @@ const UserDash = ({ navigation }) => {
                         onPress={() => setModalVisible(!modalVisible)}
                         >
                         <Text style={{fontSize:17}}>Hide</Text>
+                        </Pressable>
+                        <Pressable
+                        style={styles.buttonClose}
+                        onPress={handleSignOut}
+                        >
+                        <Text style={{fontSize:17}}>SignOut</Text>
                         </Pressable>
                     </View>
         

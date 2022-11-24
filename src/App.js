@@ -34,6 +34,9 @@ export default function App() {
       if (user) {
         refetchUserProfile()
       }
+      else{
+        setUserProfile(null);
+      }
     })
     return unsubscribe
   }, []);
