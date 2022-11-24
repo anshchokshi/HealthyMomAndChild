@@ -86,7 +86,7 @@ const PregnantSurvey1 = () => {
 
 
         <View style = {surStyle.textContainer}>
-          <Text style = {[surStyle.text,{numberOfLines:2}]}>Is this your first pregancy?</Text>
+          <Text style = {[surStyle.text,{numberOfLines:2}]}>Is this your first pregnancy?</Text>
         </View>
         <SelectButton1 
         values={[true,false]}
