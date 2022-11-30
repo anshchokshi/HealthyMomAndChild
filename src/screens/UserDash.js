@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
       gradientHeaderStyle :{
         width: "100%",
         height: "100%",
-        borderRadius: "25px"
+        borderRadius: 25
       },
       headerContainer :{
         width: "100%",
@@ -126,12 +126,12 @@ const styles = StyleSheet.create({
           width: "100%",
           height: "80%",
           backgroundColor: 'rgba(250, 250, 250, 0.35)',
-          borderRadius: "25px",
+          borderRadius: 25
       },
       textMargin :{
           marginTop: "15%",
           marginLeft: "3%",
-          fontSize: "40px",
+          fontSize: 40,
           color: "#ffffff",
           fontWeight:"bold",
       },
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
           position: "relative",
           left: 0,
         //   backgroundColor: "rgba(250, 250, 250, 0.5)",
-          borderRadius: "25%",
+          borderRadius: 25,
           flex: 1
       },
       buttonRight: {
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
         // position: "relative",
         // backgroundColor: "rgba(250, 250, 250, 0.5)",
         // right: 0,
-        borderRadius: "25%",
+        borderRadius: 25,
         flex: 1
     },
     buttonContCenter: {
@@ -188,12 +188,12 @@ const styles = StyleSheet.create({
         // position: "relative",
         // backgroundColor: "#000000",
         // right: 0,
-        borderRadius: "25%",
+        borderRadius: 25,
         flex: 1
     },
     buttonText: {
         color:"#000000",
-        fontSize: "20px",
+        fontSize: 20,
         fontWeight: 'bold',
         // textAlign: "left",
         marginTop: "25%",
@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
     },
     buttonTextWhite: {
         color:"#ffffff",
-        fontSize: "20px",
+        fontSize: 20,
         fontWeight: 'bold',
         // textAlign: "left",
         marginTop: "25%",
@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
         // flex: 2
         width: '100%',
         height: '100%',
-        borderRadius: '25%',
+        borderRadius: 25,
         // flex: 1
         // position:'absolute'
     },

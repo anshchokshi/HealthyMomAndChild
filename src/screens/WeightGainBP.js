@@ -2,11 +2,10 @@ import { useNavigation } from '@react-navigation/core';
 import React, { useEffect, useState, useContext} from 'react';
 
 import { Button, StyleSheet, Text, TouchableOpacity, View, TextInput, TouchableWithoutFeedback, SafeAreaView, Keyboard } from 'react-native'
-import { firebase } from '../firebase'
 import { Header } from '@rneui/themed'
 import {LinearGradient} from 'react-native-linear-gradient';
 import { Image, Switch } from '@rneui/themed';
-import { UserContext, getUserProfile } from "../context/UserContext";
+import { UserContext } from "../context/UserContext";
 import { CalculateDueDate } from '../helpers/CalculateDueDate';
 
 // import { async } from 'node-stream-zip';
@@ -148,7 +147,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F08686',
         height: '12.5%',
         width: "20%",
-        borderRadius: '25px',
+        borderRadius: 25,
     },
     buttonText: {
         textAlign: 'center',
@@ -171,32 +170,32 @@ const styles = StyleSheet.create({
         marginRight: "2%",
         marginLeft: "2%",
         textAlign:"left",
-        fontSize:"14px"
+        fontSize:14
     },
     unitTextRight: {
         marginTop: "2%",
         marginLeft: "2%",
         textAlign:"left",
-        fontSize:"14px"
+        fontSize:14
     },
     leftAlignHeading: {
         marginLeft: "2%",
         marginTop: "1%",
         textAlign: "left",
         fontWeight: "bold",
-        fontSize: "25px",
+        fontSize: 25,
     },
     firstBlockText: {
         marginTop: "2%",
         marginLeft: "2%",
         textAlign:"left",
         // fontWeight:"bold",
-        fontSize:"14px"
+        fontSize:14
     },
     textMargin :{
         marginTop: "5%",
         marginLeft: "3%",
-        fontSize: "25px",
+        fontSize: 25,
         color: "#ffffff",
         fontWeight:"bold",
         position: "absolute",
@@ -215,19 +214,19 @@ const styles = StyleSheet.create({
         width: "95%",
         height: "80%",
         backgroundColor: '#ffffff',
-        borderRadius: "25px"
+        borderRadius: 25
     },
     firstBlock :{
         height: "25%",
         width: "100%",
-        borderRadius: "25%",
+        borderRadius: 25,
         backgroundColor: "#f5f5f5"
     },
     secondBlock :{
         marginTop: "1%",
         height: "80%",
         width: "100%",
-        borderRadius: "25%",
+        borderRadius: 25,
         backgroundColor: "#ffd2d2"
     },
     img: {
@@ -244,15 +243,15 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         padding: 10,
         backgroundColor: 'rgba(250, 250, 250, 0.35)',
-        borderTopLeftRadius: '10%',
-        borderTopRightRadius: '10%'
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10
     },
     secondBlockUnitText: {
         marginLeft: '2%'
     },
     secondBlockHeaderText: {
         fontWeight: 'bold',
-        fontSize: '17.5 px',
+        fontSize: 17.5,
         marginBottom: '2%',
         marginTop: '2%'
     },   
