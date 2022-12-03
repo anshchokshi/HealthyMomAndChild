@@ -11,9 +11,12 @@ import {
 } from '../db/fetalGrowth'
 import { getWeeksDiff } from '../helpers/Date'
 import { useWindowDimensions } from 'react-native';
+import { useRoute } from '@react-navigation/core';
 
 const FetalScreen = () => {
-	const [weekNumber, setWeekNumber] = useState(null)
+  const route = useRoute();
+  const weekNumber = route.params.weekNumber;
+
   const [measurements, setMeasurements] = useState(null)
   const navigation = useNavigation()
   const [modalVisible, setModalVisible] = useState(false);
@@ -22,15 +25,8 @@ const FetalScreen = () => {
 	const [fetalDevDescription, setFetalDevDescription] = useState(null)
 	const { width } = useWindowDimensions();
     
-	useEffect(() => {
-		const lmpString = userProfile?.pregnantProfile?.LastMenstrualPeriod
-		if (lmpString != null) {
-			const lmp = new Date(lmpString)
-			const weekNumber = getWeeksDiff(lmp, new Date())
-			setWeekNumber(Math.min(weekNumber, 42))
-		}
-	}, [userProfile])
 
+  
   useEffect(() => {
     if (weekNumber == null) { return }
     if (weekNumber > 10) {
@@ -47,7 +43,7 @@ const FetalScreen = () => {
       const developmentDescription = await getFetalGrowthDescription(weekNumber)
       setFetalDevDescription(developmentDescription)
     })();
-  }, [weekNumber])
+  }, [])
 
     const handleDashboard = () => {
         navigation.navigate("Dashboard")
@@ -76,7 +72,7 @@ const FetalScreen = () => {
 				<Text style={styles.sizeInfoText}>{`${getFetalMeasurementString(weekNumber)}.`}</Text>
 			</>)
 		}
-	}, [weekNumber, measurements])
+	}, [measurements])
 
     return (
         <View>

@@ -4,12 +4,19 @@ import { firebase } from '../firebase'
 import { Header } from '@rneui/themed'
 import {LinearGradient} from 'expo-linear-gradient';
 import { Image } from '@rneui/themed';
+import { UserContext } from '../context/UserContext'
+import { getWeeksDiff } from '../helpers/Date'
 
 const UserDash = ({ navigation }) => {
     const auth = firebase.auth();
-
+    const { userProfile } = useContext(UserContext)
     const handleBabyDev = () => {
-        navigation.navigate("Fetal Screen")
+            const lmpString = userProfile?.pregnantProfile?.LastMenstrualPeriod
+            if (lmpString != null) {
+                const lmp = new Date(lmpString)
+                const weekNumber = getWeeksDiff(lmp, new Date())
+                navigation.navigate("Fetal Screen", {weekNumber: Math.min(weekNumber, 42)})
+            }
     }
     const handleSignOut = () => {
         auth.signOut().then(() => {
