@@ -47,9 +47,11 @@ export default {
       },
       textContainer:{
         flex:0.3,
-        margin:convertHeight(2),
+        margin:convertHeight(10),
         width:percentageWidth(0.9),
         justifyContent: 'center',
+        display: 'flex',
+        flexDirection: "row"
         // alignItems: 'center',
 
       },
@@ -78,7 +80,7 @@ export default {
         color:color.mainPink,
     },
     text:{
-      fontSize:convertHeight(20),
+      fontSize:convertHeight(18),
       fontWeight:'bold',
       margin: convertHeight(5),
       adjustFontSizeToFit: true,
