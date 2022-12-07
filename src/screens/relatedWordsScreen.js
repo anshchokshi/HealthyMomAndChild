@@ -28,6 +28,9 @@ const RelatedWords = () => {
   const handleNext = () => {
     navigation.navigate("Risk of fetal")
   }
+  const handleBack = () => {
+    navigation.navigate("Dashboard")
+  }
 
   return (
     <View
@@ -50,9 +53,22 @@ const RelatedWords = () => {
             </View>
                 
             </Modal>
+            <View style={styles.headerButtonContainer}>
+      <TouchableOpacity
+          onPress={handleBack}
+          style={styles.backButton}
+        >
+          <Icon name= 'arrowleft' size={28} color="white"></Icon>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={handleNext}
+          style={styles.nextButton}
+        >
+          <Icon name= 'arrowright' size={28} color="white"></Icon>
+        </TouchableOpacity>
+        </View>
       <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>These are some of the words  your doctor and healthcare team will
-         use when talking about your pregnancy
+        <Text style={styles.headerText}>Key Words For Pregnancy
          </Text>
       </View>
       <View style={styles.inputContainer}>
@@ -67,13 +83,6 @@ const RelatedWords = () => {
             <View key={key}><Text style={styles.keyWords} >{key + 1} . {prop} - <Text style={styles.description}>{description[key]}</Text></Text></View>
           );
         })}
-
-        <TouchableOpacity
-          onPress={handleNext}
-          style={styles.nextButton}
-        >
-          <Icon name= 'arrowright' size={28} color="white"></Icon>
-        </TouchableOpacity>
 
       </ScrollView>
 
@@ -111,22 +120,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: "#F08686",
   },
+  headerButtonContainer :{
+    width: "100%",
+    height:"12%",
+    display: 'flex',
+    flexDirection: "row"
+
+  },
   headerContainer :{
     width: "100%",
-    height:"20%"
+    height:"5%",
+    display: 'flex',
 
   },
   headerText: {
     color: "white",
     fontWeight: '700',
-    fontSize: 18,
+    fontSize: 25,
     textAlign:'center',
-    marginTop:'20%'
   },
 
   inputContainer: {
     width: '100%',
-    height:"80%",
+    height:"85%",
     backgroundColor: 'white',
   },
   keyWords: {
@@ -151,7 +167,7 @@ const styles = StyleSheet.create({
   },
   footerContainer :{
     width: "100%",
-    height:"10%",
+    height:"15%",
     backgroundColor:'#F08686',
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -207,13 +223,22 @@ const styles = StyleSheet.create({
     elevation: 2
   },
 
-  nextButton : {
+  backButton : {
     backgroundColor: "#F08686",
-    borderRadius: 100,
     width: "15%",
     padding: 15,
-    elevation: 2, 
-    marginLeft: "80%", 
-    marginTop:"2%"
+    borderRadius: 100,
+    marginLeft:"1%",
+    //marginBottom: "1%", 
+    marginTop: "10%"
+  },
+
+  nextButton : {
+    backgroundColor: "#F08686",
+    width: "15%",
+    padding: 15,
+    marginLeft: "68%", 
+    borderRadius: 100,
+    marginTop: "10%",
   }
 })

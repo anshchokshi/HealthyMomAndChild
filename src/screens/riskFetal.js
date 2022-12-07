@@ -13,6 +13,9 @@ const RiskFetal = () => {
   const handleNext = () => {
     navigation.navigate("Health care providers")
   }
+  const handleBack = () => {
+    navigation.navigate("related words screen")
+  }
 
   return (
     <View style={styles.container}>
@@ -33,11 +36,27 @@ const RiskFetal = () => {
             </View>
                 
             </Modal>
+      <View style={styles.headerButtonContainer}>
+      <TouchableOpacity
+          onPress={handleBack}
+          style={styles.backButton}
+        >
+          <Icon name= 'arrowleft' size={28} color="white"></Icon>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={handleNext}
+          style={styles.nextButton}
+        >
+          <Icon name= 'arrowright' size={28} color="white"></Icon>
+        </TouchableOpacity>
+        </View>
       <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>Risk of fetal development</Text>
+      <Text style={styles.headerText}>Risk of fetal development</Text>
+
       </View>
 
       <View style={styles.inputContainer}>
+        
         <Text style={styles.description}>During this embryonic stage most organs are formed throughout the body.</Text>
         <Text style={styles.description}>Therefore
                 there is an increased susceptibility to
@@ -51,13 +70,6 @@ const RiskFetal = () => {
         onPress={() => Linking.openURL('https://www.freepik.com/freevector/hand drawn fetal developmentinfographic_21743833.htm#query=fetal%20development&position=40&from_view=search&track=sph')}>
         Source: Freepik
         </Text>
-
-        <TouchableOpacity
-          onPress={handleNext}
-          style={styles.nextButton}
-        >
-          <Icon name= 'arrowright' size={28} color="white"></Icon>
-        </TouchableOpacity>
 
       <View style={styles.footerContainer}>
                 <TouchableOpacity style={styles.button} onPress={() => setModalVisible(true)}>
@@ -93,17 +105,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: "#F08686",
   },
+  headerButtonContainer :{
+    width: "100%",
+    height:"12%",
+    display: 'flex',
+    flexDirection: "row"
+
+  },
   headerContainer :{
     width: "100%",
-    height:"15%"
+    height:"5%",
+    display: 'flex',
 
   },
   headerText: {
     color: "white",
     fontWeight: '700',
-    fontSize: 30,
+    fontSize: 25,
     textAlign:'center',
-    marginTop:'20%'
   },
   description: {
     fontSize: 18,
@@ -117,6 +136,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height:"85%",
     backgroundColor: 'white',
+
   },
 
   imageLogo: {
@@ -126,7 +146,7 @@ const styles = StyleSheet.create({
   },
   footerContainer :{
     width: "100%",
-    height:"10%",
+    height:"15%",
     backgroundColor:'#F08686',
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -181,14 +201,23 @@ const styles = StyleSheet.create({
     padding: 15,
     elevation: 2
   },
+  backButton : {
+    backgroundColor: "#F08686",
+    width: "15%",
+    padding: 15,
+    borderRadius: 100,
+    marginLeft:"1%",
+    //marginBottom: "1%", 
+    marginTop: "10%"
+  },
 
   nextButton : {
     backgroundColor: "#F08686",
-    borderRadius: 100,
     width: "15%",
     padding: 15,
-    marginLeft: "80%", 
-    marginBottom: "1%", 
+    marginLeft: "68%", 
+    borderRadius: 100,
+    marginTop: "10%",
   }
   
 })
