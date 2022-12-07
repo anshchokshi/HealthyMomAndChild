@@ -1,25 +1,16 @@
 import { 
     StyleSheet, 
     Text, 
-    View,
     ScrollView,
-    ImageBackground,
-    Image,
-    Switch, 
-    TextInput, 
     TouchableOpacity,
-    Button } from 'react-native'
+     } from 'react-native'
 import React, { useEffect, useState, useContext} from 'react';
 import { useNavigation } from '@react-navigation/core'
-import { useRoute } from '@react-navigation/core';
-import surStyle from '../helpers/SurveyStyle'
+
 import color from '../helpers/Color'
-import { UserContext } from "../context/UserContext";
 import {
     percentageWidth, 
-    percentageHeight, 
-    convertHeight, 
-    convertWidth} from '../helpers/ScreenSizeHelper'
+} from '../helpers/ScreenSizeHelper'
 
 
 
@@ -42,12 +33,7 @@ const ExplorePage = () => {
       >
       <Text style={styles.buttonText}>week {weekNumber}</Text>
       </TouchableOpacity>
-// {/* 
-//       <Button style= {styles.button}
-//       onPress={() => handlenext(weekNumber)}
-//       title={`week ${weekNumber}`} */}
-      // {/* // color="#841584"
-      // /> */}
+
     )}
   </ScrollView>
   </>
