@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/core'
 import React, { useEffect, useState, useContext } from 'react'
 import { Linking, Modal, StyleSheet, Text, Pressable, TouchableOpacity, View, Image, ScrollView } from 'react-native'
-
+import Icon from 'react-native-vector-icons/AntDesign';
 
 const HealthCareProviders = () => {
   const navigation = useNavigation()
@@ -10,7 +10,9 @@ const HealthCareProviders = () => {
   }
 
   const [modalVisible, setModalVisible] = useState(false);
-  
+  const handleBack = () => {
+    navigation.navigate("Risk of fetal")
+  }
 
   return (
     <View style={styles.container}>
@@ -31,8 +33,16 @@ const HealthCareProviders = () => {
             </View>
                 
             </Modal>
+            <View style={styles.headerButtonContainer}>
+      <TouchableOpacity
+          onPress={handleBack}
+          style={styles.backButton}
+        >
+          <Icon name= 'arrowleft' size={28} color="white"></Icon>
+        </TouchableOpacity>
+        </View>
       <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>People who provide your care during Pregnancy</Text>
+        <Text style={styles.headerText}>Pregnancy Care Providers</Text>
       </View>
 
       <View style={styles.inputContainer}>
@@ -124,17 +134,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: "#F08686",
   },
+  headerButtonContainer :{
+    width: "100%",
+    height:"6%",
+    display: 'flex',
+    flexDirection: "row"
+
+  },
   headerContainer :{
     width: "100%",
-    height:"15%"
+    height:"5%",
 
   },
   headerText: {
     color: "white",
     fontWeight: '700',
-    fontSize: 30,
+    fontSize: 25,
     textAlign:'center',
-    marginTop:'12%'
   },
   description: {
     fontSize: 18,
@@ -188,17 +204,14 @@ const styles = StyleSheet.create({
     marginLeft:'3%', 
     
   },
-
-  
   footerContainer :{
     width: "100%",
-    height:"10%",
+    height:"15%",
     backgroundColor:'#F08686',
     flexDirection: 'row',
     flexWrap: 'wrap',
     
   },
-
   button :{
     backgroundColor: "white",
     width: '16%',
@@ -247,4 +260,10 @@ const styles = StyleSheet.create({
     padding: 15,
     elevation: 2
   },
+  backButton : {
+    width: "15%",
+    marginLeft:"5%",
+    //marginBottom: "1%", 
+    marginTop: "5%"
+  }
 })
