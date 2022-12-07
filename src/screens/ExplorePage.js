@@ -31,17 +31,23 @@ const ExplorePage = () => {
   const navigation = useNavigation();
   const handlenext = (weekNumber) => {
     navigation.navigate("Fetal Screen", { weekNumber: weekNumber }); 
-    console.log(weekNumber)      
   }
 
   return (<>
-  <ScrollView style={styles.scrollView}>
+  <ScrollView contentContainerStyle={ {alignItems: 'center' }}>
   {range(42-4, 5).map(weekNumber =>
-      <Button
+      <TouchableOpacity
       onPress={() => handlenext(weekNumber)}
-      title={`week${weekNumber}`}
-      color="#841584"
-      />
+      style={styles.button}
+      >
+      <Text style={styles.buttonText}>week {weekNumber}</Text>
+      </TouchableOpacity>
+// {/* 
+//       <Button style= {styles.button}
+//       onPress={() => handlenext(weekNumber)}
+//       title={`week ${weekNumber}`} */}
+      // {/* // color="#841584"
+      // /> */}
     )}
   </ScrollView>
   </>
@@ -72,6 +78,9 @@ const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: 'pink',
     marginHorizontal: 18,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexGrow: 1
   },
   smallerContainer:{
     justifyContent: 'flex-start',
@@ -81,5 +90,37 @@ const styles = StyleSheet.create({
     margin: 5,
     padding: 15,
     borderRadius: 10,
-  }
+  },
+ 
+  buttonContainer: {
+    backgroundColor: 'white',
+    width: '100%',
+    height:'40%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  button: {
+    backgroundColor: '#F08686',
+    width: '50%',
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+  buttonOutline: {
+    backgroundColor: 'white',
+    marginTop: 15,
+    borderColor: '#F08686',
+    borderWidth: 2,
+  },
+  buttonText: {
+    color: 'white',
+    fontWeight: '700',
+    fontSize: 16,
+  },
+  buttonOutlineText: {
+    color: '#F08686',
+    fontWeight: '700',
+    fontSize: 16,
+  },
+  
 })
