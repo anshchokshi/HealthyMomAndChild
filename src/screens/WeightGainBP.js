@@ -336,6 +336,7 @@ const styles = StyleSheet.create({
         padding: 15,
         elevation: 2
     },
+    // footer style
     footerContainerTransparent :{
         width: "100%",
         height:"10%",
@@ -345,7 +346,6 @@ const styles = StyleSheet.create({
         marginTop: '130%',
         borderRadius: 25  
     },
-    
     footerButton :{
         backgroundColor: 'rgba(240, 134, 134, 1)',
         width: '16%',
