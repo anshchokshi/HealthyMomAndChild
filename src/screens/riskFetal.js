@@ -35,7 +35,7 @@ const RiskFetal = () => {
                 </Pressable>
             </View>
                 
-            </Modal>
+      </Modal>
       <View style={styles.headerButtonContainer}>
       <TouchableOpacity
           onPress={handleBack}
