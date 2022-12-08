@@ -30,6 +30,9 @@ const WeightGainBP = () => {
     const handleDashboard = () => {
         navigation.navigate("Dashboard")
     }
+    const handleExplore = () => {
+        navigation.navigate("Explore")
+    }
 
   const [modalVisible, setModalVisible] = useState(false);
     useEffect(() => {
@@ -162,7 +165,7 @@ const WeightGainBP = () => {
                 <TouchableOpacity style={styles.footerButton} onPress={() => setModalVisible(true)}>
                     <Text style={styles.footerButtonText}>Today</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.footerButton} onPress={() => setModalVisible(true)}>
+                <TouchableOpacity style={styles.footerButton} onPress={handleExplore}>
                     <Text style={styles.footerButtonText}>Explore</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.footerHomeButton} onPress={handleDashboard}>

@@ -1,8 +1,11 @@
 import { 
+    View,
     StyleSheet, 
     Text, 
     ScrollView,
     TouchableOpacity,
+    TextInput,
+    Modal, Pressable
      } from 'react-native'
 import React, { useEffect, useState, useContext} from 'react';
 import { useNavigation } from '@react-navigation/core'
@@ -11,31 +14,80 @@ import color from '../helpers/Color'
 import {
     percentageWidth, 
 } from '../helpers/ScreenSizeHelper'
-
+import Icon from 'react-native-vector-icons/AntDesign';
 
 
 const ExplorePage = () => {
-  function range(size, startAt = 0) {
-    return [...Array(size).keys()].map(i => i + startAt);
-  }
 
+  const [weekNumber, SetweekNumber] = useState();
+  const [modalVisible, setModalVisible] = useState(false);
   const navigation = useNavigation();
-  const handlenext = (weekNumber) => {
-    navigation.navigate("Fetal Screen", { weekNumber: weekNumber }); 
+  const handlenext = () => {
+    
+    if (weekNumber >= 5 && weekNumber <= 41){
+    
+      navigation.navigate("Fetal Screen", { weekNumber: weekNumber })
+    }
+    else{
+      setModalVisible(true)
+    }
+  }
+  const handleBack = () => {
+    navigation.navigate("Dashboard")
   }
 
   return (<>
-  <ScrollView contentContainerStyle={ {alignItems: 'center' }}>
-  {range(42-4, 5).map(weekNumber =>
-      <TouchableOpacity
-      onPress={() => handlenext(weekNumber)}
-      style={styles.button}
-      >
-      <Text style={styles.buttonText}>week {weekNumber}</Text>
-      </TouchableOpacity>
+  <View
+      style={styles.container}
+    >
+      <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modalVisible}
+            >
 
-    )}
-  </ScrollView>
+            <View style={styles.modalView}>
+                <Text style={styles.modalText}>Invalid week number try again between 5 to 41</Text>
+                <Pressable
+                    style={styles.buttonClose}
+                    onPress={() => setModalVisible(!modalVisible)}
+                >
+                    <Text style={{fontSize:17}}>Hide</Text>
+                </Pressable>
+            </View>
+                
+            </Modal>
+            <View style={styles.headerButtonContainer}>
+      <TouchableOpacity
+          onPress={handleBack}
+          style={styles.backButton}
+        >
+          <Icon name= 'arrowleft' size={28} color="white"></Icon>
+        </TouchableOpacity>
+        </View>
+      <View style={styles.headerContainer}>
+        <Text style={styles.headerText}>Explore</Text>
+      </View>
+<View style={styles.inputContainer}>
+  <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+  <TextInput
+          placeholder="Enter Week Number Between 5-41"
+          value={weekNumber}
+          onChangeText={text => SetweekNumber(text)}
+          style={styles.input}
+        />
+        
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          onPress={handlenext}
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}>Next</Text>
+        </TouchableOpacity>
+        </View>
+        </View>
+        </View>
+        </View>
   </>
   )
 }
@@ -45,39 +97,23 @@ export default ExplorePage;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    paddingTop: 15,
-    paddingHorizontal:15
-  },
-  pinkContainer:{
-    flex:0.3,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    backgroundColor: color.lightPink,
-    width: percentageWidth(0.9),
-    margin: 10,
-    padding: 15,
-    borderRadius: 15,
-  },
-  scrollView: {
-    backgroundColor: 'pink',
-    marginHorizontal: 18,
-    alignItems: 'center',
     justifyContent: 'center',
-    flexGrow: 1
-  },
-  smallerContainer:{
-    justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: color.nearlyWhite,
-    width: percentageWidth(0.85),
-    margin: 5,
-    padding: 15,
-    borderRadius: 10,
+    backgroundColor: "#F08686",
   },
- 
+  headerContainer :{
+    width: "100%",
+    height:"10%"
+
+  },
+  headerText: {
+    color: "white",
+    fontWeight: '700',
+    fontSize: 40,
+    textAlign:'center',
+    marginTop:'1%'
+  },
+
   buttonContainer: {
     backgroundColor: 'white',
     width: '100%',
@@ -108,5 +144,71 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 16,
   },
-  
+  inputContainer: {
+    width: '100%',
+    height:"78%",
+    backgroundColor: 'white',
+  },
+  input: {
+    backgroundColor: 'white',
+    width:'70%',
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    borderRadius: 10,
+    marginTop: 15,
+    marginBottom: 15,
+    marginLeft:'3%',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.27,
+    shadowRadius: 4.65,
+
+    elevation: 6,
+  },
+  modalView: {
+    marginTop: '80%',
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5
+},
+modalText: {
+    marginBottom: 15,
+    textAlign: "center",
+    fontSize:18,
+    fontWeight:'700'
+},
+buttonClose: {
+    backgroundColor: "#2196F3",
+    borderRadius: 10,
+    padding: 15,
+    elevation: 2
+},
+headerButtonContainer :{
+  width: "100%",
+  height:"12%",
+  display: 'flex',
+  flexDirection: "row"
+
+},
+backButton : {
+  backgroundColor: "#F08686",
+  width: "15%",
+  padding: 15,
+  borderRadius: 100,
+  marginLeft:"1%",
+  //marginBottom: "1%", 
+  marginTop: "10%"
+},
 })
