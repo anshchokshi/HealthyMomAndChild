@@ -28,6 +28,7 @@ const FetalScreen = () => {
 
   
   useEffect(() => {
+    setMeasurements(null)
     if (weekNumber == null) { return }
     if (weekNumber > 10) {
       (async () => {
@@ -43,7 +44,7 @@ const FetalScreen = () => {
       const developmentDescription = await getFetalGrowthDescription(weekNumber)
       setFetalDevDescription(developmentDescription)
     })();
-  }, [])
+  }, [weekNumber])
 
     const handleDashboard = () => {
         navigation.navigate("Dashboard")
@@ -72,7 +73,7 @@ const FetalScreen = () => {
 				<Text style={styles.sizeInfoText}>{`${getFetalMeasurementString(weekNumber)}.`}</Text>
 			</>)
 		}
-	}, [measurements])
+	}, [weekNumber, measurements])
 
     return (
         <View>
@@ -122,7 +123,8 @@ const FetalScreen = () => {
                 <TouchableOpacity style={styles.button} onPress={() => setModalVisible(true)}>
                     <Text style={styles.buttonText}>Today</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={() => setModalVisible(true)}>
+                <TouchableOpacity style={styles.button} 
+                  onPress={() => navigation.navigate('Explore')}>
                     <Text style={styles.buttonText}>Explore</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button} onPress={handleDashboard}>
