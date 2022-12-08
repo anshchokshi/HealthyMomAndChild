@@ -39,7 +39,7 @@ const UserDash = ({ navigation }) => {
                     style= {styles.gradientHeaderStyle}
                     locations= {[0.1, 0.2, 1.0]}
                 >
-                    <Text style={styles.textMargin}>Your Dashboard</Text>
+                    <Text style={styles.textMargin}>Dashboard</Text>
                 </LinearGradient>
             </View>
             <View 
@@ -137,10 +137,10 @@ const styles = StyleSheet.create({
       },
       textMargin :{
           marginTop: "15%",
-          marginLeft: "3%",
           fontSize: "40px",
           color: "#ffffff",
           fontWeight:"bold",
+          textAlign:'center',
       },
       buttonCont: {
           width: "100%",
