@@ -51,23 +51,23 @@ const HealthCareProviders = () => {
         colors = {['#F08686', 'white']}
         style= {styles.inputContainer}
         // locations= {[0.1, 0.2, 1.0]}
-        locations= {[0.1, 1.0]}
+        locations= {[0.4, 1.0]}
       >
-        <View style={styles.box1Top}>
+        <View style={styles.box1TopTransparent}>
             <Text style={styles.boxHeader}>Family Doctors and Team:</Text>
             <Text style={styles.boxText}>Medical doctors who help you with a wide range of health concerns.</Text>
         </View>
-        <View style={styles.box1Bottom}>
+        <View style={styles.box1BottomTransparent}>
             <Text style={styles.boxText}>- Nurse practitioners</Text>
             <Text style={styles.boxText}>- Registered nurses and LPN nurses</Text>
             <Text style={styles.boxText}>- Pharmacists</Text>
         </View>
 
-        <View style={styles.box1Top}>
+        <View style={styles.box1TopTransparent}>
             <Text style={styles.boxHeader}>Obstetricians:</Text>
             <Text style={styles.boxText}>Medical doctors who specialize in the care of pregnant woman.</Text>
         </View>
-        <View style={styles.box1Bottom}>
+        <View style={styles.box1BottomTransparent}>
             <Text style={styles.boxText}>- Midwives:</Text>
             <Text style={styles.boxText}>Specialize in the care of women during low risk pregnancy,
                 during birth and for up to 6 weeks after your baby is born.
@@ -75,31 +75,31 @@ const HealthCareProviders = () => {
         </View>
         
         <View style={{flexDirection: "row"}}>
-            <View style={styles.box2Top}>
+            <View style={styles.box2TopTransparent}>
             <Text style={styles.boxHeader}>Registered dieticians</Text>
             </View>
-            <View style={styles.box2Top}>
+            <View style={styles.box2TopTransparent}>
             <Text style={styles.boxHeader}>Lactation consultants</Text>
             </View>
-            <View style={styles.box2Top}>
+            <View style={styles.box2TopTransparent}>
             <Text style={styles.boxHeader}>Dental Hygienists</Text>
             </View>
         </View>
         <Text></Text>
         
-        <View style={styles.box1Top}>
+        <View style={styles.box1TopTransparentStandAlone}>
             <Text style={styles.boxHeader}>Public health nurses in Public health Centres:</Text>
             <Text style={styles.boxText}>Immunizations, group classes, postpartum home visit</Text>
         </View>
         
         <View style={{flexDirection: "row"}}>
-            <View style={styles.box2Top}>
+            <View style={styles.box2TopTransparent}>
             <Text style={styles.boxHeader}>Dentists</Text>
             </View>
-            <View style={styles.box2Top}>
+            <View style={styles.box2TopTransparent}>
             <Text style={styles.boxHeader}>Physiotherapists</Text>
             </View>
-            <View style={styles.box2Top}>
+            <View style={styles.box2TopTransparent}>
             <Text style={styles.boxHeader}>Childbirth educators</Text>
             </View>
         </View>
@@ -255,11 +255,36 @@ const styles = StyleSheet.create({
     marginTop:'3%',
     marginLeft:'5%'
   },
+  box1TopTransparent: {
+    width: '90%',
+    height:"13%",
+    marginTop:'3%',
+    marginLeft:'5%',
+    backgroundColor: 'rgba(250, 250, 250, 0.70)',
+    borderTopStartRadius: 25,
+    borderTopEndRadius: 25
+  },
+  box1TopTransparentStandAlone: {
+    width: '90%',
+    height:"13%",
+    marginTop:'3%',
+    marginLeft:'5%',
+    backgroundColor: 'rgba(250, 250, 250, 0.50)',
+    borderRadius: 25
+  },
   box1Bottom: {
     width: '90%',
     height:"13%",
     backgroundColor: '#81B7FF',
     marginLeft:'5%'
+  },
+  box1BottomTransparent: {
+    width: '90%',
+    height:"13%",
+    backgroundColor: 'rgba(250, 250, 250, 0.30)',
+    marginLeft:'5%',
+    borderBottomStartRadius: 25,
+    borderBottomEndRadius: 25
   },
 
   box2Top: {
@@ -269,9 +294,18 @@ const styles = StyleSheet.create({
     marginTop:'3%',
     marginLeft:'3%'
   },
+  box2TopTransparent: {
+    width: '30%',
+    height:"100%",
+    backgroundColor: '#2B78DC',
+    marginTop:'3%',
+    marginLeft:'3%',
+    backgroundColor: 'rgba(250, 250, 250, 0.50)',
+    borderRadius: 25
+  },
 
   boxHeader: {
-    color: "white",
+    color: "black",
     fontWeight: '700',
     fontSize: 14,
     marginTop:'5%',
@@ -280,7 +314,7 @@ const styles = StyleSheet.create({
   },
 
   boxText: {
-    color: "white",
+    color: "black",
     fontWeight: '700',
     fontSize: 14,
     marginTop:'3%',
