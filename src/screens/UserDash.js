@@ -27,6 +27,10 @@ const UserDash = ({ navigation }) => {
 
     const handleWeightBP = () => {navigation.navigate("Summary")}
 
+    const handleExplore = () => {
+        navigation.navigate("Explore")
+    }
+
     const handleAppointments = () => {navigation.navigate("Appointment")}
     const handlerelatedWords = () => {navigation.navigate("related words screen")}
     const [modalVisible, setModalVisible] = useState(false);
@@ -109,7 +113,7 @@ const UserDash = ({ navigation }) => {
                     <TouchableOpacity style={styles.footerButton} onPress={() => setModalVisible(true)}>
                         <Text style={styles.footerButtonText}>Today</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.footerButton} onPress={() => setModalVisible(true)}>
+                    <TouchableOpacity style={styles.footerButton} onPress={handleExplore}>
                         <Text style={styles.footerButtonText}>Explore</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.footerHomeButton}>
