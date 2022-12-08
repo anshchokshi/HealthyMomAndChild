@@ -25,6 +25,9 @@ const RelatedWords = () => {
   const handleDashboard = () => {
     navigation.navigate("Dashboard")
   }
+  const handleExplore = () => {
+    navigation.navigate("Explore")
+  }
   const handleNext = () => {
     navigation.navigate("Risk of fetal")
   }
@@ -90,7 +93,7 @@ const RelatedWords = () => {
                 <TouchableOpacity style={styles.footerButton} onPress={() => setModalVisible(true)}>
                     <Text style={styles.buttonText}>Today</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.footerButton} onPress={() => setModalVisible(true)}>
+                <TouchableOpacity style={styles.footerButton} onPress={handleExplore}>
                     <Text style={styles.buttonText}>Explore</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.footerHomeButton} onPress={handleDashboard}>
