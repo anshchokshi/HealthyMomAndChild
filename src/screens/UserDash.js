@@ -4,12 +4,19 @@ import { firebase } from '../firebase'
 import { Header } from '@rneui/themed'
 import {LinearGradient} from 'expo-linear-gradient';
 import { Image } from '@rneui/themed';
+import { UserContext } from '../context/UserContext'
+import { getWeeksDiff } from '../helpers/Date'
 
 const UserDash = ({ navigation }) => {
     const auth = firebase.auth();
-
+    const { userProfile } = useContext(UserContext)
     const handleBabyDev = () => {
-        navigation.navigate("Fetal Screen")
+            const lmpString = userProfile?.pregnantProfile?.LastMenstrualPeriod
+            if (lmpString != null) {
+                const lmp = new Date(lmpString)
+                const weekNumber = getWeeksDiff(lmp, new Date())
+                navigation.navigate("Fetal Screen", {weekNumber: Math.min(weekNumber, 42)})
+            }
     }
     const handleSignOut = () => {
         auth.signOut().then(() => {
@@ -32,7 +39,7 @@ const UserDash = ({ navigation }) => {
                     style= {styles.gradientHeaderStyle}
                     locations= {[0.1, 0.2, 1.0]}
                 >
-                    <Text style={styles.textMargin}>Your Dashboard</Text>
+                    <Text style={styles.textMargin}>Dashboard</Text>
                 </LinearGradient>
             </View>
             <View 
@@ -130,10 +137,10 @@ const styles = StyleSheet.create({
       },
       textMargin :{
           marginTop: "15%",
-          marginLeft: "3%",
           fontSize: 40,
           color: "#ffffff",
           fontWeight:"bold",
+          textAlign:'center',
       },
       buttonCont: {
           width: "100%",

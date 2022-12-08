@@ -20,6 +20,7 @@ import WeightGainBP from './screens/WeightGainBP';
 import FetalScreen from './screens/FetalScreen';
 
 import { firebase } from './firebase'
+import ExplorePage from './screens/ExplorePage';
 
 
 
@@ -53,9 +54,11 @@ export default function App() {
           <Stack.Screen options={{ headerShown: false }} name="Pregnant Survey2" component={PregnantSurvey2}/>
           <Stack.Screen options={{ headerShown: false }} name="Pregnant Survey3" component={PregnantSurvey3}/>
           <Stack.Screen options={{ headerShown: false }} name="Dashboard" component={UserDash} />
-          <Stack.Screen name="Summary" component={WeightGainBP}/>
+          <Stack.Screen options={{ headerShown: false }} name="Summary" component={WeightGainBP}/>
           <Stack.Screen options={{ headerShown: false }} name="Fetal Screen" component={FetalScreen}/>
-          <Stack.Screen name="Appointment" component={AppointmentScreen}/>
+          {/* <Stack.Screen name="Appointment" component={AppointmentScreen}/> */}
+          <Stack.Screen name="Explore" component={ExplorePage} options={{ headerShown: false }}/>
+          <Stack.Screen options={{ headerShown: false }} name="Appointment" component={AppointmentScreen}/>
           <Stack.Screen name="related words screen" component={RelatedWords} options={{ headerShown: false }}/>
           <Stack.Screen name="Risk of fetal" component={RiskFetal} options={{ headerShown: false }}/>
           <Stack.Screen name="Health care providers" component={HealthCareProviders} options={{ headerShown: false }}/>

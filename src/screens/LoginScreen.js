@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
 
   inputContainer: {
     width: '100%',
-    height:"30%",
+    height:"40%",
     backgroundColor: 'white',
   },
   queryText: {
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     backgroundColor: 'white',
     width: '100%',
-    height:'50%',
+    height:'40%',
     justifyContent: 'center',
     alignItems: 'center',
   },
