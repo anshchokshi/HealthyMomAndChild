@@ -58,7 +58,7 @@ export default function App() {
           <Stack.Screen options={{ headerShown: false }} name="Fetal Screen" component={FetalScreen}/>
           <Stack.Screen name="Appointment" component={AppointmentScreen}/>
           <Stack.Screen name="Explore" component={ExplorePage} options={{ headerShown: false }}/>
-          <Stack.Screen options={{ headerShown: false }} name="Appointment" component={AppointmentScreen}/>
+          {/* <Stack.Screen options={{ headerShown: false }} name="Appointment" component={AppointmentScreen}/> */}
           <Stack.Screen name="related words screen" component={RelatedWords} options={{ headerShown: false }}/>
           <Stack.Screen name="Risk of fetal" component={RiskFetal} options={{ headerShown: false }}/>
           <Stack.Screen name="Health care providers" component={HealthCareProviders} options={{ headerShown: false }}/>
