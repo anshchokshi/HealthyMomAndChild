@@ -30,6 +30,9 @@ const WeightGainBP = () => {
     const handleDashboard = () => {
         navigation.navigate("Dashboard")
     }
+    const handleExplore = () => {
+        navigation.navigate("Explore")
+    }
 
     const handleExplore = () => {
         navigation.navigate("Explore")
