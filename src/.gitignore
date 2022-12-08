@@ -1,5 +1,6 @@
-node_modules
-.expo
-deliverable-1
-dist
-package-lock.json
+src/node_modules
+src/.expo
+src/deliverable-1
+src/dist
+src/package-lock.json
+secure/
